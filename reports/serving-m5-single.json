@@ -1,0 +1,2449 @@
+{
+  "created_at": "2026-09-30T20:40:16.196154+00:00",
+  "git_revision": "d0593f995861143636e1167a8a992214ba35c188",
+  "git_dirty": true,
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.13",
+  "packages": {
+    "adaptlm": "0.1.0",
+    "torch": "2.14.0",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "trl": "0.24.0",
+    "datasets": "4.2.0",
+    "numpy": "2.2.6"
+  },
+  "lock_hash": "afc3426417bc201ba1fab7e189165b4006c039690ac1f43053b943aeeeb8f66a",
+  "schema_version": "triage-1.0",
+  "annotation_spec_version": "annotation-1.0",
+  "source_hashes": {
+    "__init__.py": "7132efad0e0916ae3f5ab018049aadb6bbe522e7b6dcfe63ad08c58dfb1d54da",
+    "api/app.py": "6800d2fe860ea07f76cdb82936a4ff0b2dda7726d62bed02fc10583fef10ba52",
+    "artifacts/manifest.py": "39fcf4981090f8bd5694be1774d59207e1a9ea4c8acf74e92b7ff785670d81c3",
+    "baselines/classifier.py": "47d1d21da2395ef30700a4655b79e5d44f2e476f0733ef55448b04fd70f08f62",
+    "cli.py": "37c13575fc647003a4b798b1e4b456662db4533a41c22ce570ef6dc33674a485",
+    "config.py": "d642cb373513b259e595fd1b7b99c60e7001ca119ffb9c8422561be0f596565a",
+    "contracts/schema.py": "1590b6c9d78668b9f7869551bebbc59a1e9e71a602fa8b94e758f81931c08ffd",
+    "data/pipeline.py": "de5d6e7e07aca42404ba89184cf825bb1d436173d9b437f1c01de90ee31149f7",
+    "evaluation/metrics.py": "ba7c628e4c87d13414be4664bde035374fc011bb35e2a98b86d4d0f1bc9762a6",
+    "evaluation/runner.py": "a8bde41702e91a5904ff289f9e4979112ff7108ba8286aac65b14032b23d6de5",
+    "inference/engine.py": "5a7214fdc7d4498863117cd4feea1a98e89bb60868cb0f2b59b2dfd569bff10c",
+    "inference/prompts.py": "46cfe334de37ae6f159ea67859a16de326cb0a7f3d701718c482357b16591f7d",
+    "inference/service.py": "db1ca503e9d69bc11e2b738ac5e53973b3cdda8e2d31e00cfe40f82f50dcc115",
+    "observability/memory.py": "761f127959d5a1b39fdce2957174eb9f2995097923a779152f82cc181f6287eb",
+    "training/runner.py": "1c3ce0bcc35d2206192feaf5daa5fdab79b83b7a0901df38f5b9cd3f61a45693",
+    "web/cloud.py": "e5adc29e458551a7f9976319bb71d224fe29cf1ac195bd3952708a7ecabe9989"
+  },
+  "monetary_cost": {
+    "paid_services_used": false,
+    "electricity_cost": "unmeasured"
+  },
+  "runtime": {
+    "profile": "local",
+    "ready": true,
+    "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+    "schema_version": "triage-1.0",
+    "prompt_version": "triage-prompt-2",
+    "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+    "training_prompt_version": "triage-prompt-1",
+    "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+    "device": "mps",
+    "dtype": "bfloat16",
+    "quantization": null,
+    "attention_implementation": "sdpa",
+    "load_seconds": 2.535674500017194,
+    "runtime_validation": null,
+    "available_modes": [
+      "zero_shot",
+      "few_shot",
+      "adapted"
+    ],
+    "demonstration_ids": [
+      "authored-duplicate_charge-06-3",
+      "authored-account_access-00-4",
+      "authored-ambiguous-08-0",
+      "authored-out_of_scope-04-0"
+    ],
+    "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+    "demo_messages": []
+  },
+  "results": {
+    "zero_shot": {
+      "requests": 10,
+      "timed_requests": 10,
+      "transport_status_counts": {
+        "out_of_scope": 10
+      },
+      "concurrency": 1,
+      "warm": true,
+      "warmup_requests_excluded": 1,
+      "p50_seconds": 1.5589492500002962,
+      "p95_seconds": 1.619140333303949,
+      "generated_tokens_per_generation_second": 21.046334518315007,
+      "completed_requests_per_wall_second": 0.6370196990779325,
+      "process_rss_bytes_max": 490192896,
+      "accelerator_allocated_bytes_max": 3117353472,
+      "memory_limitation": "sampled allocation at request completion, not peak total device memory",
+      "memory_probes": [
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 55,
+          "sampled_peak_process_rss_bytes": 485720064,
+          "sampled_peak_mps_allocated_bytes": 3131525632,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 59,
+          "sampled_peak_process_rss_bytes": 486785024,
+          "sampled_peak_mps_allocated_bytes": 3131589376,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 56,
+          "sampled_peak_process_rss_bytes": 489635840,
+          "sampled_peak_mps_allocated_bytes": 3131855104,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 57,
+          "sampled_peak_process_rss_bytes": 489799680,
+          "sampled_peak_mps_allocated_bytes": 3131485184,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 57,
+          "sampled_peak_process_rss_bytes": 489848832,
+          "sampled_peak_mps_allocated_bytes": 3131456512,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 57,
+          "sampled_peak_process_rss_bytes": 489963520,
+          "sampled_peak_mps_allocated_bytes": 3131571200,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 54,
+          "sampled_peak_process_rss_bytes": 490029056,
+          "sampled_peak_mps_allocated_bytes": 3131485184,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 57,
+          "sampled_peak_process_rss_bytes": 490078208,
+          "sampled_peak_mps_allocated_bytes": 3131482624,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 60,
+          "sampled_peak_process_rss_bytes": 490143744,
+          "sampled_peak_mps_allocated_bytes": 3131571200,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 56,
+          "sampled_peak_process_rss_bytes": 490225664,
+          "sampled_peak_mps_allocated_bytes": 3131485184,
+          "sampled_peak_mps_driver_bytes": 3339501568,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        }
+      ],
+      "raw_validity": 1.0,
+      "final_validity": 1.0,
+      "requests_detail": [
+        {
+          "request_id": "e657a5f6-0356-4483-b21d-b41707d16679",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 485687296,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 55,
+            "sampled_peak_process_rss_bytes": 485720064,
+            "sampled_peak_mps_allocated_bytes": 3131525632,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.001374374987790361,
+            "generation_seconds": 1.5573633750027511,
+            "queue_wait_seconds": 1.8749997252598405e-05,
+            "validation_seconds": 6.720901001244783e-05,
+            "total_seconds": 1.559440250013722
+          }
+        },
+        {
+          "request_id": "715a68c5-75a2-48ee-8fa1-fe46979a4ba1",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 486719488,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 59,
+            "sampled_peak_process_rss_bytes": 486785024,
+            "sampled_peak_mps_allocated_bytes": 3131589376,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0012511669774539769,
+            "generation_seconds": 1.618553583015455,
+            "queue_wait_seconds": 1.1374999303370714e-05,
+            "validation_seconds": 8.595900726504624e-05,
+            "total_seconds": 1.6205102080130018
+          }
+        },
+        {
+          "request_id": "e551bd6e-15f6-487e-adf7-896a53ac46d4",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 489603072,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 56,
+            "sampled_peak_process_rss_bytes": 489635840,
+            "sampled_peak_mps_allocated_bytes": 3131855104,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0013279580161906779,
+            "generation_seconds": 1.579307708016131,
+            "queue_wait_seconds": 1.1708005331456661e-05,
+            "validation_seconds": 6.216598558239639e-05,
+            "total_seconds": 1.5812661249947269
+          }
+        },
+        {
+          "request_id": "04091816-e048-4728-ae3c-aff1774c3af8",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 489766912,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 57,
+            "sampled_peak_process_rss_bytes": 489799680,
+            "sampled_peak_mps_allocated_bytes": 3131485184,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0009059160074684769,
+            "generation_seconds": 1.5602985000004992,
+            "queue_wait_seconds": 1.1292024282738566e-05,
+            "validation_seconds": 6.308301817625761e-05,
+            "total_seconds": 1.561890958022559
+          }
+        },
+        {
+          "request_id": "a4a84a25-4979-42cd-b430-15e5ee65f172",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 489816064,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 57,
+            "sampled_peak_process_rss_bytes": 489848832,
+            "sampled_peak_mps_allocated_bytes": 3131456512,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.000911749986698851,
+            "generation_seconds": 1.5568637090036646,
+            "queue_wait_seconds": 1.1208991054445505e-05,
+            "validation_seconds": 6.0708000091835856e-05,
+            "total_seconds": 1.5584582499868702
+          }
+        },
+        {
+          "request_id": "48381b51-ba21-4cc9-aeb2-4449a9642fca",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 489930752,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 57,
+            "sampled_peak_process_rss_bytes": 489963520,
+            "sampled_peak_mps_allocated_bytes": 3131571200,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0009332499757874757,
+            "generation_seconds": 1.5486159580177628,
+            "queue_wait_seconds": 1.1458003427833319e-05,
+            "validation_seconds": 6.291599129326642e-05,
+            "total_seconds": 1.5502103749895468
+          }
+        },
+        {
+          "request_id": "36445dd6-8bb4-45d8-8f3a-7e939e661c6b",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 489996288,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 54,
+            "sampled_peak_process_rss_bytes": 490029056,
+            "sampled_peak_mps_allocated_bytes": 3131485184,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0009007090120576322,
+            "generation_seconds": 1.5441780829860363,
+            "queue_wait_seconds": 1.1833006283268332e-05,
+            "validation_seconds": 5.699999746866524e-05,
+            "total_seconds": 1.5456827919988427
+          }
+        },
+        {
+          "request_id": "fc44f4fd-5418-4fd3-a6d1-f2a40a6ec727",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 490045440,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 57,
+            "sampled_peak_process_rss_bytes": 490078208,
+            "sampled_peak_mps_allocated_bytes": 3131482624,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0009010419889818877,
+            "generation_seconds": 1.5550302079936955,
+            "queue_wait_seconds": 1.1208001524209976e-05,
+            "validation_seconds": 6.474999827332795e-05,
+            "total_seconds": 1.5566452910134103
+          }
+        },
+        {
+          "request_id": "e8d07cc3-5e07-4fbd-a79c-03ae679c8f81",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 490110976,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 60,
+            "sampled_peak_process_rss_bytes": 490143744,
+            "sampled_peak_mps_allocated_bytes": 3131571200,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.000982291006948799,
+            "generation_seconds": 1.6157819170039147,
+            "queue_wait_seconds": 1.158300437964499e-05,
+            "validation_seconds": 6.766599835827947e-05,
+            "total_seconds": 1.6174660419928841
+          }
+        },
+        {
+          "request_id": "07e8baed-5ff4-4150-9432-b570d44af117",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 490192896,
+          "accelerator_allocated_bytes": 3117353472,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 56,
+            "sampled_peak_process_rss_bytes": 490225664,
+            "sampled_peak_mps_allocated_bytes": 3131485184,
+            "sampled_peak_mps_driver_bytes": 3339501568,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0011916249932255596,
+            "generation_seconds": 1.5436969169822987,
+            "queue_wait_seconds": 1.2250005966052413e-05,
+            "validation_seconds": 5.9792015235871077e-05,
+            "total_seconds": 1.5454772080120165
+          }
+        }
+      ]
+    },
+    "few_shot": {
+      "requests": 10,
+      "timed_requests": 10,
+      "transport_status_counts": {
+        "invalid_output": 10
+      },
+      "concurrency": 1,
+      "warm": true,
+      "warmup_requests_excluded": 1,
+      "p50_seconds": 4.222297208500095,
+      "p95_seconds": 4.930013893595605,
+      "generated_tokens_per_generation_second": 19.866386715302728,
+      "completed_requests_per_wall_second": 0.2292533546799636,
+      "process_rss_bytes_max": 580091904,
+      "accelerator_allocated_bytes_max": 3117362688,
+      "memory_limitation": "sampled allocation at request completion, not peak total device memory",
+      "memory_probes": [
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 146,
+          "sampled_peak_process_rss_bytes": 563134464,
+          "sampled_peak_mps_allocated_bytes": 3148854272,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 144,
+          "sampled_peak_process_rss_bytes": 564559872,
+          "sampled_peak_mps_allocated_bytes": 3149015296,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 170,
+          "sampled_peak_process_rss_bytes": 579354624,
+          "sampled_peak_mps_allocated_bytes": 3149640448,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 150,
+          "sampled_peak_process_rss_bytes": 579780608,
+          "sampled_peak_mps_allocated_bytes": 3148854272,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 156,
+          "sampled_peak_process_rss_bytes": 579960832,
+          "sampled_peak_mps_allocated_bytes": 3148768256,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 173,
+          "sampled_peak_process_rss_bytes": 580124672,
+          "sampled_peak_mps_allocated_bytes": 3149351424,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 148,
+          "sampled_peak_process_rss_bytes": 580272128,
+          "sampled_peak_mps_allocated_bytes": 3148929280,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 151,
+          "sampled_peak_process_rss_bytes": 563724288,
+          "sampled_peak_mps_allocated_bytes": 3148768256,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 178,
+          "sampled_peak_process_rss_bytes": 563937280,
+          "sampled_peak_mps_allocated_bytes": 3149342464,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 157,
+          "sampled_peak_process_rss_bytes": 564150272,
+          "sampled_peak_mps_allocated_bytes": 3148854272,
+          "sampled_peak_mps_driver_bytes": 3381444608,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        }
+      ],
+      "raw_validity": 0.0,
+      "final_validity": 0.0,
+      "requests_detail": [
+        {
+          "request_id": "f3d05eaa-f4d9-4117-85a2-196670b8f8f8",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 973,
+            "output_tokens": 83
+          },
+          "truncated": false,
+          "process_rss_bytes": 563101696,
+          "accelerator_allocated_bytes": 3117362432,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 146,
+            "sampled_peak_process_rss_bytes": 563134464,
+            "sampled_peak_mps_allocated_bytes": 3148854272,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0020114160142838955,
+            "generation_seconds": 4.017063375009457,
+            "queue_wait_seconds": 1.0416988516226411e-05,
+            "validation_seconds": 7.508299313485622e-05,
+            "total_seconds": 4.019739416980883
+          }
+        },
+        {
+          "request_id": "80eb905e-25d5-4282-b3a3-cb07fe418c3f",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 972,
+            "output_tokens": 81
+          },
+          "truncated": false,
+          "process_rss_bytes": 564543488,
+          "accelerator_allocated_bytes": 3117362432,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 144,
+            "sampled_peak_process_rss_bytes": 564559872,
+            "sampled_peak_mps_allocated_bytes": 3149015296,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0018825829902198166,
+            "generation_seconds": 3.9536537080130074,
+            "queue_wait_seconds": 1.0792020475491881e-05,
+            "validation_seconds": 6.9500005338341e-05,
+            "total_seconds": 3.9562549580004998
+          }
+        },
+        {
+          "request_id": "1804de3e-11b0-4e57-a07f-9bd269969df6",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 976,
+            "output_tokens": 97
+          },
+          "truncated": false,
+          "process_rss_bytes": 579387392,
+          "accelerator_allocated_bytes": 3117362688,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 170,
+            "sampled_peak_process_rss_bytes": 579354624,
+            "sampled_peak_mps_allocated_bytes": 3149640448,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0018678750202525407,
+            "generation_seconds": 4.738445041992236,
+            "queue_wait_seconds": 1.158300437964499e-05,
+            "validation_seconds": 6.75409974064678e-05,
+            "total_seconds": 4.740988292003749
+          }
+        },
+        {
+          "request_id": "67c14277-6f3e-4c7a-ba94-38cff9becb72",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 973,
+            "output_tokens": 83
+          },
+          "truncated": false,
+          "process_rss_bytes": 579747840,
+          "accelerator_allocated_bytes": 3117362432,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 150,
+            "sampled_peak_process_rss_bytes": 579780608,
+            "sampled_peak_mps_allocated_bytes": 3148854272,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0017608330235816538,
+            "generation_seconds": 4.179906959005166,
+            "queue_wait_seconds": 1.6999983927235007e-05,
+            "validation_seconds": 9.608297841623425e-05,
+            "total_seconds": 4.182441374985501
+          }
+        },
+        {
+          "request_id": "c07d3cc0-effb-4137-b6ac-3986df2c50bd",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 972,
+            "output_tokens": 81
+          },
+          "truncated": false,
+          "process_rss_bytes": 579928064,
+          "accelerator_allocated_bytes": 3117362432,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 156,
+            "sampled_peak_process_rss_bytes": 579960832,
+            "sampled_peak_mps_allocated_bytes": 3148768256,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0021232080180197954,
+            "generation_seconds": 4.2592837079719175,
+            "queue_wait_seconds": 1.3500015484169126e-05,
+            "validation_seconds": 8.19999841041863e-05,
+            "total_seconds": 4.262153042014688
+          }
+        },
+        {
+          "request_id": "1ea753aa-17ae-49b5-86a9-fbe9faf6254c",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 976,
+            "output_tokens": 97
+          },
+          "truncated": false,
+          "process_rss_bytes": 580091904,
+          "accelerator_allocated_bytes": 3117362688,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 173,
+            "sampled_peak_process_rss_bytes": 580124672,
+            "sampled_peak_mps_allocated_bytes": 3149351424,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.002211582992458716,
+            "generation_seconds": 4.838164124987088,
+            "queue_wait_seconds": 1.18750031106174e-05,
+            "validation_seconds": 8.337499457411468e-05,
+            "total_seconds": 4.84119120799005
+          }
+        },
+        {
+          "request_id": "682a782c-931c-4b4c-861d-1d64f1305f97",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 973,
+            "output_tokens": 83
+          },
+          "truncated": false,
+          "process_rss_bytes": 563560448,
+          "accelerator_allocated_bytes": 3117362432,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 148,
+            "sampled_peak_process_rss_bytes": 580272128,
+            "sampled_peak_mps_allocated_bytes": 3148929280,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0024688339908607304,
+            "generation_seconds": 4.133589542005211,
+            "queue_wait_seconds": 1.3250013580545783e-05,
+            "validation_seconds": 7.754101534374058e-05,
+            "total_seconds": 4.13677004200872
+          }
+        },
+        {
+          "request_id": "4542a47f-7cce-4d55-a585-2a02fa6b510c",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 972,
+            "output_tokens": 81
+          },
+          "truncated": false,
+          "process_rss_bytes": 563691520,
+          "accelerator_allocated_bytes": 3117362432,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 151,
+            "sampled_peak_process_rss_bytes": 563724288,
+            "sampled_peak_mps_allocated_bytes": 3148768256,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.00207333400612697,
+            "generation_seconds": 4.170468374999473,
+            "queue_wait_seconds": 1.216601231135428e-05,
+            "validation_seconds": 8.87919741217047e-05,
+            "total_seconds": 4.17331041599391
+          }
+        },
+        {
+          "request_id": "5e1bbcec-5e1a-48e8-947f-cebb259408b7",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 976,
+            "output_tokens": 97
+          },
+          "truncated": false,
+          "process_rss_bytes": 563904512,
+          "accelerator_allocated_bytes": 3117362688,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 178,
+            "sampled_peak_process_rss_bytes": 563937280,
+            "sampled_peak_mps_allocated_bytes": 3149342464,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0020781659986823797,
+            "generation_seconds": 4.999897458998021,
+            "queue_wait_seconds": 1.4375022146850824e-05,
+            "validation_seconds": 7.820798782631755e-05,
+            "total_seconds": 5.002687000000151
+          }
+        },
+        {
+          "request_id": "ae2cddb6-8e2f-476b-86e0-06e73e12b251",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 973,
+            "output_tokens": 83
+          },
+          "truncated": false,
+          "process_rss_bytes": 564117504,
+          "accelerator_allocated_bytes": 3117362432,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 157,
+            "sampled_peak_process_rss_bytes": 564150272,
+            "sampled_peak_mps_allocated_bytes": 3148854272,
+            "sampled_peak_mps_driver_bytes": 3381444608,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0017596670077182353,
+            "generation_seconds": 4.300746000022627,
+            "queue_wait_seconds": 1.6874982975423336e-05,
+            "validation_seconds": 7.729101344011724e-05,
+            "total_seconds": 4.303227458993206
+          }
+        }
+      ]
+    },
+    "adapted": {
+      "requests": 10,
+      "timed_requests": 10,
+      "transport_status_counts": {
+        "invalid_output": 10
+      },
+      "concurrency": 1,
+      "warm": true,
+      "warmup_requests_excluded": 1,
+      "p50_seconds": 5.061174499511253,
+      "p95_seconds": 5.305828039102198,
+      "generated_tokens_per_generation_second": 19.476705202581936,
+      "completed_requests_per_wall_second": 0.20709936627597014,
+      "process_rss_bytes_max": 624443392,
+      "accelerator_allocated_bytes_max": 3117353984,
+      "memory_limitation": "sampled allocation at request completion, not peak total device memory",
+      "memory_probes": [
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 154,
+          "sampled_peak_process_rss_bytes": 606617600,
+          "sampled_peak_mps_allocated_bytes": 3132976896,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 182,
+          "sampled_peak_process_rss_bytes": 617611264,
+          "sampled_peak_mps_allocated_bytes": 3133664256,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 183,
+          "sampled_peak_process_rss_bytes": 622870528,
+          "sampled_peak_mps_allocated_bytes": 3133750272,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 158,
+          "sampled_peak_process_rss_bytes": 623214592,
+          "sampled_peak_mps_allocated_bytes": 3132976896,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 184,
+          "sampled_peak_process_rss_bytes": 623411200,
+          "sampled_peak_mps_allocated_bytes": 3133350400,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 195,
+          "sampled_peak_process_rss_bytes": 623624192,
+          "sampled_peak_mps_allocated_bytes": 3133577216,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 156,
+          "sampled_peak_process_rss_bytes": 623919104,
+          "sampled_peak_mps_allocated_bytes": 3132976896,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 181,
+          "sampled_peak_process_rss_bytes": 624115712,
+          "sampled_peak_mps_allocated_bytes": 3133376000,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 183,
+          "sampled_peak_process_rss_bytes": 624328704,
+          "sampled_peak_mps_allocated_bytes": 3133522432,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        },
+        {
+          "sampling_interval_seconds": 0.02,
+          "samples": 161,
+          "sampled_peak_process_rss_bytes": 624476160,
+          "sampled_peak_mps_allocated_bytes": 3132976896,
+          "sampled_peak_mps_driver_bytes": 3382493184,
+          "cuda_peak_allocated_bytes": null,
+          "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+        }
+      ],
+      "raw_validity": 0.0,
+      "final_validity": 0.0,
+      "requests_detail": [
+        {
+          "request_id": "c4342f4e-738c-4201-aec4-ce616d676ea7",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 85
+          },
+          "truncated": false,
+          "process_rss_bytes": 606584832,
+          "accelerator_allocated_bytes": 3117353728,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 154,
+            "sampled_peak_process_rss_bytes": 606617600,
+            "sampled_peak_mps_allocated_bytes": 3132976896,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0009966670186258852,
+            "generation_seconds": 4.211803625017637,
+            "queue_wait_seconds": 1.2417003745213151e-05,
+            "validation_seconds": 8.13750084489584e-05,
+            "total_seconds": 4.213519707991509
+          }
+        },
+        {
+          "request_id": "442b05f7-e63e-4e66-b92e-1e5995ea813f",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 99
+          },
+          "truncated": false,
+          "process_rss_bytes": 617594880,
+          "accelerator_allocated_bytes": 3117353984,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 182,
+            "sampled_peak_process_rss_bytes": 617611264,
+            "sampled_peak_mps_allocated_bytes": 3133664256,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0013104169920552522,
+            "generation_seconds": 5.105560333991889,
+            "queue_wait_seconds": 1.229101326316595e-05,
+            "validation_seconds": 8.50000069476664e-05,
+            "total_seconds": 5.107626208016882
+          }
+        },
+        {
+          "request_id": "dd01524d-ef8a-4698-8128-9a5bd516421a",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 101
+          },
+          "truncated": false,
+          "process_rss_bytes": 622854144,
+          "accelerator_allocated_bytes": 3117353984,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 183,
+            "sampled_peak_process_rss_bytes": 622870528,
+            "sampled_peak_mps_allocated_bytes": 3133750272,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.001435832993593067,
+            "generation_seconds": 5.077157708001323,
+            "queue_wait_seconds": 1.2625008821487427e-05,
+            "validation_seconds": 8.120900020003319e-05,
+            "total_seconds": 5.079340583004523
+          }
+        },
+        {
+          "request_id": "26012df1-4c0d-4bc3-af2c-ae1e12b883e5",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 85
+          },
+          "truncated": false,
+          "process_rss_bytes": 623181824,
+          "accelerator_allocated_bytes": 3117353728,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 158,
+            "sampled_peak_process_rss_bytes": 623214592,
+            "sampled_peak_mps_allocated_bytes": 3132976896,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.00145795798744075,
+            "generation_seconds": 4.343102208978962,
+            "queue_wait_seconds": 1.562500256113708e-05,
+            "validation_seconds": 8.687502122484148e-05,
+            "total_seconds": 4.345349833020009
+          }
+        },
+        {
+          "request_id": "af1a58c1-47c4-43a4-8317-a03bf7a3da80",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 99
+          },
+          "truncated": false,
+          "process_rss_bytes": 623378432,
+          "accelerator_allocated_bytes": 3117353984,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 184,
+            "sampled_peak_process_rss_bytes": 623411200,
+            "sampled_peak_mps_allocated_bytes": 3133350400,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0014603339950554073,
+            "generation_seconds": 5.040659582999069,
+            "queue_wait_seconds": 1.3541022781282663e-05,
+            "validation_seconds": 8.512500789947808e-05,
+            "total_seconds": 5.043008416017983
+          }
+        },
+        {
+          "request_id": "a18277fc-c272-415f-b15c-0f2b3bc53afb",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 101
+          },
+          "truncated": false,
+          "process_rss_bytes": 623591424,
+          "accelerator_allocated_bytes": 3117353984,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 195,
+            "sampled_peak_process_rss_bytes": 623624192,
+            "sampled_peak_mps_allocated_bytes": 3133577216,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0013242500135675073,
+            "generation_seconds": 5.444661417015595,
+            "queue_wait_seconds": 1.3958022464066744e-05,
+            "validation_seconds": 8.837497443892062e-05,
+            "total_seconds": 5.446711583004799
+          }
+        },
+        {
+          "request_id": "7faa3d66-7005-494e-94ec-bf18dbd7fa2e",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 85
+          },
+          "truncated": false,
+          "process_rss_bytes": 623886336,
+          "accelerator_allocated_bytes": 3117353728,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 156,
+            "sampled_peak_process_rss_bytes": 623919104,
+            "sampled_peak_mps_allocated_bytes": 3132976896,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0018810409819707274,
+            "generation_seconds": 4.365556375007145,
+            "queue_wait_seconds": 1.4125020243227482e-05,
+            "validation_seconds": 8.283299393951893e-05,
+            "total_seconds": 4.368171792011708
+          }
+        },
+        {
+          "request_id": "bdf7bd0a-8b36-4d04-bdb0-ef2e63fb1fca",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 99
+          },
+          "truncated": false,
+          "process_rss_bytes": 624082944,
+          "accelerator_allocated_bytes": 3117353984,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 181,
+            "sampled_peak_process_rss_bytes": 624115712,
+            "sampled_peak_mps_allocated_bytes": 3133376000,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.001477416983107105,
+            "generation_seconds": 5.099590500001796,
+            "queue_wait_seconds": 1.300001167692244e-05,
+            "validation_seconds": 8.000002708286047e-05,
+            "total_seconds": 5.101772207999602
+          }
+        },
+        {
+          "request_id": "023cf07c-c396-4b27-b552-f9113f9a0453",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 421,
+            "output_tokens": 101
+          },
+          "truncated": false,
+          "process_rss_bytes": 624295936,
+          "accelerator_allocated_bytes": 3117353984,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 183,
+            "sampled_peak_process_rss_bytes": 624328704,
+            "sampled_peak_mps_allocated_bytes": 3133522432,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0015854589873924851,
+            "generation_seconds": 5.131169333006255,
+            "queue_wait_seconds": 1.362498733215034e-05,
+            "validation_seconds": 7.787501090206206e-05,
+            "total_seconds": 5.1336370409990195
+          }
+        },
+        {
+          "request_id": "4625bbe6-844e-435d-90e6-3900c27affb1",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.535674500017194,
+            "runtime_validation": null,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 85
+          },
+          "truncated": false,
+          "process_rss_bytes": 624443392,
+          "accelerator_allocated_bytes": 3117353728,
+          "memory_probe": {
+            "sampling_interval_seconds": 0.02,
+            "samples": 161,
+            "sampled_peak_process_rss_bytes": 624476160,
+            "sampled_peak_mps_allocated_bytes": 3132976896,
+            "sampled_peak_mps_driver_bytes": 3382493184,
+            "cuda_peak_allocated_bytes": null,
+            "limitation": "RSS and Metal peaks are 20ms samples; CUDA is PyTorch allocator peak. Not total system/GPU memory; ZeroGPU packed storage can lie outside the allocator. Sampling adds measurement overhead."
+          },
+          "timings": {
+            "tokenization_seconds": 0.0014556249952875078,
+            "generation_seconds": 4.443522082990967,
+            "queue_wait_seconds": 1.3750017387792468e-05,
+            "validation_seconds": 8.087500464171171e-05,
+            "total_seconds": 4.445716874994105
+          }
+        }
+      ]
+    }
+  },
+  "semantic_quality": "not measured by a serving benchmark",
+  "fixed_input_hash": "7e733409bb47fe5e7fe9e7a25eead743c9fc2eb05df0ed9339e6578027c50940",
+  "fixed_inputs": [
+    "I lost my authentication device and cannot access my account.",
+    "I forgot my password and need help recovering access.",
+    "I need billing assistance or maybe delivery help, I am not sure."
+  ],
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 384
+  },
+  "admission": {
+    "active_generations": 1,
+    "waiting_capacity": 2,
+    "waiting_timeout_seconds": 60.0
+  },
+  "host_at_start": {
+    "total_ram_bytes": 25769803776,
+    "available_ram_bytes": 10255810560,
+    "swap_used_bytes": 2089091072,
+    "logical_cpus": 10,
+    "other_applications": "uncontrolled; host is not a dedicated benchmark machine"
+  },
+  "memory_sampling": "20ms sampled RSS/Metal; CUDA allocator counter; includes probe overhead, excludes model-load peak"
+}

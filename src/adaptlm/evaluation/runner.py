@@ -42,6 +42,8 @@ async def evaluate(
     output.mkdir(parents=True, exist_ok=True)
     if (output / "report.json").exists() or (output / "predictions.jsonl").exists():
         raise ValueError("preserve prior experiment; choose a new output directory")
+    started_environment = environment()
+    write_json(output / "environment-at-start.json", started_environment)
     frozen = {
         "split": split,
         "example_ids": [r["id"] for r in rows],
@@ -56,7 +58,7 @@ async def evaluate(
     if split == "test":
         exposure = settings.data_dir / "test-exposures.jsonl"
         with exposure.open("a") as file:
-            file.write(json.dumps(environment() | frozen | {"output": str(output)}) + "\n")
+            file.write(json.dumps(started_environment | frozen | {"output": str(output)}) + "\n")
     service = InferenceService(settings)
     write_json(output / "runtime.json", service.engine.metadata())
     results = {mode: [] for mode in modes}
@@ -96,7 +98,7 @@ async def evaluate(
                     )
                 }
     report = (
-        environment()
+        started_environment
         | frozen
         | {
             "runtime": service.engine.metadata(),
@@ -200,7 +202,9 @@ async def benchmark(settings, output, repeats=5, concurrency=1):
             "waiting_timeout_seconds": settings.queue_timeout_seconds,
         },
         "host_at_start": host,
-        "memory_sampling": "20ms sampled RSS/Metal; CUDA allocator counter; includes probe overhead, excludes model-load peak",
+        "memory_sampling": "20ms sampled RSS/Metal; CUDA allocator counter; includes probe overhead, excludes model-load peak"
+        if settings.profile == "local"
+        else "fixture completion RSS only; no accelerator or peak sampler",
     }
     write_json(output, report)
     return report

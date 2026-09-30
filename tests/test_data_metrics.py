@@ -1,4 +1,5 @@
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -152,11 +153,12 @@ def test_bundle_contract_mismatch(tmp_path, field):
 
 @pytest.mark.integration
 def test_actual_smoke_gradient_mask_and_reload_evidence():
-    run = json.loads(Path("runs/smoke-214/run.json").read_text())
+    root = Path(os.environ.get("ADAPTLM_SMOKE_RUN", "runs/smoke-v2-214"))
+    run = json.loads((root / "run.json").read_text())
     assert run["status"] == "completed"
     assert run["diagnostics"]["export_reload_token_parity"]
     assert run["diagnostics"]["changed_adapter_parameters"]
     assert run["diagnostics"]["nonzero_gradient_modules"]
     assert run["diagnostics"]["frozen_sample_unchanged"]
-    diagnostic = json.loads(Path("runs/smoke-214/loss-mask-diagnostic.json").read_text())
+    diagnostic = json.loads((root / "loss-mask-diagnostic.json").read_text())
     assert diagnostic["prompt_masked"] and diagnostic["stop_token_learned"]

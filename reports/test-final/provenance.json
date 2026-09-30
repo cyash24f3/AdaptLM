@@ -1,0 +1,25 @@
+{
+  "kind": "source provenance note for the original long-running frozen evaluation",
+  "execution_start_manifest": "execution-start.json; copied exactly from the pre-generation test exposure log",
+  "execution_start_manifest_sha256": "934354423806532ac0c05bca23bbb9807ae1f5d64ab998dedc272152765c5705",
+  "execution_source_hashes": {
+    "__init__.py": "7132efad0e0916ae3f5ab018049aadb6bbe522e7b6dcfe63ad08c58dfb1d54da",
+    "api/app.py": "6800d2fe860ea07f76cdb82936a4ff0b2dda7726d62bed02fc10583fef10ba52",
+    "artifacts/manifest.py": "0b32a6de837e1f694598b1c5df08ee6e0e5716d9e3c8eba5b25bdf6af0a39cc0",
+    "baselines/classifier.py": "47d1d21da2395ef30700a4655b79e5d44f2e476f0733ef55448b04fd70f08f62",
+    "cli.py": "37c13575fc647003a4b798b1e4b456662db4533a41c22ce570ef6dc33674a485",
+    "config.py": "9f95f66f7ee0636289734c258b52ddf602daba4628d75f4aa1944ce9dc916109",
+    "contracts/schema.py": "1590b6c9d78668b9f7869551bebbc59a1e9e71a602fa8b94e758f81931c08ffd",
+    "data/pipeline.py": "aa475840172379f3761c8161385e9176c59b56f0a3e6c79793e8dceba673eb38",
+    "evaluation/metrics.py": "ba7c628e4c87d13414be4664bde035374fc011bb35e2a98b86d4d0f1bc9762a6",
+    "evaluation/runner.py": "8a09055164fd3bd5104c36830f8ca32380bc9fe6bd34cd130fee72a920df9573",
+    "inference/engine.py": "3ff0d83eaa69f6cca25e867b8a9bd0b6ff9bd2266d45df762e7f08f31a60bb66",
+    "inference/prompts.py": "46cfe334de37ae6f159ea67859a16de326cb0a7f3d701718c482357b16591f7d",
+    "inference/service.py": "0630c16136998a7e3c9c195439b9edee9937fdf9dd1168254ab658c1e49cdd22",
+    "training/runner.py": "b6f7a5fc15561ee00725b7ae2b598bbc7e5a356e2d1880797636565d6a0bf32a"
+  },
+  "configuration_hash": "6f21f4087a604cf97249d0c9f39b7d836542e6513fe969666200baa6fb3602e4",
+  "predictions_sha256": "380faf969b9f41e2078431a34d008da68e68a9e49e679c3568e16204fed7b3ab",
+  "original_report_sha256": "ead86a0459bc3918aa9d5999ab01c8291d742e2f99d6599ed54379a34ad4ff7e",
+  "interpretation": "The original runner captured environment/source files again at report completion. The report top-level source hashes and Git revision describe that completion snapshot. Loaded evaluation code is identified by execution-start.json, logged before generation. Source/docs edits during the long run were not imported by that already-running process. Predictions and metrics are preserved without modification. Future evaluations freeze environment-at-start.json automatically."
+}

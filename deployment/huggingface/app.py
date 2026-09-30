@@ -64,6 +64,16 @@ REPORTS = {
 }
 rows = read_rows(Path("datasets/validation.jsonl"))
 sample = "A corner of the new monitor is smashed."
+initial_report = (
+    "test-final/report.json" if "test-final/report.json" in REPORTS else next(iter(REPORTS))
+)
+quality_note = "The adapter often produces incorrect source offsets; invalid output is rejected. "
+if "test-final/report.json" in REPORTS:
+    measured = json.loads(REPORTS["test-final/report.json"].read_text())["metrics"]["adapted"]
+    quality_note = (
+        f"**Held-out adapter records passing structural validation: {measured['valid_outputs']}/{measured['attempted']}.** "
+        "The displayed monitor message is a selected validation demo. Invalid output is rejected. "
+    )
 with gr.Blocks(
     title="AdaptLM · Support triage lab",
     analytics_enabled=False,
@@ -74,8 +84,9 @@ with gr.Blocks(
         "# AdaptLM\nA support triage lab with a **real M5-trained LoRA adapter**. "
         "[Source & measured results](https://github.com/cyash24f3/AdaptLM)\n\n"
         "Live cloud generation uses free Hugging Face ZeroGPU and visitor quotas. "
-        "Labels are fictional and independently unreviewed. The adapter often produces "
-        "incorrect source offsets; invalid output is rejected. This is a research demo. "
+        "Labels are fictional and independently unreviewed. "
+        + quality_note
+        + "This is a research demo. "
         "Use fictional messages here: input is sent to Hugging Face's infrastructure. "
         "No training or customer actions occur in this app."
     )
@@ -151,8 +162,8 @@ with gr.Blocks(
         gr.Markdown(
             "Actual local MPS experiments. Cloud CUDA timings are separate from these reports. Semantic summary support is unmeasured."
         )
-        selection = gr.Dropdown(list(REPORTS), value=next(iter(REPORTS)), label="Published report")
-        initial_summary, initial_record = report(next(iter(REPORTS)))
+        selection = gr.Dropdown(list(REPORTS), value=initial_report, label="Published report")
+        initial_summary, initial_record = report(initial_report)
         summary = gr.Markdown(initial_summary)
         with gr.Accordion("Full evidence and provenance", open=False):
             saved = gr.JSON(value=initial_record, label="Measured evidence")

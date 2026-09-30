@@ -1,0 +1,806 @@
+{
+  "kind": "post-test structural failure audit; no prediction changes",
+  "predictions_sha256": "59e5c63acc7ed16ae850fe3081f131d2255b3c49e6761ea2fc5c9fde64b40161",
+  "report_sha256": "316b30a85039faf21be94c587f18e9c06ff5f1a1556a86172384a85488533ac6",
+  "script_sha256": "7de9044718b4dad718d535669c997c98d117ba32bff25856cdd55f863afaa834",
+  "counts": {
+    "zero_shot": {
+      "accepted_structurally; semantic support unreviewed": 12,
+      "schema_or_workflow_violation": 6,
+      "exact_source_span_or_quote_violation": 2
+    },
+    "few_shot": {
+      "schema_or_workflow_violation": 16,
+      "exact_source_span_or_quote_violation": 3,
+      "invalid_json": 1
+    },
+    "adapted": {
+      "exact_source_span_or_quote_violation": 18,
+      "accepted_structurally; semantic support unreviewed": 1,
+      "schema_or_workflow_violation": 1
+    }
+  },
+  "first_example_by_reason": {
+    "zero_shot": {
+      "accepted_structurally; semantic support unreviewed": {
+        "id": "authored-account_access-04-0",
+        "message": "I lost my authentication device and cannot access my account.",
+        "response": {
+          "request_id": "bdf59eed-a398-451e-a3c2-c7ed0f34ba37",
+          "status": "out_of_scope",
+          "mode": "zero_shot",
+          "output": {
+            "triage_status": "out_of_scope",
+            "primary_issue": null,
+            "entities": [],
+            "missing_information": [],
+            "summary_claims": []
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 33
+          },
+          "truncated": false,
+          "process_rss_bytes": 601161728,
+          "accelerator_allocated_bytes": 3117353472,
+          "timings": {
+            "tokenization_seconds": 0.006862250011181459,
+            "generation_seconds": 1.6227215000253636,
+            "queue_wait_seconds": 2.5957997422665358e-05,
+            "validation_seconds": 0.00011491699842736125,
+            "total_seconds": 1.6333893749979325
+          },
+          "raw": "{\"triage_status\": \"out_of_scope\", \"primary_issue\": null, \"entities\": [], \"missing_information\": [], \"summary_claims\": []}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            }
+          ],
+          "primary_issue": "account_access",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 61,
+                  "start": 0,
+                  "text": "I lost my authentication device and cannot access my account."
+                }
+              ],
+              "text": "I lost my authentication device and cannot access my account."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        }
+      },
+      "schema_or_workflow_violation": {
+        "id": "authored-damaged_item-04-0",
+        "message": "The delivered headphones have a snapped headband.",
+        "response": {
+          "request_id": "5312ba5d-9f4a-4b6b-a897-ab080bd7a0bf",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 416,
+            "output_tokens": 228
+          },
+          "truncated": false,
+          "process_rss_bytes": 766361600,
+          "accelerator_allocated_bytes": 3117354752,
+          "timings": {
+            "tokenization_seconds": 0.0013213749916758388,
+            "generation_seconds": 10.077828458015574,
+            "queue_wait_seconds": 1.6458012396469712e-05,
+            "validation_seconds": 0.00012049998622387648,
+            "total_seconds": 10.080246916011674
+          },
+          "raw": "{\n  \"triage_status\": \"out_of_scope\",\n  \"primary_issue\": null,\n  \"entities\": [\n    {\n      \"type\": \"product_name\",\n      \"value\": \"headphones\",\n      \"span\": {\n        \"start\": 5,\n        \"end\": 8,\n        \"text\": \"headphones\"\n      }\n    },\n    {\n      \"type\": \"issue_details\",\n      \"value\": \"snapped headband\",\n      \"span\": {\n        \"start\": 9,\n        \"end\": 13,\n        \"text\": \"snapped headband\"\n      }\n    }\n  ],\n  \"missing_information\": [],\n  \"summary_claims\": [\n    {\n      \"text\": \"Delivered headphones have a snapped headband.\",\n      \"spans\": [\n        {\n          \"start\": 5,\n          \"end\": 8,\n          \"text\": \"delivered headphones\"\n        },\n        {\n          \"start\": 9,\n          \"end\": 13,\n          \"text\": \"snapped headband\"\n        }\n      ]\n    }\n  ]\n}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "order_id",
+              "question": "What is the order ID?"
+            }
+          ],
+          "primary_issue": "damaged_item",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 49,
+                  "start": 0,
+                  "text": "The delivered headphones have a snapped headband."
+                }
+              ],
+              "text": "The delivered headphones have a snapped headband."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        }
+      },
+      "exact_source_span_or_quote_violation": {
+        "id": "authored-delivery_problem-08-0",
+        "message": "Tracking stopped updating after the shipment left the warehouse.",
+        "response": {
+          "request_id": "6aad065f-ca26-48a4-a6b7-8ce4efe96abb",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 417,
+            "output_tokens": 102
+          },
+          "truncated": false,
+          "process_rss_bytes": 767803392,
+          "accelerator_allocated_bytes": 3117353984,
+          "timings": {
+            "tokenization_seconds": 0.0008709999965503812,
+            "generation_seconds": 4.528849833004642,
+            "queue_wait_seconds": 1.220798003487289e-05,
+            "validation_seconds": 5.908301682211459e-05,
+            "total_seconds": 4.530359083000803
+          },
+          "raw": "{\n  \"triage_status\": \"out_of_scope\",\n  \"primary_issue\": null,\n  \"entities\": [],\n  \"missing_information\": [],\n  \"summary_claims\": [\n    {\n      \"text\": \"Tracking stopped updating after the shipment left the warehouse.\",\n      \"spans\": [\n        {\n          \"start\": 0,\n          \"end\": 23,\n          \"text\": \"Tracking stopped updating after the shipment left the warehouse.\"\n        }\n      ]\n    }\n  ]\n}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "order_id",
+              "question": "What is the order ID?"
+            }
+          ],
+          "primary_issue": "delivery_problem",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 64,
+                  "start": 0,
+                  "text": "Tracking stopped updating after the shipment left the warehouse."
+                }
+              ],
+              "text": "Tracking stopped updating after the shipment left the warehouse."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        }
+      }
+    },
+    "few_shot": {
+      "schema_or_workflow_violation": {
+        "id": "authored-account_access-04-0",
+        "message": "I lost my authentication device and cannot access my account.",
+        "response": {
+          "request_id": "69de57d3-5db8-43fb-8b06-64b218770777",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 973,
+            "output_tokens": 83
+          },
+          "truncated": false,
+          "process_rss_bytes": 870481920,
+          "accelerator_allocated_bytes": 3117362432,
+          "timings": {
+            "tokenization_seconds": 0.0020850000146310776,
+            "generation_seconds": 4.026498332998017,
+            "queue_wait_seconds": 1.5083001926541328e-05,
+            "validation_seconds": 0.002546999981859699,
+            "total_seconds": 4.031727667024825
+          },
+          "raw": "{\"entities\":[],\"missing_information\":[{\"field\":\"email\",\"question\":\"Which email is associated with the account?\"}],\"primary_issue\":\"account_access\",\"summary_claims\":[{\"spans\":[{\"end\":58,\"start\":0,\"text\":\"I lost my authentication device and cannot access my account.\"}],\"text\":\"I lost my authentication device and cannot access my account.\"}],\"triage_status\":\"triaged\"}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            }
+          ],
+          "primary_issue": "account_access",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 61,
+                  "start": 0,
+                  "text": "I lost my authentication device and cannot access my account."
+                }
+              ],
+              "text": "I lost my authentication device and cannot access my account."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        }
+      },
+      "exact_source_span_or_quote_violation": {
+        "id": "authored-ambiguous-06-0",
+        "message": "I need billing assistance or maybe delivery help, I am not sure.",
+        "response": {
+          "request_id": "88219a9b-224d-494c-b79c-cc1dc0e1462d",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 976,
+            "output_tokens": 97
+          },
+          "truncated": false,
+          "process_rss_bytes": 887029760,
+          "accelerator_allocated_bytes": 3117362688,
+          "timings": {
+            "tokenization_seconds": 0.0017249590018764138,
+            "generation_seconds": 5.004142666992266,
+            "queue_wait_seconds": 1.5332974726334214e-05,
+            "validation_seconds": 9.370798943564296e-05,
+            "total_seconds": 5.006770832987968
+          },
+          "raw": "{\"entities\":[],\"missing_information\":[{\"field\":\"issue_details\",\"question\":\"What specific type of assistance do you need? (billing, delivery)\"}],\"primary_issue\":null,\"summary_claims\":[{\"spans\":[{\"end\":59,\"start\":0,\"text\":\"I need billing assistance or maybe delivery help, I am not sure.\"}],\"text\":\"I need billing assistance or maybe delivery help, I am not sure.\"}],\"triage_status\":\"needs_clarification\"}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "issue_details",
+              "question": "Which support issue should we address first?"
+            }
+          ],
+          "primary_issue": null,
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 64,
+                  "start": 0,
+                  "text": "I need billing assistance or maybe delivery help, I am not sure."
+                }
+              ],
+              "text": "I need billing assistance or maybe delivery help, I am not sure."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        }
+      },
+      "invalid_json": {
+        "id": "authored-duplicate_charge-04-0",
+        "message": "A single invoice was collected two times from my bank.",
+        "response": {
+          "request_id": "62dffd64-ba93-4fbd-ac59-4a3a1840dbfe",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 973,
+            "output_tokens": 141
+          },
+          "truncated": false,
+          "process_rss_bytes": 908738560,
+          "accelerator_allocated_bytes": 3117362944,
+          "timings": {
+            "tokenization_seconds": 0.005563542013987899,
+            "generation_seconds": 8.65221100000781,
+            "queue_wait_seconds": 3.337502130307257e-05,
+            "validation_seconds": 8.958301623351872e-05,
+            "total_seconds": 8.659083500009729
+          },
+          "raw": "{\"entities\":[{\"span\":{\"end\":59,\"start\":0,\"text\":\"two times from my bank.\"}},{\"span\":{\"end\":8,\"start\":12,\"text\":\"invoice was collected\"}]},{\"missing_information\":[{\"field\":\"transaction_id\",\"question\":\"What is the transaction ID associated with the invoice collection?\"},{\"field\":\"date_expression\",\"question\":\"When did the invoice collection occur?\"}]},{\"primary_issue\":\"duplicate_charge\",\"summary_claims\":[{\"spans\":[{\"end\":60,\"start\":0,\"text\":\"A single invoice was collected two times from my bank.\"}],\"text\":\"A single invoice was collected two times from my bank.\"}],\"triage_status\":\"triaged\"}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            },
+            {
+              "field": "transaction_id",
+              "question": "What is the transaction ID?"
+            }
+          ],
+          "primary_issue": "duplicate_charge",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 54,
+                  "start": 0,
+                  "text": "A single invoice was collected two times from my bank."
+                }
+              ],
+              "text": "A single invoice was collected two times from my bank."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        }
+      }
+    },
+    "adapted": {
+      "exact_source_span_or_quote_violation": {
+        "id": "authored-account_access-04-0",
+        "message": "I lost my authentication device and cannot access my account.",
+        "response": {
+          "request_id": "852c55fd-c917-447d-8f2b-57d3706360ad",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 418,
+            "output_tokens": 85
+          },
+          "truncated": false,
+          "process_rss_bytes": 914079744,
+          "accelerator_allocated_bytes": 3117353728,
+          "timings": {
+            "tokenization_seconds": 0.0028144999814685434,
+            "generation_seconds": 5.27109895797912,
+            "queue_wait_seconds": 2.8082984499633312e-05,
+            "validation_seconds": 0.00011891601025126874,
+            "total_seconds": 5.274939082999481
+          },
+          "raw": "{\"entities\":[],\"missing_information\":[{\"field\":\"email\",\"question\":\"Which email is associated with the account?\"}],\"primary_issue\":\"account_access\",\"summary_claims\":[{\"spans\":[{\"end\":52,\"start\":0,\"text\":\"I lost my authentication device and cannot access my account.\"}],\"text\":\"I lost my authentication device and cannot access my account.\"}],\"triage_status\":\"needs_clarification\"}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            }
+          ],
+          "primary_issue": "account_access",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 61,
+                  "start": 0,
+                  "text": "I lost my authentication device and cannot access my account."
+                }
+              ],
+              "text": "I lost my authentication device and cannot access my account."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        }
+      },
+      "accepted_structurally; semantic support unreviewed": {
+        "id": "authored-damaged_item-06-0",
+        "message": "A corner of the new monitor is smashed.",
+        "response": {
+          "request_id": "2f3e9cdb-abec-49cf-8809-e867c52c016e",
+          "status": "needs_clarification",
+          "mode": "adapted",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "damaged_item",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "order_id",
+                "question": "What is the order ID?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "A corner of the new monitor is smashed.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 39,
+                    "text": "A corner of the new monitor is smashed."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": {
+            "input_tokens": 416,
+            "output_tokens": 81
+          },
+          "truncated": false,
+          "process_rss_bytes": 781221888,
+          "accelerator_allocated_bytes": 3117353472,
+          "timings": {
+            "tokenization_seconds": 0.0022057500027585775,
+            "generation_seconds": 5.1549399580108,
+            "queue_wait_seconds": 2.591699012555182e-05,
+            "validation_seconds": 0.0001822909980546683,
+            "total_seconds": 5.158292166976025
+          },
+          "raw": "{\"entities\":[],\"missing_information\":[{\"field\":\"order_id\",\"question\":\"What is the order ID?\"}],\"primary_issue\":\"damaged_item\",\"summary_claims\":[{\"spans\":[{\"end\":39,\"start\":0,\"text\":\"A corner of the new monitor is smashed.\"}],\"text\":\"A corner of the new monitor is smashed.\"}],\"triage_status\":\"needs_clarification\"}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "order_id",
+              "question": "What is the order ID?"
+            }
+          ],
+          "primary_issue": "damaged_item",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 39,
+                  "start": 0,
+                  "text": "A corner of the new monitor is smashed."
+                }
+              ],
+              "text": "A corner of the new monitor is smashed."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        }
+      },
+      "schema_or_workflow_violation": {
+        "id": "authored-out_of_scope-01-0",
+        "message": "What is the capital of France?",
+        "response": {
+          "request_id": "5ef8b101-7016-4854-9684-6eeb2bdb6076",
+          "status": "invalid_output",
+          "mode": "adapted",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-2",
+            "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+            "training_prompt_version": "triage-prompt-1",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "attention_implementation": "sdpa",
+            "load_seconds": 2.6331220410065725,
+            "available_modes": [
+              "zero_shot",
+              "few_shot",
+              "adapted"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-3",
+              "authored-account_access-00-4",
+              "authored-ambiguous-08-0",
+              "authored-out_of_scope-04-0"
+            ],
+            "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 414,
+            "output_tokens": 66
+          },
+          "truncated": false,
+          "process_rss_bytes": 782893056,
+          "accelerator_allocated_bytes": 3117353216,
+          "timings": {
+            "tokenization_seconds": 0.0027333749749232084,
+            "generation_seconds": 3.810101500013843,
+            "queue_wait_seconds": 2.400000812485814e-05,
+            "validation_seconds": 0.00013116697664372623,
+            "total_seconds": 3.8138101249933243
+          },
+          "raw": "{\"entities\":[],\"missing_information\":[{\"field\":\"issue_details\",\"question\":\"What support issue should we address first?\"}],\"primary_issue\":null,\"summary_claims\":[{\"spans\":[{\"end\":52,\"start\":0,\"text\":\"What is the capital of France?\"}]}],\"triage_status\":\"out_of_scope\"}"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [],
+          "primary_issue": null,
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 30,
+                  "start": 0,
+                  "text": "What is the capital of France?"
+                }
+              ],
+              "text": "What is the capital of France?"
+            }
+          ],
+          "triage_status": "out_of_scope"
+        }
+      }
+    }
+  },
+  "limitations": "Schema/source checks do not establish semantic correctness. Reasons use the published contract; this audit does not tune, regenerate, repair, or replace the frozen run."
+}

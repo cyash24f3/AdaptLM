@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-09-30T20:30:48.904645+00:00",
+  "git_revision": "d0593f995861143636e1167a8a992214ba35c188",
+  "git_dirty": true,
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.13",
+  "packages": {
+    "adaptlm": "0.1.0",
+    "torch": "2.14.0",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "trl": "0.24.0",
+    "datasets": "4.2.0",
+    "numpy": "2.2.6"
+  },
+  "lock_hash": "afc3426417bc201ba1fab7e189165b4006c039690ac1f43053b943aeeeb8f66a",
+  "schema_version": "triage-1.0",
+  "annotation_spec_version": "annotation-1.0",
+  "source_hashes": {
+    "__init__.py": "7132efad0e0916ae3f5ab018049aadb6bbe522e7b6dcfe63ad08c58dfb1d54da",
+    "api/app.py": "6800d2fe860ea07f76cdb82936a4ff0b2dda7726d62bed02fc10583fef10ba52",
+    "artifacts/manifest.py": "39fcf4981090f8bd5694be1774d59207e1a9ea4c8acf74e92b7ff785670d81c3",
+    "baselines/classifier.py": "47d1d21da2395ef30700a4655b79e5d44f2e476f0733ef55448b04fd70f08f62",
+    "cli.py": "37c13575fc647003a4b798b1e4b456662db4533a41c22ce570ef6dc33674a485",
+    "config.py": "d642cb373513b259e595fd1b7b99c60e7001ca119ffb9c8422561be0f596565a",
+    "contracts/schema.py": "1590b6c9d78668b9f7869551bebbc59a1e9e71a602fa8b94e758f81931c08ffd",
+    "data/pipeline.py": "de5d6e7e07aca42404ba89184cf825bb1d436173d9b437f1c01de90ee31149f7",
+    "evaluation/metrics.py": "ba7c628e4c87d13414be4664bde035374fc011bb35e2a98b86d4d0f1bc9762a6",
+    "evaluation/runner.py": "908f632e782921b147174a07acd6deacbcc59f14b1f835ec38aaadc6050566fc",
+    "inference/engine.py": "5a7214fdc7d4498863117cd4feea1a98e89bb60868cb0f2b59b2dfd569bff10c",
+    "inference/prompts.py": "46cfe334de37ae6f159ea67859a16de326cb0a7f3d701718c482357b16591f7d",
+    "inference/service.py": "db1ca503e9d69bc11e2b738ac5e53973b3cdda8e2d31e00cfe40f82f50dcc115",
+    "observability/memory.py": "761f127959d5a1b39fdce2957174eb9f2995097923a779152f82cc181f6287eb",
+    "training/runner.py": "c018e8f1fd0a61ada7e85ec58eb8962fde74850749c90ca08edaebe6ecbfd242",
+    "web/cloud.py": "e5adc29e458551a7f9976319bb71d224fe29cf1ac195bd3952708a7ecabe9989"
+  },
+  "monetary_cost": {
+    "paid_services_used": false,
+    "electricity_cost": "unmeasured"
+  },
+  "kind": "actual clean public checkout fixture verification",
+  "checkout_commit": "d0593f995861143636e1167a8a992214ba35c188",
+  "install": "uv sync --frozen; 37 packages, no torch/CUDA/model download",
+  "pytest": "46 passed; 1 real-model integration deselected",
+  "http_demo": "3 documented valid fixtures; real comparison modes unavailable",
+  "url": "http://127.0.0.1:8770",
+  "github_ci": "https://github.com/cyash24f3/AdaptLM/actions/runs/36772823586",
+  "github_ci_conclusion": "success",
+  "limitations": "Deterministic fixture/contract checks; not model quality or training verification."
+}

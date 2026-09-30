@@ -249,7 +249,9 @@ def train(config_path: Path, output: Path, resume: Path | None = None):
         "prompt_version": PROMPT_VERSION,
         "prompt_hash": prompt_hash(),
         "chat_template_hash": fingerprint(tokenizer.chat_template),
-        "checkpoint_selection": "lowest validation completion cross entropy at saved checkpoints",
+        "checkpoint_selection": "last smoke checkpoint; no quality selection"
+        if config["kind"] == "mechanics-smoke-not-quality"
+        else "lowest validation completion cross entropy at saved checkpoints",
         "precision": "BF16 weights; FP32 LoRA parameters; no autocast",
         "attention_implementation": settings.attention_implementation,
         "nondeterminism": "MPS kernels may be nondeterministic; seeds do not imply bitwise reproduction",
