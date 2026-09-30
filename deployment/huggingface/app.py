@@ -84,6 +84,8 @@ with gr.Blocks(
         "# AdaptLM\nA support triage lab with a **real M5-trained LoRA adapter**. "
         "[Source & measured results](https://github.com/cyash24f3/AdaptLM)\n\n"
         "Live cloud generation uses free Hugging Face ZeroGPU and visitor quotas. "
+        "[Sign in to Hugging Face](https://huggingface.co/login) for the free account quota "
+        "if anonymous runs are exhausted. "
         "Labels are fictional and independently unreviewed. "
         + quality_note
         + "This is a research demo. "
@@ -173,5 +175,7 @@ with gr.Blocks(
 
 demo.queue(max_size=3, default_concurrency_limit=1).launch(
     # Core inference failures are already redacted; surface provider quota errors.
-    server_name="0.0.0.0", server_port=7860, show_error=True
+    server_name="0.0.0.0",
+    server_port=7860,
+    show_error=True,
 )
