@@ -1,0 +1,26 @@
+services:
+  fixture:
+    build:
+      context: .
+      target: fixture
+    ports: ["127.0.0.1:8765:8000"]
+    environment:
+      ADAPTLM_ADMIN_TOKEN: ${ADAPTLM_ADMIN_TOKEN:-}
+    volumes:
+      - ./reports:/app/reports
+    mem_limit: 2g
+  inference:
+    profiles: [local-model]
+    build:
+      context: .
+      target: inference
+    ports: ["127.0.0.1:8766:8000"]
+    environment:
+      ADAPTLM_ADMIN_TOKEN: ${ADAPTLM_ADMIN_TOKEN:-}
+      ADAPTLM_ADAPTER_PATH: /app/models/main-adapter-214
+      ADAPTLM_ATTENTION_IMPLEMENTATION: sdpa
+      ADAPTLM_MAX_NEW_TOKENS: 384
+    volumes:
+      - ./models:/app/models
+      - ./reports:/app/reports
+    mem_limit: 16g

@@ -1,0 +1,13 @@
+{
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "python": "3.12.13",
+  "memory_bytes": 25769803776,
+  "disk_free_bytes": 777581088768,
+  "torch": "2.14.0",
+  "mps": true,
+  "cuda": false,
+  "torch.float32": true,
+  "torch.float16": true,
+  "torch.bfloat16": true,
+  "gpu": "Apple M5"
+}

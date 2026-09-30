@@ -1,0 +1,27 @@
+{
+  "profile": "local",
+  "ready": true,
+  "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "adapter_bundle_id": null,
+  "schema_version": "triage-1.0",
+  "prompt_version": "triage-prompt-1",
+  "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+  "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+  "device": "mps",
+  "dtype": "bfloat16",
+  "quantization": null,
+  "attention_implementation": "eager",
+  "load_seconds": 1.869321291014785,
+  "available_modes": [
+    "zero_shot",
+    "few_shot"
+  ],
+  "demonstration_ids": [
+    "authored-duplicate_charge-06-0",
+    "authored-account_access-00-0",
+    "authored-ambiguous-08-0"
+  ],
+  "demo_messages": []
+}

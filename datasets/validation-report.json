@@ -1,0 +1,57 @@
+{
+  "examples": 1280,
+  "families": 160,
+  "split_sizes": {
+    "train": 880,
+    "validation": 160,
+    "test": 240
+  },
+  "category_by_split": {
+    "train": {
+      "account_access": 88,
+      "None": 176,
+      "cancellation_request": 88,
+      "damaged_item": 88,
+      "delivery_problem": 88,
+      "duplicate_charge": 88,
+      "other_support": 88,
+      "product_help": 88,
+      "refund_request": 88
+    },
+    "validation": {
+      "account_access": 16,
+      "None": 32,
+      "cancellation_request": 16,
+      "damaged_item": 16,
+      "delivery_problem": 16,
+      "duplicate_charge": 16,
+      "other_support": 16,
+      "product_help": 16,
+      "refund_request": 16
+    },
+    "test": {
+      "account_access": 24,
+      "None": 48,
+      "cancellation_request": 24,
+      "damaged_item": 24,
+      "delivery_problem": 24,
+      "duplicate_charge": 24,
+      "other_support": 24,
+      "product_help": 24,
+      "refund_request": 24
+    }
+  },
+  "source_distribution": {
+    "implementation-ai-authored-scenarios": 1280
+  },
+  "character_lengths": {
+    "min": 27,
+    "max": 275
+  },
+  "near_duplicate_threshold": 0.85,
+  "cross_split_near_duplicates": [],
+  "human_reviewed": 0,
+  "quality_interpretation": "agreement with unreviewed provided labels",
+  "external_validation": "missing",
+  "dataset_hash": "3dd0c22c0d51eb59d942122f681b2e48df76cebe994f1d90834bded71198f785"
+}

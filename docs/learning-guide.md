@@ -1,0 +1,13 @@
+# How to explain and extend AdaptLM
+
+1. **Contract first.** Inspect the typed status/category/entity/span fields. Explain why a missing transaction ID can coexist with a known duplicate-charge category, and why Unicode code points differ from JavaScript code units.
+2. **Provenance before scores.** Inspect scenario families, frozen hashes, and blank human-review columns. Explain the correlated errors when one author defines both messages and labels. Count 160 scenario families, not 1,280 independent tickets.
+3. **Give the simple baseline a fair chance.** The classifier combines word/character n-grams and selects regularization on validation. It answers category prediction only. Its score is not complete-record reliability.
+4. **Control what changed.** Base zero-shot and adapted mode share the same task prompt and greedy decoding; few-shot adds only fixed train examples. Keep backend changes separate from adapter improvements. Preserve failed runs and first test exposures.
+5. **Inspect loss masks.** Open a diagnostic's decoded prompt and learned target. Prompt tokens are -100 in labels. Completion JSON and stop tokens are learned. Long sequences fail instead of silently truncating evidence or the output.
+6. **Understand LoRA.** The base is frozen, q/v projection adapters are trained, gradients and actual weight changes are audited, and the exported adapter reload must produce the same deterministic token prefix. A smoke run checks mechanics, not quality.
+7. **Separate validity from meaning.** A structurally valid output can have a wrong issue or cite a span that does not support its paraphrase. Raw validity and post-fence-repair validity are separate. Independent semantic review is still required.
+8. **Treat serving as an experiment.** Report load and warm request time, token counts, queue time, failures, sampled process/device allocations, hardware/backend, and concurrency. A serialized worker prevents adapter-selection races. Cancellation cannot instantly free GPU work.
+9. **Keep a narrow scope.** No live order lookup, refund execution, changing policy knowledge, vector database, or general agent framework is present. Improve labels and investigate observed failures before adding bigger models or more infrastructure.
+
+A useful interview demo runs the fixture walkthrough, explains why it is not inference, shows the category baseline confusion pairs, opens actual training diagnostics, demonstrates a real model response or failure, and inspects saved held-out raw outputs. State incomplete acceptance items openly. Do not claim fine-tuning improvement until the controlled held-out evidence supports it.

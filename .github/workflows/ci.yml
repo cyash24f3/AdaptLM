@@ -1,0 +1,19 @@
+name: fixture-contracts
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  fixture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.8.15"
+      - run: uv sync --frozen
+      - run: uv run --frozen ruff check src scripts tests
+      - run: uv run --frozen ruff format --check src scripts tests
+      - run: uv run --frozen mypy src/adaptlm/contracts src/adaptlm/config.py src/adaptlm/inference/service.py
+      - run: uv run --frozen adaptlm data validate
+      - run: uv run --frozen pytest -q
+      - run: docker build --target fixture -t adaptlm-fixture .

@@ -1,0 +1,233 @@
+AdaptLM Complete AI Engineering Build Prompt
+Build a Fine Tuned Support Triage Model and Serving Benchmark from scratch. This prompt specifies the data, baseline experiments, adaptation, evaluation, serving, deployment, and learning deliverables. Copy the entire document into an implementation AI with repository and terminal access.
+1 Your role and the task
+Act as a senior ML engineer, AI engineer, backend engineer, and rigorous experimental evaluator. Build AdaptLM: a Fine-Tuned Support Triage Model and Serving Benchmark as a complete, runnable portfolio project for AI and GenAI engineering internship applications.
+Implement dataset tooling, labeling specification, leakage-resistant splits, strong baselines, supervised adaptation, model packaging, inference API, comparison interface, evaluation, tests, documentation, and deployment configuration. Work through every milestone below. A notebook with an unexecuted training cell, a renamed pretrained model, a synthetic perfect score, or an attractive interface is not sufficient.
+Make reasonable decisions and record them. Ask questions only when missing information materially blocks correctness or requires access I must provide. Continue CPU-compatible data, testing, baseline, and API work when GPU access is unavailable. Never invent training runs, checkpoints, GPU measurements, human-reviewed labels, model improvements, or successful deployments.
+This is a new project. Create a minimal repository in a dedicated AdaptLM directory and inspect applicable instructions first. Do not modify my resume, DocuLens, ResolveFlow, or unrelated repositories. Keep this maintainable by one student while making the experiments defensible.
+2 Product definition and portfolio boundaries
+AdaptLM converts a messy customer support message into a grounded structured triage record. It identifies the issue category, extracts stated entities, identifies missing information, and produces a short supported summary.
+Example input: “Charged twice for my subscription yesterday. The account is under a different email and I don't have the transaction ID.” The output should identify a duplicate-charge issue, preserve the stated timing, mark the relevant account identifier and transaction information as missing, and avoid claiming a refund is approved.
+This is a narrow text-to-structured-data task. It does not answer changing support policies, look up real orders, execute actions, or fine-tune a general assistant. DocuLens owns knowledge-grounded answers; ResolveFlow owns action workflows. AdaptLM must run independently without shared databases, cross-repository imports, or required live services from either project.
+The central experimental question is whether adaptation improves this task enough to justify data preparation, training, artifact maintenance, and serving cost. A result where a prompted baseline wins is valid and must be reported honestly.
+3 Primary user journeys
+Provide complete journeys for:
+- A developer validates and inspects dataset examples, spans, label provenance, and split membership.
+- A reviewer runs a credential-free fixture demonstration and sees that fixture output is not model inference.
+- A user submits fictional support text and receives a schema-validated triage record or a clear failure.
+- A developer compares zero-shot, few-shot, and adapted outputs on the same input using actual configured models.
+- A developer runs controlled held-out evaluation and inspects per-example errors and uncertainty.
+- A developer trains an adapter with a documented configuration, resumes an interrupted run, and reloads the exported artifact.
+- A reviewer compares serving latency, memory, raw schema validity, and repaired output behavior without confusing them with semantic correctness.
+- An operator inspects the loaded model and adapter versions and can roll back to the baseline or previous adapter.
+When an adapter or model is unavailable, show unavailable status. Never fill the adapted comparison column with baseline output and label it fine-tuned.
+4 Scope and priorities
+Core: a narrow typed triage contract; approximately 1,000–3,000 labeled examples with honest provenance; grouped train/validation/test splits; a simple classifier baseline for category prediction; zero-shot and few-shot generative baselines; LoRA supervised fine-tuning; QLoRA when justified by hardware; complete-output evaluation; a versioned model bundle; a bounded inference API; a usable comparison interface; tests; Docker; deployment instructions.
+After core: a small reviewed public-source test track when licensing permits, a constrained-decoding experiment, carefully evaluated inference quantization, model hot replacement with rollback, and a second independent training seed.
+Stretch only: multilingual triage, distillation, preference optimization, large models, multiple tasks, vLLM or another optimized serving engine, or a broader real support corpus.
+Do not build distributed training, Kubernetes, reinforcement learning, a general agent framework, or an elaborate model registry service. Do not add priority labels until a clear, independently understandable rubric exists; priority prediction is optional.
+5 Preferred stack and hardware profiles
+Prefer Python 3.12, uv with a committed lockfile, PyTorch, Transformers, Datasets, PEFT, TRL, safetensors, Pydantic, FastAPI, Jinja2, lightweight JavaScript, pytest, Ruff, and a practical type checker.
+Use local JSON/JSONL manifests as the authoritative experiment record, with optional MLflow integration. Use SQLite for the small application's report and run metadata if needed; there is no reason to require a vector database.
+Define three clearly separate profiles:
+- CPU fixture profile for default CI and interface testing, with no large model or paid API requirement.
+- Local real-inference profile for the selected base model and compatible adapter, with measured CPU or GPU requirements.
+- Training profile for actual LoRA or supported QLoRA hardware, with explicit dependency and accelerator configuration.
+Keep GPU-specific dependencies optional where practical. Pin compatible tested versions. Verify PyTorch, CUDA, Transformers, PEFT, TRL, and bitsandbytes compatibility instead of claiming a single universal installation works everywhere. Commit documented lock or environment artifacts for supported profiles.
+6 Task schema and annotation rules
+Define a versioned triage schema before generating or labeling data. A starting contract contains:
+- triage_status: triaged, needs_clarification, or out_of_scope.
+- primary_issue: a controlled enum or null when unresolved.
+- entities: typed stated values with source spans.
+- missing_information: controlled field names and concise questions tied to the task.
+- summary_claims: short factual statements, each linked to source spans.
+- Optional explicitly stated secondary issues, only if the annotation specification supports them.
+Use a compact initial taxonomy such as duplicate_charge, refund_request, cancellation_request, delivery_problem, damaged_item, account_access, product_help, and other_support. Document boundaries and confusing pairs. For example, a duplicate-charge complaint is not automatically a generic refund request unless the labeling rule says how an explicit refund demand changes the primary issue.
+Define how multiple issues are handled: choose the explicitly requested main issue under a published rule, record supported secondary issues if enabled, or ask for clarification when no primary issue can be determined. Do not force an arbitrary confident label.
+Define required information by issue category for a later operator workflow. Missing order or transaction ID does not make a clearly stated issue category unknown. Distinguish “can classify but needs operational details” from “cannot determine the issue.”
+7 Entity spans and factual grounding
+Represent spans with start and end offsets into the exact original message, using zero-based Unicode code-point offsets and an exclusive end. Store and test message[start:end] against the declared surface text.
+Use types such as order_id, transaction_id, email, product_name, plan_name, amount, currency, and date_expression only when genuinely stated. Preserve raw values. Any optional normalized value must have an explicit deterministic rule and retain the original span.
+Do not turn “yesterday” into an absolute date unless the input includes a trustworthy reference timestamp and timezone and the normalization rule is documented. Do not infer an amount, purchase date, customer identity, order status, or refund eligibility from world knowledge.
+Use fictitious personal data in committed samples. Do not replace user text before calculating spans unless the transformed text is explicitly the canonical input shown to the user. Test emojis, combining characters, accented text, non-ASCII digits, repeated entity strings, and multiple occurrences.
+Exact span existence is structural validation. It does not prove the span supports an issue label or summary claim. Semantic support requires separate evaluation.
+8 Architecture and module boundaries
+Separate:
+- Contracts and labeling specification: schemas, enums, span rules, and version compatibility.
+- Data pipeline: import, generation provenance, validation, deduplication, grouping, splitting, and formatting.
+- Baselines: classifier and prompted model configurations.
+- Training: tokenization, loss masks, adapter configuration, checkpoints, and export.
+- Inference: model lifecycle, prompt formatting, bounded decoding, parsing, and validation.
+- Evaluation: frozen inputs, metrics, review sheets, paired comparisons, and reports.
+- API and interface: authorization, request limits, typed responses, and comparison views.
+- Artifact management and observability: manifests, hashes, runtime metrics, and compatibility checks.
+Keep business logic callable without HTTP or a notebook. Thin command-line entry points should call the same modules used by the API and evaluator. Training runs offline; the web process must not perform training.
+Load a model once per inference process. Use a bounded inference queue or execution semaphore. Do not perform blocking token generation directly on an async event loop or claim throughput gains from async def alone.
+9 Base model selection and licensing
+Start with an approximately 1–3B instruction-tuned open-weight causal model that fits the available hardware. Qwen/Qwen2.5-1.5B-Instruct is an initial candidate, not a mandatory winner. Its official model card identifies Apache 2.0 licensing; verify the exact downloaded revision and its accompanying files before publishing artifacts.
+Record model identifier, immutable repository commit revision, tokenizer revision, architecture, parameter count, supported context length, chat template, license, and intended use. Do not assume all sizes in a model family have identical licensing.
+Assess a small validation sample for task suitability and hardware footprint before committing to full training. Select on validation evidence and resource limits, not model popularity. Do not compare an adapted small model against an unrelated stronger hosted model and call that a controlled fine-tuning experiment.
+For a real small CPU training smoke test, a smaller compatible model may be used. Clearly distinguish that artifact from the main portfolio model. Model downloads require network availability; caches and offline behavior must be documented.
+10 Dataset design and source provenance
+Aim for 1,000–3,000 usable examples after validation and deduplication. Prioritize independently varied scenarios over mechanically inflating row count with near-identical sentences.
+Include direct requests, paraphrases, informal language, typos, long irrelevant context, negative statements, multiple entities, missing facts, ambiguous issues, out-of-scope input, prompt-injection text, and difficult category boundaries.
+Create a realistic authored support-message track. Record whether each input and label is student-authored, implementation-AI-generated, model-generated, public-source-derived, automatically checked, or human-reviewed. An AI-generated input with a label produced by the same AI has correlated errors; document that limitation.
+Each example records ID, scenario/family ID, source, provenance, review status, annotation-spec version, original message, reference timestamp if provided, target output, and creation method. Keep generator configuration, template family, seed, and provider details where applicable.
+Never claim that generated labels are human-verified. If no human review is available, include an annotation queue and a stratified review sheet, mark the semantic labels unreviewed, and explain the limitation in every quality report.
+11 Independently sourced data and privacy
+Where feasible, add a small independently sourced support-intent or ticket track from a dataset with clear usage terms. Verify official dataset documentation, license, provenance, redistribution permissions, and personal-data treatment before importing it.
+Do not scrape private customer conversations or use an arbitrary public URL as proof of training permission. If labels do not match this schema, document a mapping and its limitations; do not fabricate span or summary labels that the source never supplied.
+A category-only public dataset can evaluate the category head or classifier separately. It cannot establish full triage quality without appropriate full-output labels.
+If permitted public data is unavailable, deliver the working authored track and explicitly mark the external-validation track missing. Do not block the entire application or create fictional provenance.
+Exclude real personal data and secrets from published artifacts and default logs. Source-specific restrictions may require publishing hashes, metadata, and an import script instead of raw data.
+12 Deduplication and grouped splits
+Freeze train, validation, and final test membership before prompt or training tuning. A starting allocation near 70/15/15 by examples is reasonable, but split at the independent family level, then report actual sizes.
+Keep paraphrases, generated variants, conversation threads, source tickets, and closely related template families together. Changing the order ID does not create an independent example. Detect exact duplicates and near duplicates across splits with documented lexical and optional embedding checks.
+Do not generate all rows from one narrow template and randomly split them. Prefer assigning scenario families to splits before generating variants. Maintain category coverage without splitting related variants across partitions.
+Record family grouping rules, split seed, dataset hashes, duplicate decisions, category distributions, source distributions, and token-length distributions. Inspect contamination and inconsistent labels before training.
+Use validation for prompts, few-shot selection rules, hyperparameters, stopping, decoding, thresholds, and model selection. Final test labels must not enter training examples, few-shot prompts, generators, or tuning decisions. Record every test exposure.
+13 Label quality and review workflow
+Write an annotation guide with category definitions, precedence rules, entity boundaries, missing-information requirements, supported-summary examples, ambiguity rules, and counterexamples.
+Validate schemas and spans automatically. Detect contradictory labels in related families, unsupported entities, summaries that add absent facts, and inappropriate clarification fields.
+Prepare a stratified manual review set covering every category and difficult slice. Record reviewer identity or role, timestamp, changes, and disagreement when actual review occurs. AI review remains automated review.
+If multiple humans review a sample, report agreement and adjudication using the observed records. Do not invent agreement percentages. Keep machine checks, automated semantic judgments, and human labels separate in the manifest and report.
+For unreviewed test data, describe results as agreement with the provided labels, not established real-world accuracy. Recommend independent semantic review as a concrete next step.
+14 Simple non-generative baseline
+Implement a competent category baseline such as word/character TF-IDF with logistic regression. Train vectorizers and classifier on training data only; choose hyperparameters on validation.
+Report category accuracy, macro-F1, per-category precision/recall, and confusion pairs. Use an explicit uncertainty or out-of-scope rule if included, selected on validation. A classifier confidence score is not a general probability that the full triage record is correct.
+Optional regex entity extraction provides an inspectable baseline for rigid identifiers and emails. Document where it fails. Do not describe a category-only classifier as completing unsupported summary or missing-information fields.
+Compare systems on the fields they genuinely produce, and separately evaluate complete generative outputs. Never make the simple baseline deliberately weak to manufacture a fine-tuning benefit.
+15 Zero shot and few shot generative baselines
+Implement zero-shot prompting and a strong few-shot prompt using the same selected base checkpoint and tokenizer. Use the task specification and representative training examples; never use final test examples as demonstrations.
+Select a small bounded set of demonstrations by a documented validation-driven rule. Record exact example IDs, prompt version, order, token budget, and output schema. Keep few-shot selection deterministic for the frozen test run.
+Use the same input messages, schema, output limits, and controlled decoding when comparing unadapted and adapted models. Greedy decoding is a reasonable initial reproducibility choice, but record actual settings and limitations.
+A fair minimum comparison includes base zero-shot, base few-shot, and adapted inference under the matching production task prompt. To isolate the effect of the adapter, also compare base and adapted weights with an identical prompt and decoding configuration. Report a tuned production comparison separately if prompts differ.
+Use no hidden gold facts or question-specific rules. Report raw output and validated output separately. A parser that replaces invalid predictions with gold labels invalidates the experiment.
+16 Training examples and chat formatting
+Choose a training representation supported by the installed TRL version: conversational messages or prompt/completion examples. Store one canonical formatting function shared by training and inference where appropriate.
+Use the model's verified chat template and end-of-turn tokens. Do not duplicate special tokens when tokenizing already formatted chat text. Training targets must contain the expected assistant output without an inference-only dangling assistant generation prefix.
+Train on the intended completion or assistant tokens, not accidentally on all prompt tokens. TRL exposes completion-only and assistant-only loss options, but assistant-only masking depends on template support. Inspect actual token IDs and labels rather than assuming a flag worked.
+Write a diagnostic that decodes a formatted example and highlights which tokens contribute to loss. Assert that prompt tokens are masked where intended and that the target JSON and stop tokens are learned. Reject empty loss targets.
+Detect sequences exceeding the configured length. Do not silently truncate the target JSON or remove input evidence needed for the label. Filter, redesign, or explicitly handle long examples, and publish counts. Disable packing initially; add it only after validating masks and boundaries.
+17 LoRA and QLoRA implementation
+Implement real supervised LoRA adaptation with PEFT and TRL. Record rank, alpha, dropout, target modules, trainable parameter counts, optimizer, learning rate, scheduler, batch size, gradient accumulation, maximum sequence length, epochs or steps, evaluation cadence, and seed.
+Verify target module names from the selected architecture. Confirm that expected adapter parameters receive gradients and change after optimization while the intended base parameters remain frozen.
+Use QLoRA only when supported and useful for the available hardware. Record quantization type, compute dtype, double-quantization setting if used, and actual backend. Follow the verified quantized-model preparation path before adapter training.
+Do not claim quantization eliminates activation or optimizer memory. Estimate requirements and then measure peak device memory. Do not use an inference-oriented automatic device placement recipe as an unverified training strategy.
+Check BF16 or FP16 support on the actual accelerator. Handle gradient scaling and finite losses appropriately. A tiny successful run verifies mechanics; it does not establish the final adapter's quality.
+18 Training protocol and reproducibility
+Start with a short real smoke run to validate formatting, loss masks, gradients, checkpoints, and export/reload. Use a small overfit diagnostic only to check mechanics and clearly exclude it from held-out quality evidence.
+Then run a controlled training experiment within the available hardware and compute budget. Set seeds for Python, NumPy, PyTorch, and dataset operations. Record deterministic settings and known nondeterministic kernels; do not promise bitwise reproducibility across different GPUs or software stacks.
+Choose hyperparameters and checkpoints on validation criteria declared before final test. Limit the search to a small maintainable set of runs. Preserve all relevant runs, including failed runs and negative results.
+Save intermediate checkpoints and test resume behavior. A resumed training checkpoint includes optimizer, scheduler, and random state where supported; an exported inference adapter is not automatically a complete resume checkpoint.
+Record training duration, examples and tokens processed, effective batch size, device, peak memory, losses, validation metrics, warnings, and artifact hashes. Paid compute or API data generation requires an explicitly authorized budget; existing credentials are not permission for unlimited spending.
+19 Hardware unavailable and blocked work
+When GPU access is unavailable, finish schemas, data validation, splits, classifier, fixture demo, inference abstraction, evaluation, tests, API, and deployment configuration. Run a small real training smoke test only if the available CPU model and time permit it.
+Provide executable scripts and configuration for the intended GPU experiment, with a documented environment check and resource estimate. Do not replace the missing main training run with fabricated adapter weights, a downloaded unrelated adapter, or an unexecuted report.
+Mark main-model training, adapted held-out comparison, and GPU serving measurements blocked or unverified until actually performed. The main adaptation milestone remains incomplete when no actual main-model adapter exists.
+Never spin up paid cloud hardware or download very large artifacts without considering the supplied budget and environment. Continue independent work while access is unresolved and make the remaining action concrete.
+20 Model artifact and compatibility contract
+Package the adapter with its configuration, tokenizer files or pinned reference, base checkpoint revision, task-schema version, prompt version, training dataset hash, run manifest, license references, and expected runtime versions.
+Use safe tensor formats where supported. Do not load arbitrary untrusted pickle objects or enable remote model code by default. Any required remote code must be inspected, pinned, justified, and documented.
+Fail clearly when the adapter's base model, tokenizer, task schema, or target architecture is incompatible. Do not attach an adapter to a similar-looking model alias without checking provenance.
+Verify export/reload predictions against the training process under controlled decoding. Keep the base-plus-adapter artifact as core; a merged model is optional. If merging or inference quantization is added, test output and metric parity and record any quality drift. Do not assume a training-time quantized model can be merged safely by a generic recipe.
+Include a model card covering intended use, unsupported uses, data/review status, measured quality, resource requirements, known failure slices, and training limitations. Do not commit large model weights to ordinary Git; document a permitted artifact download or local build path.
+21 Inference and validation behavior
+Implement real Transformers inference for base and adapted modes. Use a bounded queue, input length checks, token-aware budgets, fixed maximum output tokens, and model-appropriate stopping. Return typed statuses for ok, needs_clarification, out_of_scope, invalid_output, model_unavailable, overloaded, and inference_failed, with schema-level triage status kept separate from transport failure.
+Parse and validate model output through the same versioned schema used in data tooling. Validate entity and summary span references against the submitted text. Reject nonexistent spans and altered quotes.
+Use a documented bounded repair policy, if any. Store raw validity, repair attempts, and final validity separately. Do not silently supply missing facts, correct categories using hidden evaluation labels, or claim post-repair validity as raw model validity.
+An output that fails validation after the allowed attempt returns a distinct failure, not a plausible fabricated triage record. Semantic mistakes can still pass structural validation; expose that limitation in documentation.
+If timeouts cannot interrupt an in-process generation kernel promptly, document the actual behavior and bound queue admission accordingly. Do not pretend an HTTP timeout frees GPU capacity immediately.
+22 API and comparison interface
+Provide /api/v1/... endpoints for health, readiness, loaded-model metadata, triage, controlled comparison, authorized experiment reports, and sanitized per-example results. Use consistent error envelopes, request IDs, bounded text sizes, and explicit model/mode identifiers.
+A triage response includes validated output when available, execution mode, base/adapter versions, schema/prompt version, raw-validity status, repair count, timings, and measured token usage. Provider usage is optional; local token counts should come from the actual tokenizer and generated tokens.
+Build Triage, Compare, Dataset, and Experiments views. Show evidence highlights, missing information, and validation failures. Compare displays actual outputs side by side and unavailable states honestly. Dataset and experiment administration require credentials.
+Do not let users supply arbitrary filesystem paths, model download URLs, adapters, Python code, or training commands through the API. Expose only configured model bundles. Keep developer traces separate from the ordinary triage UI.
+Use real API data, safe HTML escaping, and sanitized Markdown if used. Include empty, loading, failure, overloaded, and unavailable states. Screenshots must come from actual running software.
+23 Credential free demonstration and clean setup
+Provide an explicitly labeled fixture mode for ordinary CI and a deterministic sample walkthrough. Fixture responses may be keyed to documented demo examples; they test interfaces and contracts, not model quality.
+Offer a separate real local-model command that downloads or uses the pinned base model and compatible adapter. Explain download size, hardware needs, offline cache use, and the adapter's actual availability.
+Do not claim the fixture profile verifies Transformers inference or training. Do not call pretrained base inference adapted inference. API and UI must preserve these distinctions.
+Document CPU fixture, real inference, and GPU training startup separately with working commands. Installation and dependency-lock tests should use the supported profile and not accidentally require a CUDA toolkit for default CI.
+24 Complete output evaluation
+Evaluate category prediction, entities, missing information, summary claims, structural validity, and clarification/out-of-scope behavior separately.
+Define metrics and denominators precisely:
+- Category accuracy and macro-F1 over examples with applicable gold categories; publish exclusions and per-category support.
+- Triage-status accuracy or macro-F1 over all relevant examples.
+- Strict entity precision, recall, and F1 over type and exact source-span matches; report normalized-value matching separately if used.
+- Missing-information precision/recall over the controlled required-field sets, including unnecessary questions.
+- Raw schema validity over all attempted model outputs, and post-repair validity as a separate statistic.
+- Unsupported entity rate with an explicit entity-level denominator, plus example-level incidence.
+- Supported, unsupported, and ambiguous summary claims under an identified semantic rubric or judge.
+- Complete-record success under a published conjunction of required field criteria; do not substitute this for the component metrics.
+- Wrong confident triage on ambiguous/out-of-scope inputs and unnecessary clarification on clear inputs as separate measures.
+Report inference errors as well as semantic failures. Show all-attempted quality and any valid-output-only score side by side so invalid responses are not quietly removed from the denominator.
+25 Semantic rubric and human review
+Use correctness labels 0 wrong, 1 partially correct or missing a material fact, and 2 correct with required facts and no unsupported additions. Define category ambiguity and acceptable alternative outputs in the annotation guide.
+For summaries, judge whether every claim is stated or reasonably supported by the message and whether important qualifiers are preserved. A string-overlap score cannot establish semantic support. Automated exact checks are appropriate for IDs, spans, schemas, and explicitly stated amounts.
+If using an LLM judge, record its provider/model, prompt version, settings, input evidence, output schema, and cost. Keep message text separated from instructions and include injection examples.
+Prepare a stratified manual sample to inspect judge mistakes and label errors. Report observed disagreement only when actual humans reviewed it. If review is unavailable, label semantic results automated, leave review sheets ready, and avoid calling the benchmark independently verified.
+Do not use a teacher model's agreement with its own generated labels as proof of real-world correctness. Acknowledge possible shared biases between data generator, student model, and judge.
+26 Controlled comparisons and uncertainty
+Freeze datasets, prompts, decoding, checkpoint selection, and metrics after validation. Compare base zero-shot, base few-shot, adapted under matched prompting, and the category classifier on the identical relevant test examples.
+Save raw outputs and per-example results for every method, with family IDs, resolved labels, errors, timing, and model versions. Provide paired differences and family-level bootstrap intervals where the number of independent families supports them.
+Break results down by category, source track, ambiguity, length, typos, multi-issue input, entity type, missing fields, and injection cases. Publish small slice sizes and avoid strong conclusions from a handful of examples.
+Test a few reasonable configurations on validation; do not perform a large hyperparameter search that one student cannot reproduce. Keep quantization, constrained decoding, prompt changes, and adapter changes separated when attributing improvements.
+If a final-test failure informs a fix, record that exposure and label subsequent results accordingly. Preserve the first frozen run. Do not repeatedly optimize on the holdout while calling it untouched.
+27 Quality targets and failure analysis
+Use actual validation results to declare targets before final test: acceptable raw validity, category performance, entity grounding, unnecessary clarification, and latency for the intended deployment. Record exact definitions and selection rationale.
+Do not invent a universal accuracy threshold merely to declare success. Do not promise fine-tuning will improve every field. Compare changes against uncertainty, serving overhead, data quality, and model-maintenance cost.
+Every report includes actual failure examples: confused category boundaries, a missing qualifier, a wrong span, long-input failure, unsupported entity, unnecessary question, or malformed JSON. Distinguish label errors, formatting defects, model errors, and evaluator errors.
+Recommend the highest-value fix supported by observed failures. A negative adaptation result may justify stronger labels or a simpler production baseline. Do not hide that outcome or replace it with a selected successful demo.
+28 Performance memory and compute measurement
+Measure model load, queue wait, prompt tokenization, generation, validation/repair, and total request latency. Record p50 and p95 with request counts, failures, hardware, concurrency, prompt/output lengths, precision, quantization, and warm/cold state.
+Measure process resident memory and peak accelerator memory separately. CUDA allocation statistics are not total process memory, and resident memory does not include all device memory. Record training and inference footprints independently.
+Benchmark base and adapted models under comparable loading and decoding conditions. If one shared model toggles adapters, serialize or safely isolate concurrent mode selection so requests cannot receive the wrong weights. Do not assume adapters improve throughput.
+Run a modest fixed-input load experiment with bounded concurrency. Record generated tokens per second if meaningful and define the denominator. Separate single-request latency from throughput. Include out-of-memory and overloaded outcomes.
+Report actual training time and hardware. Estimate dollar cost only using a dated hardware/provider price configuration, including data generation and judging where measured. Unknown cost is unknown. Do not recommend a hosting tier before measuring the actual bundle.
+29 Security reliability and model lifecycle
+Use simple administrator/developer credentials for protected data and report views. An optional public demo uses fictional inputs, bounded rate and output limits, and no training or artifact-upload routes.
+Treat user text as untrusted data even when it asks the model to change schemas, reveal prompts, or follow embedded instructions. Observe failures in robustness evaluation rather than advertising schema checks as an injection guarantee.
+Exclude raw private messages, API keys, and unnecessary personal data from default logs. Define retention for stored inputs, outputs, review samples, and experiment exports. Deletion must remove authorized stored copies rather than merely hiding a UI row.
+Load bundles at startup or through an authenticated controlled deployment path. Readiness remains false until required model/tokenizer/adapter checks pass. Use immutable bundle IDs in traces and preserve the previous known-working artifact for rollback.
+Do not allow concurrent adapter mutation to change another request's model. A simple one-model-per-process or serialized comparison design is acceptable; document its memory and concurrency tradeoff.
+30 Tests that matter
+Required deterministic tests cover schema boundaries; unknown categories; multi-issue and missing-information rules; Unicode span indexing; repeated mentions; source-preserving normalization; invalid quotes; malformed and oversized output; and truncation detection.
+Test dataset hashes, grouping, duplicate rejection, cross-split contamination, train-only fitting, few-shot example membership, stable formatting, and metric denominators. Include examples where schema validity passes but category or semantic support is wrong.
+Test loss masks and nonempty targets; intended adapter gradients; export/reload compatibility; base/tokenizer mismatch; adapter-unavailable behavior; and fixture/live mode separation. Mark real-model training and inference tests separately from mocks.
+Test queue bounds, timeout behavior, overloaded response, log redaction, model metadata, concurrent base/adapted routing, protected report access, deletion/retention, and UI/API journeys.
+Default CI uses deterministic small fixtures and need not download the main model or have a GPU. A scheduled or opt-in integration suite can run real inference and a tiny training test. Never describe default mock tests as full model-training verification.
+31 Configuration experiment manifests and observability
+Provide typed settings and placeholder-only .env.example for model/cache paths, base revision, adapter bundle, runtime device/dtype, input/output budgets, concurrency, repair limits, data/report storage, access credentials, and optional judge/provider configuration.
+Fail clearly on unavailable hardware, incompatible bundles, unknown schema versions, or a requested adapted mode without an adapter. Do not silently change the model or device and keep the original experiment label.
+Emit request IDs, mode/bundle IDs, actual timings, validation status, queue depth, overloads, and errors. Keep metric labels bounded and omit user text. Generation-disabled or fixture readiness must identify its profile.
+Persist manifests with Git revision, dependency-lock hash, dataset and split hashes, label-spec version, model/tokenizer revisions, prompt/chat-template fingerprints, hyperparameters, device/software details, seed, checkpoint-selection rule, artifact hashes, and output paths.
+Ignore local caches, checkpoints, private inputs, and routine experiment outputs. Publish only intentionally sanitized reports and permitted small data. Optional MLflow should supplement portable manifests rather than become necessary to reproduce results.
+32 Repository and deployment deliverables
+Provide application source, tested dependency/environment locks, annotation guide, provenance/source manifests, validated examples, frozen splits, baseline runner, training/resume/export commands, inference bundles or an honest build path, evaluation runner, actual reports, tests, CI, Docker, and documentation.
+Suggested organization: src/adaptlm/contracts, data, baselines, training, inference, evaluation, artifacts, api, observability, and web; plus configs, datasets, tests, scripts, docs, and ignored local runs and models directories.
+Provide a CPU fixture Docker target and a real inference target with documented model caching and persistent report storage. GPU support needs a tested accelerator runtime configuration, not a comment claiming CUDA works. Training is a separate offline command or container profile.
+Choose one hosting path from actual memory and latency measurements. A containerized local endpoint plus a real recorded GPU training/inference demonstration is acceptable for this portfolio if remote hosting is unavailable.
+Document secrets, volumes, model cache, artifact acquisition, startup, readiness, resource limits, rollback, and deployment validation. Mark remote deployment unverified unless actually performed. Include screenshots from a running application, README, API curl examples, architecture, limitations, learning guide, and a demo script.
+33 Implementation milestones and acceptance
+Milestone 0: create the repository, inspect hardware and environment, choose supported profiles, lock dependencies, and run minimal startup checks.
+Milestone 1: define schema and annotation rules; create provenance-aware data tooling; validate spans; freeze grouped splits; prepare review sheets.
+Milestone 2: run the classifier and real zero-shot/few-shot baselines where the base model is available; save outputs and validation findings.
+Milestone 3: verify formatting and masks, run actual training smoke checks, then train the main adapter within the available budget. Record any hardware blocker explicitly.
+Milestone 4: export and reload the adapter; implement bounded inference, version metadata, validation, unavailable modes, and model compatibility tests.
+Milestone 5: complete Triage, Compare, Dataset, and Experiments views and verify important browser journeys.
+Milestone 6: freeze targets/configuration, run final controlled quality and serving experiments, inspect errors, and export uncertainty and limitations.
+Milestone 7: verify clean-checkout setup, containers, CI, artifact acquisition, documentation, screenshots, and final acceptance evidence.
+After each milestone, summarize changes, commands actually run, observed results, limitations, and the next milestone. Continue independent authorized work instead of stopping at the plan.
+Create an acceptance checklist marking each item verified, implemented but unverified, or blocked, with a command, test, screenshot, artifact, or report:
+1. Clean-checkout fixture startup works and is clearly identified.
+2. Dataset validation and split checks run with inspectable provenance and review status.
+3. Classifier and actual base-model baselines produce saved results.
+4. A real main-model adapter was trained, exported, and reloaded with verified provenance.
+5. Loss-mask, gradient, and compatibility diagnostics passed.
+6. The API returns actual base or adapted outputs and validates source spans.
+7. The interface compares actual configured outputs and unavailable states.
+8. Frozen held-out evaluation reports component metrics, raw validity, complete-output failures, and uncertainty.
+9. Latency and memory reports use actual hardware and model configuration.
+10. Containers, model cache, persistent report storage, access controls, and rollback instructions are reproducible.
+The full adaptation project is not complete without an actual trained main-model artifact and actual adapted evaluation. If hardware is missing, hand over all finished independent work and identify those acceptance items as blocked; do not manufacture completion.

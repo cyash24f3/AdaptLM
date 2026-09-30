@@ -1,0 +1,52 @@
+{
+  "request_id": "e445a9e7-0582-43a5-b4c1-b6ac6c8bc5c6",
+  "status": "invalid_output",
+  "mode": "few_shot",
+  "output": null,
+  "metadata": {
+    "profile": "local",
+    "ready": true,
+    "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "adapter_bundle_id": null,
+    "schema_version": "triage-1.0",
+    "prompt_version": "triage-prompt-1",
+    "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+    "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+    "device": "mps",
+    "dtype": "bfloat16",
+    "quantization": null,
+    "attention_implementation": "sdpa",
+    "load_seconds": 4.057693542010384,
+    "available_modes": [
+      "zero_shot",
+      "few_shot"
+    ],
+    "demonstration_ids": [
+      "authored-duplicate_charge-06-0",
+      "authored-account_access-00-0",
+      "authored-ambiguous-08-0"
+    ],
+    "demo_messages": []
+  },
+  "raw_valid": false,
+  "repair_count": 0,
+  "final_valid": false,
+  "error": "output failed schema or exact source-span validation",
+  "usage": {
+    "input_tokens": 725,
+    "output_tokens": 101
+  },
+  "truncated": false,
+  "process_rss_bytes": 397230080,
+  "accelerator_allocated_bytes": 3113000448,
+  "timings": {
+    "tokenization_seconds": 0.016812625020975247,
+    "generation_seconds": 9.408046416996513,
+    "queue_wait_seconds": 8.39160056784749e-05,
+    "validation_seconds": 0.0009571669797878712,
+    "total_seconds": 9.427973665995523
+  },
+  "raw": "{\"entities\":[],\"missing_information\":[{\"field\":\"email\",\"question\":\"Which email is associated with the account?\"},{\"field\":\"device_type\",\"question\":\"What type of authentication device did you lose?\"}],\"primary_issue\":\"account_access\",\"summary_claims\":[{\"spans\":[{\"end\":71,\"start\":0,\"text\":\"I lost my authentication device and cannot access my account.\"}],\"text\":\"I lost my authentication device and cannot access my account.\"}],\"triage_status\":\"out_of_scope\"}"
+}

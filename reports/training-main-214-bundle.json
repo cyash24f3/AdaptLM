@@ -1,0 +1,30 @@
+{
+  "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "schema_version": "triage-1.0",
+  "prompt_version": "triage-prompt-1",
+  "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+  "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+  "architecture": "Qwen2ForCausalLM",
+  "dataset_hash": "3dd0c22c0d51eb59d942122f681b2e48df76cebe994f1d90834bded71198f785",
+  "artifact_hashes": {
+    "adapter_model.safetensors": "79088b5c6de8db531f811654c7e7d7ff4ead7da490c455555e5842a36320ba3e",
+    "tokenizer_config.json": "0a04a9d7d4a62b28482bdfe726c122756de85714fb64166ace92ae75b8f57614",
+    "tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+    "adapter_config.json": "2812614d166728ec870d1bd3bf2e6808b7cb1e2bef5092caab4221055b9353df"
+  },
+  "run_manifest_hash": "0d4ee339c7e5402b76cb7125a9f000b0783dc437037cef66f9dcd4154afb1c13",
+  "runtime_packages": {
+    "adaptlm": "0.1.0",
+    "torch": "2.14.0",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "trl": "0.24.0",
+    "datasets": "4.2.0",
+    "numpy": "2.2.6"
+  },
+  "license": "Apache-2.0",
+  "experiment_kind": "main-one-epoch",
+  "bundle_id": "adaptlm-26632e778935a9dd"
+}

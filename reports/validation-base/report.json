@@ -1,0 +1,4148 @@
+{
+  "created_at": "2026-09-30T09:41:40.447600+00:00",
+  "git_revision": "HEAD",
+  "git_dirty": true,
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.13",
+  "packages": {
+    "adaptlm": "0.1.0",
+    "torch": "2.8.0",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "trl": "0.24.0",
+    "datasets": "4.2.0",
+    "numpy": "2.2.6"
+  },
+  "lock_hash": "e6ef7c3c1a9575dca2d01ea6b4bdf3deabf408f8091c690bc15b9ec73b9baaa4",
+  "schema_version": "triage-1.0",
+  "annotation_spec_version": "annotation-1.0",
+  "monetary_cost": {
+    "paid_services_used": false,
+    "electricity_cost": "unmeasured"
+  },
+  "split": "validation",
+  "example_ids": [
+    "authored-account_access-04-0",
+    "authored-ambiguous-06-0",
+    "authored-cancellation_request-03-0",
+    "authored-damaged_item-04-0",
+    "authored-delivery_problem-01-0",
+    "authored-duplicate_charge-04-0",
+    "authored-other_support-06-0",
+    "authored-out_of_scope-01-0",
+    "authored-product_help-09-0",
+    "authored-refund_request-00-0"
+  ],
+  "variant": 0,
+  "dataset_hash": "3dd0c22c0d51eb59d942122f681b2e48df76cebe994f1d90834bded71198f785",
+  "modes": [
+    "zero_shot",
+    "few_shot"
+  ],
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 384
+  },
+  "selection": "deterministic category round robin; no output-informed sample selection",
+  "configuration_hash": "b01cb44fa0b68f75b89b9540f9b8917757b9d83796cdb226f672f6ee1d08f7ab",
+  "runtime": {
+    "profile": "local",
+    "ready": true,
+    "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "adapter_bundle_id": null,
+    "schema_version": "triage-1.0",
+    "prompt_version": "triage-prompt-1",
+    "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+    "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+    "device": "mps",
+    "dtype": "bfloat16",
+    "quantization": null,
+    "load_seconds": 1.231471583014354,
+    "available_modes": [
+      "zero_shot",
+      "few_shot"
+    ],
+    "demonstration_ids": [
+      "authored-duplicate_charge-06-0",
+      "authored-account_access-00-0",
+      "authored-ambiguous-08-0"
+    ],
+    "demo_messages": []
+  },
+  "duration_seconds": 372.47580149999703,
+  "interpretation": "agreement with unreviewed implementation-AI-authored labels; semantic review pending",
+  "complete_success_definition": "final_valid AND exact category/status AND entity set AND missing set AND reference summary spans/text",
+  "metrics": {
+    "zero_shot": {
+      "attempted": 10,
+      "valid_outputs": 0,
+      "category_applicable": 8,
+      "category_exclusions": 2,
+      "category_accuracy_all_attempted": 0.0,
+      "category_accuracy_valid_only": null,
+      "category_macro_f1_all_attempted": 0.0,
+      "category_support": {
+        "account_access": 1,
+        "cancellation_request": 1,
+        "damaged_item": 1,
+        "delivery_problem": 1,
+        "duplicate_charge": 1,
+        "other_support": 1,
+        "product_help": 1,
+        "refund_request": 1
+      },
+      "status_accuracy_all_attempted": 0.0,
+      "status_macro_f1": 0.0,
+      "strict_entities": {
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "missing_information": {
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 12
+      },
+      "raw_schema_validity": 0.0,
+      "post_repair_validity": 0.0,
+      "entity_nonreference_rate": null,
+      "entity_nonreference_example_incidence": 0.0,
+      "unsupported_entity_semantic_rate": null,
+      "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+      "summary_claims": {
+        "attempted_valid_outputs": 0,
+        "verbatim_extracts": 0,
+        "semantic_supported": null,
+        "semantic_unsupported": null,
+        "semantic_ambiguous": null,
+        "unreviewed": 0,
+        "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+      },
+      "summary_reference_agreement": 0.0,
+      "complete_record_reference_success": 0.0,
+      "complete_record_semantic_success": null,
+      "wrong_confident_on_ambiguous_or_oos": 0.0,
+      "ambiguous_or_oos_denominator": 2,
+      "unnecessary_clarification_on_clear": null,
+      "clear_denominator": 0,
+      "transport_status_counts": {
+        "invalid_output": 10
+      }
+    },
+    "few_shot": {
+      "attempted": 10,
+      "valid_outputs": 0,
+      "category_applicable": 8,
+      "category_exclusions": 2,
+      "category_accuracy_all_attempted": 0.0,
+      "category_accuracy_valid_only": null,
+      "category_macro_f1_all_attempted": 0.0,
+      "category_support": {
+        "account_access": 1,
+        "cancellation_request": 1,
+        "damaged_item": 1,
+        "delivery_problem": 1,
+        "duplicate_charge": 1,
+        "other_support": 1,
+        "product_help": 1,
+        "refund_request": 1
+      },
+      "status_accuracy_all_attempted": 0.0,
+      "status_macro_f1": 0.0,
+      "strict_entities": {
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "missing_information": {
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 12
+      },
+      "raw_schema_validity": 0.0,
+      "post_repair_validity": 0.0,
+      "entity_nonreference_rate": null,
+      "entity_nonreference_example_incidence": 0.0,
+      "unsupported_entity_semantic_rate": null,
+      "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+      "summary_claims": {
+        "attempted_valid_outputs": 0,
+        "verbatim_extracts": 0,
+        "semantic_supported": null,
+        "semantic_unsupported": null,
+        "semantic_ambiguous": null,
+        "unreviewed": 0,
+        "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+      },
+      "summary_reference_agreement": 0.0,
+      "complete_record_reference_success": 0.0,
+      "complete_record_semantic_success": null,
+      "wrong_confident_on_ambiguous_or_oos": 0.0,
+      "ambiguous_or_oos_denominator": 2,
+      "unnecessary_clarification_on_clear": null,
+      "clear_denominator": 0,
+      "transport_status_counts": {
+        "invalid_output": 10
+      }
+    }
+  },
+  "paired_comparisons": {
+    "few_shot_minus_zero_shot": {
+      "independent_families": 10,
+      "paired_delta_b_minus_a": 0.0,
+      "95_percent_family_bootstrap_interval": [
+        0.0,
+        0.0
+      ],
+      "seed": 42,
+      "resamples": 1000,
+      "metric": "complete_record_reference_success"
+    }
+  },
+  "slices": {
+    "zero_shot": {
+      "account_access": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "account_access": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "ambiguous": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 0,
+        "category_exclusions": 1,
+        "category_accuracy_all_attempted": null,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": null,
+        "category_support": {},
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 1,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "ascii": {
+        "attempted": 10,
+        "valid_outputs": 0,
+        "category_applicable": 8,
+        "category_exclusions": 2,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "account_access": 1,
+          "cancellation_request": 1,
+          "damaged_item": 1,
+          "delivery_problem": 1,
+          "duplicate_charge": 1,
+          "other_support": 1,
+          "product_help": 1,
+          "refund_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 2,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 10
+        }
+      },
+      "cancellation_request": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "cancellation_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "damaged_item": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "damaged_item": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "delivery_problem": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "delivery_problem": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "duplicate_charge": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "duplicate_charge": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "ordinary": {
+        "attempted": 10,
+        "valid_outputs": 0,
+        "category_applicable": 8,
+        "category_exclusions": 2,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "account_access": 1,
+          "cancellation_request": 1,
+          "damaged_item": 1,
+          "delivery_problem": 1,
+          "duplicate_charge": 1,
+          "other_support": 1,
+          "product_help": 1,
+          "refund_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 2,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 10
+        }
+      },
+      "other_support": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "other_support": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "out_of_scope": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 0,
+        "category_exclusions": 1,
+        "category_accuracy_all_attempted": null,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": null,
+        "category_support": {},
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 1,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "product_help": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "product_help": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "refund_request": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "refund_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "standard": {
+        "attempted": 10,
+        "valid_outputs": 0,
+        "category_applicable": 8,
+        "category_exclusions": 2,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "account_access": 1,
+          "cancellation_request": 1,
+          "damaged_item": 1,
+          "delivery_problem": 1,
+          "duplicate_charge": 1,
+          "other_support": 1,
+          "product_help": 1,
+          "refund_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 2,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 10
+        }
+      }
+    },
+    "few_shot": {
+      "account_access": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "account_access": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "ambiguous": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 0,
+        "category_exclusions": 1,
+        "category_accuracy_all_attempted": null,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": null,
+        "category_support": {},
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 1,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "ascii": {
+        "attempted": 10,
+        "valid_outputs": 0,
+        "category_applicable": 8,
+        "category_exclusions": 2,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "account_access": 1,
+          "cancellation_request": 1,
+          "damaged_item": 1,
+          "delivery_problem": 1,
+          "duplicate_charge": 1,
+          "other_support": 1,
+          "product_help": 1,
+          "refund_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 2,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 10
+        }
+      },
+      "cancellation_request": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "cancellation_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "damaged_item": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "damaged_item": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "delivery_problem": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "delivery_problem": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "duplicate_charge": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "duplicate_charge": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "ordinary": {
+        "attempted": 10,
+        "valid_outputs": 0,
+        "category_applicable": 8,
+        "category_exclusions": 2,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "account_access": 1,
+          "cancellation_request": 1,
+          "damaged_item": 1,
+          "delivery_problem": 1,
+          "duplicate_charge": 1,
+          "other_support": 1,
+          "product_help": 1,
+          "refund_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 2,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 10
+        }
+      },
+      "other_support": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "other_support": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "out_of_scope": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 0,
+        "category_exclusions": 1,
+        "category_accuracy_all_attempted": null,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": null,
+        "category_support": {},
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 1,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "product_help": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "product_help": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "refund_request": {
+        "attempted": 1,
+        "valid_outputs": 0,
+        "category_applicable": 1,
+        "category_exclusions": 0,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "refund_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": null,
+        "ambiguous_or_oos_denominator": 0,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 1
+        }
+      },
+      "standard": {
+        "attempted": 10,
+        "valid_outputs": 0,
+        "category_applicable": 8,
+        "category_exclusions": 2,
+        "category_accuracy_all_attempted": 0.0,
+        "category_accuracy_valid_only": null,
+        "category_macro_f1_all_attempted": 0.0,
+        "category_support": {
+          "account_access": 1,
+          "cancellation_request": 1,
+          "damaged_item": 1,
+          "delivery_problem": 1,
+          "duplicate_charge": 1,
+          "other_support": 1,
+          "product_help": 1,
+          "refund_request": 1
+        },
+        "status_accuracy_all_attempted": 0.0,
+        "status_macro_f1": 0.0,
+        "strict_entities": {
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "missing_information": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "raw_schema_validity": 0.0,
+        "post_repair_validity": 0.0,
+        "entity_nonreference_rate": null,
+        "entity_nonreference_example_incidence": 0.0,
+        "unsupported_entity_semantic_rate": null,
+        "unsupported_entity_limitation": "Nonreference spans are not proof of unsupported meaning; semantic review pending.",
+        "summary_claims": {
+          "attempted_valid_outputs": 0,
+          "verbatim_extracts": 0,
+          "semantic_supported": null,
+          "semantic_unsupported": null,
+          "semantic_ambiguous": null,
+          "unreviewed": 0,
+          "rubric": "docs/annotation-guide.md; exact matching cannot establish semantic correctness"
+        },
+        "summary_reference_agreement": 0.0,
+        "complete_record_reference_success": 0.0,
+        "complete_record_semantic_success": null,
+        "wrong_confident_on_ambiguous_or_oos": 0.0,
+        "ambiguous_or_oos_denominator": 2,
+        "unnecessary_clarification_on_clear": null,
+        "clear_denominator": 0,
+        "transport_status_counts": {
+          "invalid_output": 10
+        }
+      }
+    }
+  },
+  "failures": {
+    "zero_shot": [
+      {
+        "id": "authored-account_access-04-0",
+        "family_id": "account_access-04",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "account_access",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 61,
+        "gold_category": "account_access",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.005078583024442196,
+          "generation_seconds": 1.3878497499972582,
+          "queue_wait_seconds": 2.6458001229912043e-05,
+          "validation_seconds": 0.00010683402069844306,
+          "total_seconds": 1.3942589159996714
+        },
+        "usage": {
+          "input_tokens": 396,
+          "output_tokens": 14
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "98fbdd00-1057-4e57-b38f-3410f7657617",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 396,
+            "output_tokens": 14
+          },
+          "truncated": false,
+          "process_rss_bytes": 662355968,
+          "accelerator_allocated_bytes": 3087435520,
+          "timings": {
+            "tokenization_seconds": 0.005078583024442196,
+            "generation_seconds": 1.3878497499972582,
+            "queue_wait_seconds": 2.6458001229912043e-05,
+            "validation_seconds": 0.00010683402069844306,
+            "total_seconds": 1.3942589159996714
+          },
+          "raw": "MESSAGE:\nI lost my authentication device and access to my account."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            }
+          ],
+          "primary_issue": "account_access",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 61,
+                  "start": 0,
+                  "text": "I lost my authentication device and cannot access my account."
+                }
+              ],
+              "text": "I lost my authentication device and cannot access my account."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I lost my authentication device and cannot access my account."
+      },
+      {
+        "id": "authored-ambiguous-06-0",
+        "family_id": "ambiguous-06",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "ambiguous",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 64,
+        "gold_category": null,
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": false,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.0016092919977381825,
+          "generation_seconds": 43.64745162500185,
+          "queue_wait_seconds": 2.62079993262887e-05,
+          "validation_seconds": 0.009919790987623855,
+          "total_seconds": 43.712196165986825
+        },
+        "usage": {
+          "input_tokens": 399,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "5923d275-e6f4-4dc5-8a91-b7e2fe21d7b1",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 389660672,
+          "accelerator_allocated_bytes": 3087533568,
+          "timings": {
+            "tokenization_seconds": 0.0016092919977381825,
+            "generation_seconds": 43.64745162500185,
+            "queue_wait_seconds": 2.62079993262887e-05,
+            "validation_seconds": 0.009919790987623855,
+            "total_seconds": 43.712196165986825
+          },
+          "raw": "I have been to see. I have had. I have received. I have sent. I have asked. I have replied. I have answered. I have informed. I have advised. I have explained. I have clarified. I have pointed out. I have mentioned. I have referred to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to. I have alluded to."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "issue_details",
+              "question": "Which support issue should we address first?"
+            }
+          ],
+          "primary_issue": null,
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 64,
+                  "start": 0,
+                  "text": "I need billing assistance or maybe delivery help, I am not sure."
+                }
+              ],
+              "text": "I need billing assistance or maybe delivery help, I am not sure."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I need billing assistance or maybe delivery help, I am not sure."
+      },
+      {
+        "id": "authored-cancellation_request-03-0",
+        "family_id": "cancellation_request-03",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "cancellation_request",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 50,
+        "gold_category": "cancellation_request",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 2,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.036053875024663284,
+          "generation_seconds": 2.7205961660074536,
+          "queue_wait_seconds": 0.000562166009331122,
+          "validation_seconds": 0.00033629199606366456,
+          "total_seconds": 2.7718752910150215
+        },
+        "usage": {
+          "input_tokens": 396,
+          "output_tokens": 15
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "d7d30199-9c6f-4ee7-95f2-092157b0c20d",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 396,
+            "output_tokens": 15
+          },
+          "truncated": false,
+          "process_rss_bytes": 265175040,
+          "accelerator_allocated_bytes": 3087435520,
+          "timings": {
+            "tokenization_seconds": 0.036053875024663284,
+            "generation_seconds": 2.7205961660074536,
+            "queue_wait_seconds": 0.000562166009331122,
+            "validation_seconds": 0.00033629199606366456,
+            "total_seconds": 2.7718752910150215
+          },
+          "raw": "Message:\nI am away from home and need to end the subscription."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            },
+            {
+              "field": "plan_name",
+              "question": "Which subscription plan should be cancelled?"
+            }
+          ],
+          "primary_issue": "cancellation_request",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 50,
+                  "start": 0,
+                  "text": "I am moving away and need to end the subscription."
+                }
+              ],
+              "text": "I am moving away and need to end the subscription."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I am moving away and need to end the subscription."
+      },
+      {
+        "id": "authored-damaged_item-04-0",
+        "family_id": "damaged_item-04",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "damaged_item",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 49,
+        "gold_category": "damaged_item",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.01846637501148507,
+          "generation_seconds": 2.5145556250063237,
+          "queue_wait_seconds": 0.00011679099407047033,
+          "validation_seconds": 0.00011670798994600773,
+          "total_seconds": 2.5358050409995485
+        },
+        "usage": {
+          "input_tokens": 394,
+          "output_tokens": 13
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "33154832-93b1-4be6-80e2-9d2191f0eec1",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 394,
+            "output_tokens": 13
+          },
+          "truncated": false,
+          "process_rss_bytes": 342163456,
+          "accelerator_allocated_bytes": 3087435520,
+          "timings": {
+            "tokenization_seconds": 0.01846637501148507,
+            "generation_seconds": 2.5145556250063237,
+            "queue_wait_seconds": 0.00011679099407047033,
+            "validation_seconds": 0.00011670798994600773,
+            "total_seconds": 2.5358050409995485
+          },
+          "raw": "I'm sorry, but I can't provide that information."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "order_id",
+              "question": "What is the order ID?"
+            }
+          ],
+          "primary_issue": "damaged_item",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 49,
+                  "start": 0,
+                  "text": "The delivered headphones have a snapped headband."
+                }
+              ],
+              "text": "The delivered headphones have a snapped headband."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "The delivered headphones have a snapped headband."
+      },
+      {
+        "id": "authored-delivery_problem-01-0",
+        "family_id": "delivery_problem-01",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "delivery_problem",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 66,
+        "gold_category": "delivery_problem",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.015036625001812354,
+          "generation_seconds": 3.448937584005762,
+          "queue_wait_seconds": 3.504200140014291e-05,
+          "validation_seconds": 9.962500189431012e-05,
+          "total_seconds": 3.4883758750220295
+        },
+        "usage": {
+          "input_tokens": 397,
+          "output_tokens": 24
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "fa4b00a6-8589-42d5-a721-dff508212c83",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 397,
+            "output_tokens": 24
+          },
+          "truncated": false,
+          "process_rss_bytes": 307380224,
+          "accelerator_allocated_bytes": 3087533568,
+          "timings": {
+            "tokenization_seconds": 0.015036625001812354,
+            "generation_seconds": 3.448937584005762,
+            "queue_wait_seconds": 3.504200140014291e-05,
+            "validation_seconds": 9.962500189431012e-05,
+            "total_seconds": 3.4883758750220295
+          },
+          "raw": "THE MESSAGE IS A LIST OF FIELDS OF THE FIELD EMAIL PRODUCT HELP SUPPORT REFUND REQUEST PROBLEM SOLUTION NULL."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "order_id",
+              "question": "What is the order ID?"
+            }
+          ],
+          "primary_issue": "delivery_problem",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 66,
+                  "start": 0,
+                  "text": "The tracking page says delivered but I never received the package."
+                }
+              ],
+              "text": "The tracking page says delivered but I never received the package."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "The tracking page says delivered but I never received the package."
+      },
+      {
+        "id": "authored-duplicate_charge-04-0",
+        "family_id": "duplicate_charge-04",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "duplicate_charge",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 54,
+        "gold_category": "duplicate_charge",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 2,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.013755207997746766,
+          "generation_seconds": 1.2775709589768667,
+          "queue_wait_seconds": 3.6959012504667044e-05,
+          "validation_seconds": 5.512501229532063e-05,
+          "total_seconds": 1.2927517089992762
+        },
+        "usage": {
+          "input_tokens": 396,
+          "output_tokens": 8
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "3e0197ac-5022-4e21-81d3-abe70c34aab2",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 396,
+            "output_tokens": 8
+          },
+          "truncated": false,
+          "process_rss_bytes": 299483136,
+          "accelerator_allocated_bytes": 3087435520,
+          "timings": {
+            "tokenization_seconds": 0.013755207997746766,
+            "generation_seconds": 1.2775709589768667,
+            "queue_wait_seconds": 3.6959012504667044e-05,
+            "validation_seconds": 5.512501229532063e-05,
+            "total_seconds": 1.2927517089992762
+          },
+          "raw": "Message: A message was sent."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            },
+            {
+              "field": "transaction_id",
+              "question": "What is the transaction ID?"
+            }
+          ],
+          "primary_issue": "duplicate_charge",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 54,
+                  "start": 0,
+                  "text": "A single invoice was collected two times from my bank."
+                }
+              ],
+              "text": "A single invoice was collected two times from my bank."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "A single invoice was collected two times from my bank."
+      },
+      {
+        "id": "authored-other_support-06-0",
+        "family_id": "other_support-06",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "other_support",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 67,
+        "gold_category": "other_support",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.013757041015196592,
+          "generation_seconds": 2.768120416003512,
+          "queue_wait_seconds": 1.2917007552459836e-05,
+          "validation_seconds": 0.00021229198318906128,
+          "total_seconds": 2.785962833004305
+        },
+        "usage": {
+          "input_tokens": 399,
+          "output_tokens": 10
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "58728d9d-e93e-4e41-be4b-c48534585511",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 10
+          },
+          "truncated": false,
+          "process_rss_bytes": 236109824,
+          "accelerator_allocated_bytes": 3087435520,
+          "timings": {
+            "tokenization_seconds": 0.013757041015196592,
+            "generation_seconds": 2.768120416003512,
+            "queue_wait_seconds": 1.2917007552459836e-05,
+            "validation_seconds": 0.00021229198318906128,
+            "total_seconds": 2.785962833004305
+          },
+          "raw": "Message: I am up to my concerns."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "issue_details",
+              "question": "Which support issue should we address first?"
+            }
+          ],
+          "primary_issue": "other_support",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 67,
+                  "start": 0,
+                  "text": "I am following up on a support concern without the details at hand."
+                }
+              ],
+              "text": "I am following up on a support concern without the details at hand."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I am following up on a support concern without the details at hand."
+      },
+      {
+        "id": "authored-out_of_scope-01-0",
+        "family_id": "out_of_scope-01",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "out_of_scope",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 30,
+        "gold_category": null,
+        "predicted_category": null,
+        "gold_status": "out_of_scope",
+        "predicted_status": "invalid",
+        "category_applicable": false,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 0,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.04212529197684489,
+          "generation_seconds": 1.2781842919939663,
+          "queue_wait_seconds": 2.1832995116710663e-05,
+          "validation_seconds": 5.212501855567098e-05,
+          "total_seconds": 1.3227105420082808
+        },
+        "usage": {
+          "input_tokens": 392,
+          "output_tokens": 7
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "d15d0a31-2a55-4a91-878b-01025c1e8c8e",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 392,
+            "output_tokens": 7
+          },
+          "truncated": false,
+          "process_rss_bytes": 321716224,
+          "accelerator_allocated_bytes": 3087435520,
+          "timings": {
+            "tokenization_seconds": 0.04212529197684489,
+            "generation_seconds": 1.2781842919939663,
+            "queue_wait_seconds": 2.1832995116710663e-05,
+            "validation_seconds": 5.212501855567098e-05,
+            "total_seconds": 1.3227105420082808
+          },
+          "raw": "what the capital of France?"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [],
+          "primary_issue": null,
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 30,
+                  "start": 0,
+                  "text": "What is the capital of France?"
+                }
+              ],
+              "text": "What is the capital of France?"
+            }
+          ],
+          "triage_status": "out_of_scope"
+        },
+        "message": "What is the capital of France?"
+      },
+      {
+        "id": "authored-product_help-09-0",
+        "family_id": "product_help-09",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "product_help",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 45,
+        "gold_category": "product_help",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.021176874986849725,
+          "generation_seconds": 54.81961712500197,
+          "queue_wait_seconds": 2.4999986635521054e-05,
+          "validation_seconds": 0.006142874975921586,
+          "total_seconds": 54.86868754099123
+        },
+        "usage": {
+          "input_tokens": 395,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "d57db63d-e696-46c4-9610-1ab958c52021",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 395,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 313278464,
+          "accelerator_allocated_bytes": 3087533568,
+          "timings": {
+            "tokenization_seconds": 0.021176874986849725,
+            "generation_seconds": 54.81961712500197,
+            "queue_wait_seconds": 2.4999986635521054e-05,
+            "validation_seconds": 0.006142874975921586,
+            "total_seconds": 54.86868754099123
+          },
+          "raw": "UPDATE:\ndo not have to be updated. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate. Update.\nupdate"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "product_name",
+              "question": "Which product do you need help with?"
+            }
+          ],
+          "primary_issue": "product_help",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 45,
+                  "start": 0,
+                  "text": "How do I update the firmware on this product?"
+                }
+              ],
+              "text": "How do I update the firmware on this product?"
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "How do I update the firmware on this product?"
+      },
+      {
+        "id": "authored-refund_request-00-0",
+        "family_id": "refund_request-00",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "refund_request",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 53,
+        "gold_category": "refund_request",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 2,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.035247874999186024,
+          "generation_seconds": 1.1399249999958556,
+          "queue_wait_seconds": 0.0012341669935267419,
+          "validation_seconds": 9.92499990388751e-05,
+          "total_seconds": 1.17982345900964
+        },
+        "usage": {
+          "input_tokens": 396,
+          "output_tokens": 9
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "1f1ce875-10e6-4c6f-8035-29ca609d18fa",
+          "status": "invalid_output",
+          "mode": "zero_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 396,
+            "output_tokens": 9
+          },
+          "truncated": false,
+          "process_rss_bytes": 369557504,
+          "accelerator_allocated_bytes": 3087435520,
+          "timings": {
+            "tokenization_seconds": 0.035247874999186024,
+            "generation_seconds": 1.1399249999958556,
+            "queue_wait_seconds": 0.0012341669935267419,
+            "validation_seconds": 9.92499990388751e-05,
+            "total_seconds": 1.17982345900964
+          },
+          "raw": "I have purchased and like to buy."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            },
+            {
+              "field": "transaction_id",
+              "question": "What is the transaction ID?"
+            }
+          ],
+          "primary_issue": "refund_request",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 53,
+                  "start": 0,
+                  "text": "I returned the purchase and would like my money back."
+                }
+              ],
+              "text": "I returned the purchase and would like my money back."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I returned the purchase and would like my money back."
+      }
+    ],
+    "few_shot": [
+      {
+        "id": "authored-account_access-04-0",
+        "family_id": "account_access-04",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "account_access",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 61,
+        "gold_category": "account_access",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.02262837500893511,
+          "generation_seconds": 41.03973670798587,
+          "queue_wait_seconds": 2.7332978788763285e-05,
+          "validation_seconds": 6.887500057928264e-05,
+          "total_seconds": 41.068110457999865
+        },
+        "usage": {
+          "input_tokens": 725,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "f2d3bc47-6188-4b2b-951c-f1912663092f",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 725,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2609119232,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.02262837500893511,
+            "generation_seconds": 41.03973670798587,
+            "queue_wait_seconds": 2.7332978788763285e-05,
+            "validation_seconds": 6.887500057928264e-05,
+            "total_seconds": 41.068110457999865
+          },
+          "raw": "Message: My CPU is running at 75% of design capacity. I am now using a new algorithm that can process large amounts of data efficiently. My CPU is running at 95% of design capacity. I am now using a new algorithm that can handle large amounts of data efficiently. My CPU is running at 85% of design capacity. I am now using a new algorithm that can process large amounts of data efficiently. My CPU is running at 90% of design capacity. I am now using a new algorithm that can handle large amounts of data efficiently. My CPU is running at 95% of design capacity. I am now using a new algorithm that can process large amounts of data efficiently. My CPU is running at 100% of design capacity. I am now using a new algorithm that can handle large amounts of data efficiently. My CPU is running at 100% of design capacity. I am now using a new algorithm that can process large amounts of data efficiently. My CPU is running at 100% of design capacity. I am now using a new algorithm that can handle large amounts of data efficiently. My CPU is running at 100% of design capacity. I am now using a new algorithm that can process large amounts of data efficiently. My CPU is running at 100% of design capacity. I am now using a new algorithm that can handle large amounts of data efficiently. My CPU is running at 100% of design capacity. I am now using a new algorithm that can process large amounts of data efficiently. My CPU is running at 100% of design capacity. I am now using a new algorithm that can handle large amounts of data efficiently. My CPU is running at 100% of design capacity. I am now using a new algorithm that can process large amounts of"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            }
+          ],
+          "primary_issue": "account_access",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 61,
+                  "start": 0,
+                  "text": "I lost my authentication device and cannot access my account."
+                }
+              ],
+              "text": "I lost my authentication device and cannot access my account."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I lost my authentication device and cannot access my account."
+      },
+      {
+        "id": "authored-ambiguous-06-0",
+        "family_id": "ambiguous-06",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "ambiguous",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 64,
+        "gold_category": null,
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": false,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.0028135419997852296,
+          "generation_seconds": 26.76195416698465,
+          "queue_wait_seconds": 1.8291990272700787e-05,
+          "validation_seconds": 6.425002356991172e-05,
+          "total_seconds": 26.769111208996037
+        },
+        "usage": {
+          "input_tokens": 728,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "302a426d-6e5e-4dfd-a50b-6c90e2053669",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 728,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2653290496,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.0028135419997852296,
+            "generation_seconds": 26.76195416698465,
+            "queue_wait_seconds": 1.8291990272700787e-05,
+            "validation_seconds": 6.425002356991172e-05,
+            "total_seconds": 26.769111208996037
+          },
+          "raw": "Clincal 1x20% Clm# 10.2111 #http://www Expert Systems Buying Tips http://www Experts.com/Expertise/Management/Services/Management/Expertise/Management/Expertise/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management/Management"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "issue_details",
+              "question": "Which support issue should we address first?"
+            }
+          ],
+          "primary_issue": null,
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 64,
+                  "start": 0,
+                  "text": "I need billing assistance or maybe delivery help, I am not sure."
+                }
+              ],
+              "text": "I need billing assistance or maybe delivery help, I am not sure."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I need billing assistance or maybe delivery help, I am not sure."
+      },
+      {
+        "id": "authored-cancellation_request-03-0",
+        "family_id": "cancellation_request-03",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "cancellation_request",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 50,
+        "gold_category": "cancellation_request",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 2,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.001951000012923032,
+          "generation_seconds": 25.701453707995825,
+          "queue_wait_seconds": 1.6165984561666846e-05,
+          "validation_seconds": 6.037499406374991e-05,
+          "total_seconds": 25.70928370798356
+        },
+        "usage": {
+          "input_tokens": 725,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "16e98a9f-72a3-4d27-ba6b-e006514b6053",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 725,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2669887488,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.001951000012923032,
+            "generation_seconds": 25.701453707995825,
+            "queue_wait_seconds": 1.6165984561666846e-05,
+            "validation_seconds": 6.037499406374991e-05,
+            "total_seconds": 25.70928370798356
+          },
+          "raw": "I can now multiply speeds by using binary numbers. Binary numbers allow me to divide up costs among various processors. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could have divided up costs between two different machines that handle the same type of work. For example, I could"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            },
+            {
+              "field": "plan_name",
+              "question": "Which subscription plan should be cancelled?"
+            }
+          ],
+          "primary_issue": "cancellation_request",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 50,
+                  "start": 0,
+                  "text": "I am moving away and need to end the subscription."
+                }
+              ],
+              "text": "I am moving away and need to end the subscription."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I am moving away and need to end the subscription."
+      },
+      {
+        "id": "authored-damaged_item-04-0",
+        "family_id": "damaged_item-04",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "damaged_item",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 49,
+        "gold_category": "damaged_item",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.001933292020112276,
+          "generation_seconds": 26.29515570800868,
+          "queue_wait_seconds": 1.5458004781976342e-05,
+          "validation_seconds": 7.437498425133526e-05,
+          "total_seconds": 26.30024549999507
+        },
+        "usage": {
+          "input_tokens": 723,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "6163794a-8eae-4e66-9c2f-a33332e33be6",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 723,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2700034048,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.001933292020112276,
+            "generation_seconds": 26.29515570800868,
+            "queue_wait_seconds": 1.5458004781976342e-05,
+            "validation_seconds": 7.437498425133526e-05,
+            "total_seconds": 26.30024549999507
+          },
+          "raw": "Status: 10% discount on purchases made before 2pm\" \"discount on purchases made after 8 pm\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7 and 9 am\" \"discount on purchases made between 7"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "order_id",
+              "question": "What is the order ID?"
+            }
+          ],
+          "primary_issue": "damaged_item",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 49,
+                  "start": 0,
+                  "text": "The delivered headphones have a snapped headband."
+                }
+              ],
+              "text": "The delivered headphones have a snapped headband."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "The delivered headphones have a snapped headband."
+      },
+      {
+        "id": "authored-delivery_problem-01-0",
+        "family_id": "delivery_problem-01",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "delivery_problem",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 66,
+        "gold_category": "delivery_problem",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.001975999999558553,
+          "generation_seconds": 26.49507674999768,
+          "queue_wait_seconds": 1.983300899155438e-05,
+          "validation_seconds": 5.4042000556364655e-05,
+          "total_seconds": 26.498023916006787
+        },
+        "usage": {
+          "input_tokens": 726,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "689640e8-39c5-4020-b275-e3743d988b04",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 726,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2722955264,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.001975999999558553,
+            "generation_seconds": 26.49507674999768,
+            "queue_wait_seconds": 1.983300899155438e-05,
+            "validation_seconds": 5.4042000556364655e-05,
+            "total_seconds": 26.498023916006787
+          },
+          "raw": "Clara’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 1987. 2nd ed., Wiley’s 198"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "order_id",
+              "question": "What is the order ID?"
+            }
+          ],
+          "primary_issue": "delivery_problem",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 66,
+                  "start": 0,
+                  "text": "The tracking page says delivered but I never received the package."
+                }
+              ],
+              "text": "The tracking page says delivered but I never received the package."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "The tracking page says delivered but I never received the package."
+      },
+      {
+        "id": "authored-duplicate_charge-04-0",
+        "family_id": "duplicate_charge-04",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "duplicate_charge",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 54,
+        "gold_category": "duplicate_charge",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 2,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.0019758330017793924,
+          "generation_seconds": 26.27048629199271,
+          "queue_wait_seconds": 1.6709003830328584e-05,
+          "validation_seconds": 5.120801506564021e-05,
+          "total_seconds": 26.273196083988296
+        },
+        "usage": {
+          "input_tokens": 725,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "2e941653-2d53-4d91-9433-ecb60bc94514",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 725,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2738552832,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.0019758330017793924,
+            "generation_seconds": 26.27048629199271,
+            "queue_wait_seconds": 1.6709003830328584e-05,
+            "validation_seconds": 5.120801506564021e-05,
+            "total_seconds": 26.273196083988296
+          },
+          "raw": "Message:A single invoice was collected twice at 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            },
+            {
+              "field": "transaction_id",
+              "question": "What is the transaction ID?"
+            }
+          ],
+          "primary_issue": "duplicate_charge",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 54,
+                  "start": 0,
+                  "text": "A single invoice was collected two times from my bank."
+                }
+              ],
+              "text": "A single invoice was collected two times from my bank."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "A single invoice was collected two times from my bank."
+      },
+      {
+        "id": "authored-other_support-06-0",
+        "family_id": "other_support-06",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "other_support",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 67,
+        "gold_category": "other_support",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.001943000010214746,
+          "generation_seconds": 28.665532291022828,
+          "queue_wait_seconds": 1.5416997484862804e-05,
+          "validation_seconds": 6.50830043014139e-05,
+          "total_seconds": 28.668289791996358
+        },
+        "usage": {
+          "input_tokens": 728,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "644257d9-486a-4b28-ad34-f1b0ff7ce7b8",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 728,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2753888256,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.001943000010214746,
+            "generation_seconds": 28.665532291022828,
+            "queue_wait_seconds": 1.5416997484862804e-05,
+            "validation_seconds": 6.50830043014139e-05,
+            "total_seconds": 28.668289791996358
+          },
+          "raw": "Message: I will tell you everything now. Clarity 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 123% 12"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "issue_details",
+              "question": "Which support issue should we address first?"
+            }
+          ],
+          "primary_issue": "other_support",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 67,
+                  "start": 0,
+                  "text": "I am following up on a support concern without the details at hand."
+                }
+              ],
+              "text": "I am following up on a support concern without the details at hand."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I am following up on a support concern without the details at hand."
+      },
+      {
+        "id": "authored-out_of_scope-01-0",
+        "family_id": "out_of_scope-01",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "out_of_scope",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 30,
+        "gold_category": null,
+        "predicted_category": null,
+        "gold_status": "out_of_scope",
+        "predicted_status": "invalid",
+        "category_applicable": false,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 0,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.002339041995583102,
+          "generation_seconds": 26.660562625009334,
+          "queue_wait_seconds": 1.637497916817665e-05,
+          "validation_seconds": 6.354201468639076e-05,
+          "total_seconds": 26.663809791993117
+        },
+        "usage": {
+          "input_tokens": 721,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "b49e327d-ca97-469e-a095-356fe0fd329a",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 721,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2782674944,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.002339041995583102,
+            "generation_seconds": 26.660562625009334,
+            "queue_wait_seconds": 1.637497916817665e-05,
+            "validation_seconds": 6.354201468639076e-05,
+            "total_seconds": 26.663809791993117
+          },
+          "raw": "The capital of France is being used for what reason?\nThe capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason? The capital of France is being used for what reason"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [],
+          "primary_issue": null,
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 30,
+                  "start": 0,
+                  "text": "What is the capital of France?"
+                }
+              ],
+              "text": "What is the capital of France?"
+            }
+          ],
+          "triage_status": "out_of_scope"
+        },
+        "message": "What is the capital of France?"
+      },
+      {
+        "id": "authored-product_help-09-0",
+        "family_id": "product_help-09",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "product_help",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 45,
+        "gold_category": "product_help",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 1,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.0024267499975394458,
+          "generation_seconds": 27.480178375000833,
+          "queue_wait_seconds": 1.5875004464760423e-05,
+          "validation_seconds": 5.3916999604552984e-05,
+          "total_seconds": 27.483377958007623
+        },
+        "usage": {
+          "input_tokens": 724,
+          "output_tokens": 384
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "7c031b09-b5e5-4c2c-b30b-9a9769ab7b1e",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "generation reached token limit without stop token",
+          "usage": {
+            "input_tokens": 724,
+            "output_tokens": 384
+          },
+          "truncated": true,
+          "process_rss_bytes": 2806169600,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.0024267499975394458,
+            "generation_seconds": 27.480178375000833,
+            "queue_wait_seconds": 1.5875004464760423e-05,
+            "validation_seconds": 5.3916999604552984e-05,
+            "total_seconds": 27.483377958007623
+          },
+          "raw": "message;do i update the firmware on this product? 1. Claro! 2. Claro! 3. Claro! 4. Claro! 5. Claro! 6. Claro! 7. Claro! 8. Claro! 9. Claro! 10. Claro! 11. Claro! 12. Claro! 13. Claro! 14. Claro! 15. Claro! 16. Claro! 17. Claro! 18. Claro! 19. Claro! 20. Claro! 21. Claro! 22. Claro! 23. Claro! 24. Claro! 25. Claro! 26. Claro! 27. Kim. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro. A. Claro"
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "product_name",
+              "question": "Which product do you need help with?"
+            }
+          ],
+          "primary_issue": "product_help",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 45,
+                  "start": 0,
+                  "text": "How do I update the firmware on this product?"
+                }
+              ],
+              "text": "How do I update the firmware on this product?"
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "How do I update the firmware on this product?"
+      },
+      {
+        "id": "authored-refund_request-00-0",
+        "family_id": "refund_request-00",
+        "source": "implementation-ai-authored-scenarios",
+        "slices": [
+          "refund_request",
+          "ordinary",
+          "ascii",
+          "standard"
+        ],
+        "length_chars": 53,
+        "gold_category": "refund_request",
+        "predicted_category": null,
+        "gold_status": "needs_clarification",
+        "predicted_status": "invalid",
+        "category_applicable": true,
+        "category_correct": false,
+        "status_correct": false,
+        "entity_tp": 0,
+        "entity_fp": 0,
+        "entity_fn": 0,
+        "missing_tp": 0,
+        "missing_fp": 0,
+        "missing_fn": 2,
+        "summary_reference_match": false,
+        "summary_claims_attempted": 0,
+        "summary_support_semantic_review": "pending independent human review",
+        "extractive_claims": 0,
+        "complete_record_reference_success": false,
+        "wrong_confident_ambiguous_or_oos": false,
+        "unnecessary_clarification": false,
+        "raw_valid": false,
+        "final_valid": false,
+        "status": "invalid_output",
+        "timings": {
+          "tokenization_seconds": 0.0019038750033359975,
+          "generation_seconds": 1.1181435830076225,
+          "queue_wait_seconds": 1.2750009773299098e-05,
+          "validation_seconds": 6.37920165900141e-05,
+          "total_seconds": 1.124063750001369
+        },
+        "usage": {
+          "input_tokens": 725,
+          "output_tokens": 11
+        },
+        "repair_count": 0,
+        "response": {
+          "request_id": "8ff8bf4d-6e38-46ae-9ea2-099858fb1e13",
+          "status": "invalid_output",
+          "mode": "few_shot",
+          "output": null,
+          "metadata": {
+            "profile": "local",
+            "ready": true,
+            "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "prompt_hash": "62736e99d3d7af8150f2bb2e2fd97d9715d46c3255f5ea967abcbee280458a13",
+            "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+            "device": "mps",
+            "dtype": "bfloat16",
+            "quantization": null,
+            "load_seconds": 1.231471583014354,
+            "available_modes": [
+              "zero_shot",
+              "few_shot"
+            ],
+            "demonstration_ids": [
+              "authored-duplicate_charge-06-0",
+              "authored-account_access-00-0",
+              "authored-ambiguous-08-0"
+            ],
+            "demo_messages": []
+          },
+          "raw_valid": false,
+          "repair_count": 0,
+          "final_valid": false,
+          "error": "output failed schema or exact source-span validation",
+          "usage": {
+            "input_tokens": 725,
+            "output_tokens": 11
+          },
+          "truncated": false,
+          "process_rss_bytes": 2806759424,
+          "accelerator_allocated_bytes": 3087732992,
+          "timings": {
+            "tokenization_seconds": 0.0019038750033359975,
+            "generation_seconds": 1.1181435830076225,
+            "queue_wait_seconds": 1.2750009773299098e-05,
+            "validation_seconds": 6.37920165900141e-05,
+            "total_seconds": 1.124063750001369
+          },
+          "raw": "I will go then the purchase and return happens."
+        },
+        "gold": {
+          "entities": [],
+          "missing_information": [
+            {
+              "field": "email",
+              "question": "Which email is associated with the account?"
+            },
+            {
+              "field": "transaction_id",
+              "question": "What is the transaction ID?"
+            }
+          ],
+          "primary_issue": "refund_request",
+          "summary_claims": [
+            {
+              "spans": [
+                {
+                  "end": 53,
+                  "start": 0,
+                  "text": "I returned the purchase and would like my money back."
+                }
+              ],
+              "text": "I returned the purchase and would like my money back."
+            }
+          ],
+          "triage_status": "needs_clarification"
+        },
+        "message": "I returned the purchase and would like my money back."
+      }
+    ]
+  },
+  "recommendation": "Review labels and failure spans independently before expanding training or making real-world accuracy claims."
+}

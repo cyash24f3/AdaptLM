@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdaptLM · Support triage lab</title><link rel="stylesheet" href="/static/style.css">
+<script src="/static/app.js" defer></script></head>
+<body>
+<aside class="sidebar"><a class="brand" href="/">a<span>AdaptLM</span><small>01</small></a>
+<div class="nav-caption">WORKSPACE</div><nav aria-label="Workspace">
+<button class="nav active" data-view="triage"><span>↗</span> Triage <small>01</small></button>
+<button class="nav" data-view="compare"><span>⇄</span> Compare <small>02</small></button>
+<button class="nav" data-view="dataset"><span>▤</span> Dataset <small>03</small></button>
+<button class="nav" data-view="experiments"><span>◈</span> Experiments <small>04</small></button>
+</nav><div class="sidebar-foot"><span class="dot"></span> LOCAL / FREE<br><p>Small model.<br>Inspectable evidence.</p>
+<a href="/docs">API reference ↗</a></div></aside>
+<main>
+<header><div class="breadcrumb">ADAPTLM <span>/</span> SUPPORT TRIAGE LAB</div>
+<span id="profile-badge" class="badge">CONNECTING</span></header>
+<section class="intro"><div><p class="eyebrow">FROM MESSAGE TO STRUCTURE</p>
+<h1>Support signals,<br><em>with evidence.</em></h1>
+<p class="lede">Turn a messy message into a grounded triage record.<br>Inspect the issue, the source, and what’s still missing.</p></div>
+<div class="spec-card"><span>THE CONTRACT</span><strong>01 / Ground every fact</strong><p>Exact source spans. Explicit unknowns.<br>No actions or policy promises.</p><small id="schema-label">triage-1.0</small></div></section>
+<div id="notice" class="notice" role="status">Loading runtime metadata…</div>
+<section id="triage" class="view">
+<div class="workspace-grid"><article class="panel input-panel"><div class="panel-head"><h2>Customer message</h2><span>INPUT</span></div>
+<label for="message">Use fictional support text</label><textarea id="message" maxlength="3000" placeholder="Describe the support issue…"></textarea>
+<div class="input-meta"><span>Unicode spans preserve your original text</span><span id="character-count">0 / 3000</span></div>
+<div class="controls"><label for="mode">Execution mode</label><select id="mode"><option value="fixture">Fixture demonstration</option></select>
+<button id="run" class="primary">Triage message <span>↗</span></button></div>
+<div class="samples"><p>DOCUMENTED EXAMPLES</p><div id="samples"></div></div></article>
+<article class="panel"><div class="panel-head"><h2>Triage record</h2><span id="result-state">WAITING</span></div>
+<div id="result" class="result"><div class="empty"><span>⌁</span><h3>Evidence begins here</h3><p>Submit a message to inspect its structured record.</p></div></div></article></div>
+<div class="footnote">Structural validation checks the schema and source spans. Semantic correctness needs separate evaluation.</div></section>
+<section id="compare" class="view" hidden><div class="section-heading"><h2>Same message. Three configurations.</h2><p>Base zero-shot, base few-shot, and compatible adapted weights. Unavailable modes stay visible.</p></div>
+<label for="compare-message">Fictional support message</label><textarea id="compare-message" maxlength="3000"></textarea>
+<button id="compare-run" class="primary">Compare models ↗</button><div id="comparison" class="compare-grid"></div></section>
+<section id="dataset" class="view" hidden><div class="section-heading"><h2>Inspect the authored track.</h2><p>Grouped splits, source spans, and explicit review status. Administrator access required.</p></div>
+<div class="auth-row"><label for="admin-token">Administrator token</label><input id="admin-token" type="password" autocomplete="off" placeholder="Local credential"><button id="unlock" class="primary">Unlock views</button></div>
+<div class="controls"><select id="split" aria-label="Dataset split"><option>train</option><option>validation</option><option>test</option></select><button id="dataset-next" class="secondary">Next 20 →</button></div>
+<p id="data-state" role="status">Locked</p><div id="dataset-rows"></div></section>
+<section id="experiments" class="view" hidden><div class="section-heading"><h2>Results, with their limitations.</h2><p>Saved local experiment manifests and measurements. Unlock in Dataset to view reports.</p></div>
+<select id="report-select" aria-label="Experiment report"><option value="">Select a saved report</option></select><p id="report-state" role="status">Locked</p><div id="report-summary"></div><pre id="report-json"></pre></section>
+<footer><span>AdaptLM / engineering lab</span><span>Local inference · No paid APIs</span></footer>
+</main></body></html>

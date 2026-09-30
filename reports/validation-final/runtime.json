@@ -1,0 +1,31 @@
+{
+  "profile": "local",
+  "ready": true,
+  "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+  "schema_version": "triage-1.0",
+  "prompt_version": "triage-prompt-2",
+  "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+  "training_prompt_version": "triage-prompt-1",
+  "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+  "device": "mps",
+  "dtype": "bfloat16",
+  "quantization": null,
+  "attention_implementation": "sdpa",
+  "load_seconds": 2.6331220410065725,
+  "available_modes": [
+    "zero_shot",
+    "few_shot",
+    "adapted"
+  ],
+  "demonstration_ids": [
+    "authored-duplicate_charge-06-3",
+    "authored-account_access-00-4",
+    "authored-ambiguous-08-0",
+    "authored-out_of_scope-04-0"
+  ],
+  "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+  "demo_messages": []
+}

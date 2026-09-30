@@ -1,0 +1,15 @@
+.venv/
+.venv-cuda/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.env
+.DS_Store
+models/
+runs/
+private/
+*.egg-info/
+*.pyc
+dist/
+build/

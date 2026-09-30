@@ -1,0 +1,624 @@
+{
+  "created_at": "2026-09-30T10:00:29.717595+00:00",
+  "git_revision": "uncommitted-new-repository",
+  "git_dirty": true,
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.13",
+  "packages": {
+    "adaptlm": "0.1.0",
+    "torch": "2.8.0",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "trl": "0.24.0",
+    "datasets": "4.2.0",
+    "numpy": "2.2.6"
+  },
+  "lock_hash": "e6ef7c3c1a9575dca2d01ea6b4bdf3deabf408f8091c690bc15b9ec73b9baaa4",
+  "schema_version": "triage-1.0",
+  "annotation_spec_version": "annotation-1.0",
+  "monetary_cost": {
+    "paid_services_used": false,
+    "electricity_cost": "unmeasured"
+  },
+  "runtime": {
+    "profile": "fixture",
+    "ready": true,
+    "base_model_id": null,
+    "base_revision": null,
+    "adapter_bundle_id": null,
+    "schema_version": "triage-1.0",
+    "prompt_version": "triage-prompt-1",
+    "warning": "Deterministic fixture responses; no model inference or quality claim.",
+    "available_modes": [
+      "fixture"
+    ],
+    "demo_messages": [
+      "I paid once but the same purchase appears twice on my statement.",
+      "My parcel has not arrived even though the promised date passed.",
+      "I cannot sign in after changing my password."
+    ]
+  },
+  "results": {
+    "fixture": {
+      "requests": 10,
+      "timed_requests": 8,
+      "concurrency": 4,
+      "warm": true,
+      "warmup_requests_excluded": 1,
+      "p50_seconds": 0.0008097080135485157,
+      "p95_seconds": 0.0015297039572033098,
+      "generated_tokens_per_generation_second": null,
+      "completed_requests_per_wall_second": 1815.2081749124882,
+      "process_rss_bytes_max": 184090624,
+      "accelerator_allocated_bytes_max": 0,
+      "memory_limitation": "sampled allocation at request completion, not peak total device memory",
+      "raw_validity": 0.8,
+      "final_validity": 0.8,
+      "requests_detail": [
+        {
+          "request_id": "17f94e80-7035-4bc2-83df-eb01cf7b2e6e",
+          "status": "needs_clarification",
+          "mode": "fixture",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "duplicate_charge",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "email",
+                "question": "Which email is associated with the account?"
+              },
+              {
+                "field": "transaction_id",
+                "question": "What is the transaction ID?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "I paid once but the same purchase appears twice on my statement.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 64,
+                    "text": "I paid once but the same purchase appears twice on my statement."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": null,
+          "truncated": false,
+          "process_rss_bytes": 184074240,
+          "accelerator_allocated_bytes": null,
+          "timings": {
+            "tokenization_seconds": 0,
+            "generation_seconds": 0,
+            "queue_wait_seconds": 3.6375015042722225e-05,
+            "validation_seconds": 9.56250005401671e-05,
+            "total_seconds": 0.0007630000181961805
+          }
+        },
+        {
+          "request_id": "671c0310-a4bc-4e5c-81e9-8c49453d505a",
+          "status": "needs_clarification",
+          "mode": "fixture",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "delivery_problem",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "order_id",
+                "question": "What is the order ID?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "My parcel has not arrived even though the promised date passed.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 63,
+                    "text": "My parcel has not arrived even though the promised date passed."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": null,
+          "truncated": false,
+          "process_rss_bytes": 184090624,
+          "accelerator_allocated_bytes": null,
+          "timings": {
+            "tokenization_seconds": 0,
+            "generation_seconds": 0,
+            "queue_wait_seconds": 0.0007527080015279353,
+            "validation_seconds": 4.549999721348286e-05,
+            "total_seconds": 0.0011793750163633376
+          }
+        },
+        {
+          "request_id": "2f41898b-daf9-49ec-8e68-da6e643e5074",
+          "status": "needs_clarification",
+          "mode": "fixture",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "account_access",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "email",
+                "question": "Which email is associated with the account?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "I cannot sign in after changing my password.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 44,
+                    "text": "I cannot sign in after changing my password."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": null,
+          "truncated": false,
+          "process_rss_bytes": 184090624,
+          "accelerator_allocated_bytes": null,
+          "timings": {
+            "tokenization_seconds": 0,
+            "generation_seconds": 0,
+            "queue_wait_seconds": 0.0012030409998260438,
+            "validation_seconds": 5.8999983593821526e-05,
+            "total_seconds": 0.001684957998804748
+          }
+        },
+        {
+          "request_id": "1c865912-e25f-4609-8efa-9a86804eb08b",
+          "status": "overloaded",
+          "mode": "fixture",
+          "output": null,
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": false,
+          "final_valid": false,
+          "repair_count": 0,
+          "usage": null,
+          "timings": {},
+          "error": "inference queue is full"
+        },
+        {
+          "request_id": "110dec42-cff3-45a4-8655-635d13360875",
+          "status": "needs_clarification",
+          "mode": "fixture",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "delivery_problem",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "order_id",
+                "question": "What is the order ID?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "My parcel has not arrived even though the promised date passed.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 63,
+                    "text": "My parcel has not arrived even though the promised date passed."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": null,
+          "truncated": false,
+          "process_rss_bytes": 184090624,
+          "accelerator_allocated_bytes": null,
+          "timings": {
+            "tokenization_seconds": 0,
+            "generation_seconds": 0,
+            "queue_wait_seconds": 2.3707980290055275e-05,
+            "validation_seconds": 6.079199374653399e-05,
+            "total_seconds": 0.0005105419841129333
+          }
+        },
+        {
+          "request_id": "bf060b11-86ac-4b69-a8a6-5d24ae3468ab",
+          "status": "needs_clarification",
+          "mode": "fixture",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "account_access",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "email",
+                "question": "Which email is associated with the account?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "I cannot sign in after changing my password.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 44,
+                    "text": "I cannot sign in after changing my password."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": null,
+          "truncated": false,
+          "process_rss_bytes": 184090624,
+          "accelerator_allocated_bytes": null,
+          "timings": {
+            "tokenization_seconds": 0,
+            "generation_seconds": 0,
+            "queue_wait_seconds": 0.0005281660123728216,
+            "validation_seconds": 4.320900188758969e-05,
+            "total_seconds": 0.000856416008900851
+          }
+        },
+        {
+          "request_id": "9ca070e5-2b0b-4493-81a9-d5591fba8a49",
+          "status": "needs_clarification",
+          "mode": "fixture",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "duplicate_charge",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "email",
+                "question": "Which email is associated with the account?"
+              },
+              {
+                "field": "transaction_id",
+                "question": "What is the transaction ID?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "I paid once but the same purchase appears twice on my statement.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 64,
+                    "text": "I paid once but the same purchase appears twice on my statement."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": null,
+          "truncated": false,
+          "process_rss_bytes": 184090624,
+          "accelerator_allocated_bytes": null,
+          "timings": {
+            "tokenization_seconds": 0,
+            "generation_seconds": 0,
+            "queue_wait_seconds": 0.000869084004079923,
+            "validation_seconds": 3.7290999898687005e-05,
+            "total_seconds": 0.0012413750228006393
+          }
+        },
+        {
+          "request_id": "0c7150ae-3575-48ec-b470-95e0a1c7a8c9",
+          "status": "overloaded",
+          "mode": "fixture",
+          "output": null,
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": false,
+          "final_valid": false,
+          "repair_count": 0,
+          "usage": null,
+          "timings": {},
+          "error": "inference queue is full"
+        },
+        {
+          "request_id": "e2b205a9-9a41-49f4-859b-e983b263701b",
+          "status": "needs_clarification",
+          "mode": "fixture",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "account_access",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "email",
+                "question": "Which email is associated with the account?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "I cannot sign in after changing my password.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 44,
+                    "text": "I cannot sign in after changing my password."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": null,
+          "truncated": false,
+          "process_rss_bytes": 184090624,
+          "accelerator_allocated_bytes": null,
+          "timings": {
+            "tokenization_seconds": 0,
+            "generation_seconds": 0,
+            "queue_wait_seconds": 1.9583996618166566e-05,
+            "validation_seconds": 4.562499816529453e-05,
+            "total_seconds": 0.0003577090101316571
+          }
+        },
+        {
+          "request_id": "5a77faab-7acc-4452-b9f1-7b8494a4d228",
+          "status": "needs_clarification",
+          "mode": "fixture",
+          "output": {
+            "triage_status": "needs_clarification",
+            "primary_issue": "duplicate_charge",
+            "entities": [],
+            "missing_information": [
+              {
+                "field": "email",
+                "question": "Which email is associated with the account?"
+              },
+              {
+                "field": "transaction_id",
+                "question": "What is the transaction ID?"
+              }
+            ],
+            "summary_claims": [
+              {
+                "text": "I paid once but the same purchase appears twice on my statement.",
+                "spans": [
+                  {
+                    "start": 0,
+                    "end": 64,
+                    "text": "I paid once but the same purchase appears twice on my statement."
+                  }
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "profile": "fixture",
+            "ready": true,
+            "base_model_id": null,
+            "base_revision": null,
+            "adapter_bundle_id": null,
+            "schema_version": "triage-1.0",
+            "prompt_version": "triage-prompt-1",
+            "warning": "Deterministic fixture responses; no model inference or quality claim.",
+            "available_modes": [
+              "fixture"
+            ],
+            "demo_messages": [
+              "I paid once but the same purchase appears twice on my statement.",
+              "My parcel has not arrived even though the promised date passed.",
+              "I cannot sign in after changing my password."
+            ]
+          },
+          "raw_valid": true,
+          "repair_count": 0,
+          "final_valid": true,
+          "error": null,
+          "usage": null,
+          "truncated": false,
+          "process_rss_bytes": 184090624,
+          "accelerator_allocated_bytes": null,
+          "timings": {
+            "tokenization_seconds": 0,
+            "generation_seconds": 0,
+            "queue_wait_seconds": 0.00035454099997878075,
+            "validation_seconds": 3.483297768980265e-05,
+            "total_seconds": 0.0006057079881429672
+          }
+        }
+      ]
+    }
+  },
+  "semantic_quality": "not measured by a serving benchmark",
+  "fixed_input_hash": "9a81516ced20e0e6b31d7518ba3cc7bb5f14792e9362a500db684ad360062efb"
+}

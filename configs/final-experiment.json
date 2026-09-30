@@ -1,0 +1,46 @@
+{
+  "selection_basis": "20 fixed canonical validation examples, all 20 validation scenario families; no final generative test exposure",
+  "validation_report": "reports/validation-final/report.json",
+  "validation_configuration_hash": "b3087c1dd4676f06f49d51d98959cc58558f0e1319657101b5da10d1db01696f",
+  "frozen_modes": [
+    "zero_shot",
+    "few_shot",
+    "adapted"
+  ],
+  "device": "mps",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "prompt_version": "triage-prompt-2",
+  "max_new_tokens": 384,
+  "test_scope": "all 240 held-out authored rows / 30 scenario families; no further prompt or training changes",
+  "targets": {
+    "raw_schema_validity": {
+      "definition": "raw schema and exact original source spans valid / all attempted",
+      "criterion": "adapted rate at least observed zero-shot validation rate 0.60",
+      "rationale": "adaptation should preserve the strongest observed structural baseline; adapter validation 0.05 currently fails this criterion"
+    },
+    "category": {
+      "definition": "all-attempted category agreement, 48 null-category test rows excluded",
+      "criterion": "positive adapted-minus-zero-shot paired family interval lower bound > 0; publish macro-F1 regardless",
+      "rationale": "validation difference 0.0625 vs 0.0 is too small to assume usefulness; compare against category-only classifier separately"
+    },
+    "entity_grounding": {
+      "definition": "every returned record passes exact Unicode source-span validator; generated bad spans are failures",
+      "criterion": "zero structurally unsupported entity spans in accepted records",
+      "rationale": "hard API contract; this is not semantic entity correctness; canonical validation has no reference entities, so no entity recall target is calibrated"
+    },
+    "unnecessary_clarification": {
+      "definition": "valid needs_clarification responses on reference-triaged rows / all reference-triaged rows",
+      "criterion": null,
+      "rationale": "canonical validation contains zero reference-triaged rows; target cannot be supported; report test denominator and rate, do not invent a threshold"
+    },
+    "latency": {
+      "definition": "warm single-request p95 on three fixed validation messages, generation+queue+validation",
+      "criterion_seconds": 10.824682082980871,
+      "rationale": "largest observed validation request duration; provisional interactive lab budget, not an SLA; measure serving with separate warmups"
+    }
+  },
+  "semantic_support": "unmeasured; requires independent review",
+  "decision": "research deployment with visible invalid-output handling; no claim of production readiness",
+  "configuration_hash": "7b9d4fe6d3cbeda5e91871b5b8a5618000feb7ad812cdc7782ed83db6c5d26be"
+}

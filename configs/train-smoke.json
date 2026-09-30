@@ -1,0 +1,6 @@
+{
+  "kind": "mechanics-smoke-not-quality", "device": "mps", "dtype": "bfloat16", "seed": 42, "attention_implementation": "sdpa",
+  "rank": 8, "alpha": 16, "dropout": 0.05, "target_modules": ["q_proj", "v_proj"],
+  "learning_rate": 0.0002, "gradient_accumulation": 1, "max_length": 1536,
+  "epochs": 1, "max_steps": 2, "limit_examples": 8, "save_steps": 1, "warmup_ratio": 0.0
+}

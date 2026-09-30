@@ -1,0 +1,18 @@
+{
+  "version": "authored-v1",
+  "seed": 42,
+  "spec": "annotation-1.0",
+  "generator": "data.pipeline.generate-v1",
+  "scenario_hash": "1b1c7ec815a1c3884713a39c07504495639cfdc69698f4400f79ee49dc5de211",
+  "split_hashes": {
+    "train": "cf1e2f4055843bb04c6549538ae2c5a345302b4f0b2d2e1dfbd8d862a04ed964",
+    "validation": "485f61681a895e0a17a645499255f2fa38f372a93fa13db6601667d9b86c12ad",
+    "test": "8987435d9c5f4e909be17c3727faca585a5c84757320656968ea6ba613e835ec"
+  },
+  "dataset_hash": "3dd0c22c0d51eb59d942122f681b2e48df76cebe994f1d90834bded71198f785",
+  "family_plan_hash": "7c5c387f8f2ba53ac109250a3173508ef5d42a32e14e61fc73e6846e73a2df23",
+  "human_reviewed_count": 0,
+  "external_validation": "missing",
+  "independent_scenario_families": 160,
+  "limitation": "AI-authored synthetic scenarios with correlated rule labels; variants are not independent real tickets."
+}

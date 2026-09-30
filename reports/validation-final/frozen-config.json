@@ -1,0 +1,38 @@
+{
+  "split": "validation",
+  "example_ids": [
+    "authored-account_access-04-0",
+    "authored-account_access-06-0",
+    "authored-ambiguous-06-0",
+    "authored-ambiguous-09-0",
+    "authored-cancellation_request-03-0",
+    "authored-cancellation_request-05-0",
+    "authored-damaged_item-04-0",
+    "authored-damaged_item-06-0",
+    "authored-delivery_problem-01-0",
+    "authored-delivery_problem-08-0",
+    "authored-duplicate_charge-04-0",
+    "authored-duplicate_charge-15-0",
+    "authored-other_support-06-0",
+    "authored-other_support-13-0",
+    "authored-out_of_scope-01-0",
+    "authored-out_of_scope-05-0",
+    "authored-product_help-09-0",
+    "authored-product_help-11-0",
+    "authored-refund_request-00-0",
+    "authored-refund_request-14-0"
+  ],
+  "variant": 0,
+  "dataset_hash": "3dd0c22c0d51eb59d942122f681b2e48df76cebe994f1d90834bded71198f785",
+  "modes": [
+    "zero_shot",
+    "few_shot",
+    "adapted"
+  ],
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 384
+  },
+  "selection": "deterministic category round robin; no output-informed sample selection",
+  "configuration_hash": "b3087c1dd4676f06f49d51d98959cc58558f0e1319657101b5da10d1db01696f"
+}
