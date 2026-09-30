@@ -1,10 +1,11 @@
 import asyncio
 import json
 import time
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
+import psutil
 
 from adaptlm.artifacts.manifest import environment, fingerprint, write_json
 from adaptlm.config import Settings
@@ -123,8 +124,20 @@ async def evaluate(
 
 
 async def benchmark(settings, output, repeats=5, concurrency=1):
+    if output.exists():
+        raise ValueError("preserve prior serving benchmark; choose a new output")
+    if repeats < 1 or repeats > 100:
+        raise ValueError("benchmark repeats must be between one and 100")
     if concurrency < 1 or concurrency > 8:
         raise ValueError("benchmark concurrency must be between one and eight")
+    settings = settings.model_copy(update={"sample_memory": True})
+    host = {
+        "total_ram_bytes": psutil.virtual_memory().total,
+        "available_ram_bytes": psutil.virtual_memory().available,
+        "swap_used_bytes": psutil.swap_memory().used,
+        "logical_cpus": psutil.cpu_count(),
+        "other_applications": "uncontrolled; host is not a dedicated benchmark machine",
+    }
     service = InferenceService(settings)
     metadata = service.engine.metadata()
     texts = (
@@ -156,6 +169,7 @@ async def benchmark(settings, output, repeats=5, concurrency=1):
         results[mode] = {
             "requests": repeats,
             "timed_requests": len(timed),
+            "transport_status_counts": dict(Counter(r["status"] for r in items)),
             "concurrency": concurrency,
             "warm": True,
             "warmup_requests_excluded": 1,
@@ -168,6 +182,7 @@ async def benchmark(settings, output, repeats=5, concurrency=1):
                 (r.get("accelerator_allocated_bytes") or 0 for r in items), default=0
             ),
             "memory_limitation": "sampled allocation at request completion, not peak total device memory",
+            "memory_probes": [r["memory_probe"] for r in items if r.get("memory_probe")],
             "raw_validity": sum(r["raw_valid"] for r in items) / repeats,
             "final_validity": sum(r["final_valid"] for r in items) / repeats,
             "requests_detail": items,
@@ -177,6 +192,15 @@ async def benchmark(settings, output, repeats=5, concurrency=1):
         "results": results,
         "semantic_quality": "not measured by a serving benchmark",
         "fixed_input_hash": fingerprint(texts),
+        "fixed_inputs": texts,
+        "decoding": {"do_sample": False, "max_new_tokens": settings.max_new_tokens},
+        "admission": {
+            "active_generations": 1,
+            "waiting_capacity": settings.queue_capacity,
+            "waiting_timeout_seconds": settings.queue_timeout_seconds,
+        },
+        "host_at_start": host,
+        "memory_sampling": "20ms sampled RSS/Metal; CUDA allocator counter; includes probe overhead, excludes model-load peak",
     }
     write_json(output, report)
     return report

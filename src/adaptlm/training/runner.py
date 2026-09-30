@@ -16,6 +16,24 @@ from adaptlm.data.pipeline import read_rows, validate
 from adaptlm.inference.prompts import PROMPT_VERSION, encode_training, messages, prompt_hash
 
 
+def validate_resume_manifest(previous, current):
+    keys = (
+        "config",
+        "model_id",
+        "base_revision",
+        "tokenizer_revision",
+        "dataset_hash",
+        "train_example_ids",
+        "validation_example_ids",
+        "prompt_hash",
+        "chat_template_hash",
+        "packages",
+    )
+    mismatches = [key for key in keys if key not in previous or previous[key] != current[key]]
+    if mismatches:
+        raise ValueError("resume manifest mismatch: " + ", ".join(mismatches))
+
+
 def train(config_path: Path, output: Path, resume: Path | None = None):
     import torch
     from datasets import Dataset
@@ -238,6 +256,13 @@ def train(config_path: Path, output: Path, resume: Path | None = None):
         "resume_from": str(resume) if resume else None,
         "status": "running",
     }
+    if resume:
+        previous_path = output / "run.json"
+        if not previous_path.is_file():
+            raise ValueError("resume requires this run's original manifest")
+        previous = json.loads(previous_path.read_text())
+        validate_resume_manifest(previous, metadata)
+        write_json(output / "pre-resume-run.json", previous)
     write_json(output / "run.json", metadata)
     started = time.perf_counter()
     try:

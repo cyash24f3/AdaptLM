@@ -8,6 +8,7 @@ from adaptlm.artifacts.manifest import digest, fingerprint, validate_bundle
 from adaptlm.data.pipeline import read_rows, validate
 from adaptlm.evaluation.metrics import aggregate, paired_bootstrap, per_example
 from adaptlm.inference.prompts import demonstrations, encode_training, messages
+from adaptlm.training.runner import validate_resume_manifest
 
 
 def test_frozen_hashes_and_grouping():
@@ -105,6 +106,29 @@ def test_bundle_base_mismatch(tmp_path):
     (tmp_path / "bundle.json").write_text(json.dumps({"base_model_id": "different"}))
     with pytest.raises(ValueError, match="base_model_id"):
         validate_bundle(tmp_path, "Qwen/Qwen2.5-1.5B-Instruct", "a" * 40, "template")
+
+
+@pytest.mark.parametrize("field", ["config", "dataset_hash", "prompt_hash", "packages"])
+def test_resume_rejects_changed_experiment(field):
+    current = {
+        "config": {"learning_rate": 0.0002},
+        "model_id": "pinned-model",
+        "base_revision": "a" * 40,
+        "tokenizer_revision": "a" * 40,
+        "dataset_hash": "frozen-data",
+        "train_example_ids": ["train-1"],
+        "validation_example_ids": ["validation-1"],
+        "prompt_hash": "frozen-prompt",
+        "chat_template_hash": "frozen-template",
+        "packages": {"torch": "2.14.0"},
+    }
+    validate_resume_manifest(current, current)
+    with pytest.raises(ValueError, match=field):
+        validate_resume_manifest(current | {field: "changed"}, current)
+    with pytest.raises(ValueError, match=field):
+        validate_resume_manifest(
+            {key: value for key, value in current.items() if key != field}, current
+        )
 
 
 @pytest.mark.parametrize(

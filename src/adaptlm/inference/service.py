@@ -106,6 +106,7 @@ class InferenceService:
                 "truncated": generated["truncated"],
                 "process_rss_bytes": generated["process_rss_bytes"],
                 "accelerator_allocated_bytes": generated["accelerator_allocated_bytes"],
+                "memory_probe": generated.get("memory_probe"),
                 "timings": generated["timings"]
                 | {
                     "queue_wait_seconds": queue_wait,

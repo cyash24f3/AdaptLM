@@ -228,7 +228,12 @@ class TransformersEngine:
             else contextlib.nullcontext()
         )
         started = time.perf_counter()
-        with switch, self.torch.inference_mode():
+        from adaptlm.observability.memory import MemoryProbe
+
+        probe = (
+            MemoryProbe(self.torch, self.settings.device) if self.settings.sample_memory else None
+        )
+        with switch, self.torch.inference_mode(), probe or contextlib.nullcontext():
             output = self.model.generate(
                 input_ids=ids,
                 attention_mask=self.torch.ones_like(ids),
@@ -238,10 +243,10 @@ class TransformersEngine:
                 eos_token_id=self.tokenizer.eos_token_id,
                 use_cache=True,
             )
-        if self.settings.device == "mps":
-            self.torch.mps.synchronize()
-        elif self.settings.device == "cuda":
-            self.torch.cuda.synchronize()
+            if self.settings.device == "mps":
+                self.torch.mps.synchronize()
+            elif self.settings.device == "cuda":
+                self.torch.cuda.synchronize()
         generation = time.perf_counter() - started
         new_ids = output[0, ids.shape[1] :].tolist()
         device_memory = None
@@ -257,4 +262,5 @@ class TransformersEngine:
             "timings": {"tokenization_seconds": tokenization, "generation_seconds": generation},
             "process_rss_bytes": psutil.Process().memory_info().rss,
             "accelerator_allocated_bytes": device_memory,
+            "memory_probe": probe.result() if probe else None,
         }

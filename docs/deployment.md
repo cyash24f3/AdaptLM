@@ -1,6 +1,6 @@
-# Local deployment and rollback
+# Native deployment and rollback
 
-Bind native serving to 127.0.0.1 by default. Ports 8765 (fixture), 8766 (native model), and 8767 (temporary Docker QA) keep profiles explicit. No public exposure is configured. Readiness reports fixture generation-disabled separately from a successfully loaded model. A model/tokenizer/adapter load failure leaves health alive and readiness false. Confirm `/api/v1/models` revision, device, backend, and bundle before a demo.
+Bind native serving to 127.0.0.1 by default. Ports 8765 (fixture), 8766 (native model), and 8767 (temporary Docker QA) keep profiles explicit. The separate [public ZeroGPU app](https://huggingface.co/spaces/cyash1204/AdaptLM) is described in [cloud-deployment.md](cloud-deployment.md). Readiness reports fixture generation-disabled separately from a successfully loaded model. A model/tokenizer/adapter load failure leaves health alive and readiness false. Confirm `/api/v1/models` revision, device, backend, and bundle before a demo.
 
 Use the native Apple MPS process on this Mac; Linux Docker does not provide Apple's GPU. The fixture container is limited to 2 GB in Compose. The CPU inference service is limited to 16 GB and may be slow with a 1.5B checkpoint; do not claim GPU latency from that target. Model load/generation measurements determine practical hosting. Cache downloads are approximately 3.1 GB; LoRA checkpoints are much smaller. Keep at least several GB available for cache, adapter/checkpoint exports, and reports. Avoid running other model-heavy jobs concurrently with training.
 
@@ -10,4 +10,6 @@ For rollback, stop serving, remove `ADAPTLM_ADAPTER_PATH` to restore base-only o
 
 Interactive requests have zero retention. Local evaluation files use fictional inputs only. The protected deletion route removes the selected report and associated prediction/frozen/runtime files. Operator-owned backups are outside this API's scope. Frozen dataset files are intentionally retained and must remain fictional; real customer data is unsupported in this published demo.
 
-Container build/startup verification, native model startup, exact resource measurements, and remote status are listed in `acceptance.md`. Remote deployment is unverified. GitHub CI configuration is implemented; a remote Actions run is unverified until pushed and actually run.
+Container build/startup verification, native model startup, resource measurements, and remote status are listed in [acceptance.md](acceptance.md). Public cloud inference has been verified with the genuine exported adapter. [GitHub Actions](https://github.com/cyash24f3/AdaptLM/actions) has passed the deterministic fixture checks and container build. Those checks do not run GPU training or establish semantic quality.
+
+The serving benchmark enables a 20 ms memory sampler. RSS, Metal tensor allocations and Metal driver allocations are distinct measurements; their sampled maxima can miss a brief peak. CUDA uses PyTorch's peak allocator counter, which excludes allocations outside that allocator. Model-load peak and total system memory are not measured by this probe. The original training report sampled only optimizer boundaries, so its memory figure remains a lower bound. Benchmarks record host free RAM and swap because this Mac also runs other applications.

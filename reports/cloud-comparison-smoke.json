@@ -1,0 +1,454 @@
+{
+  "scope": "one validation demo, selected for a typed record; not a held-out quality estimate",
+  "deployment": "9e8aee728fbeabed2b3e504010c65159537bf2e8",
+  "results": {
+    "zero_shot": {
+      "request_id": "7db49db6-9501-482f-92a0-851576b83493",
+      "status": "out_of_scope",
+      "mode": "zero_shot",
+      "output": {
+        "triage_status": "out_of_scope",
+        "primary_issue": null,
+        "entities": [],
+        "missing_information": [],
+        "summary_claims": []
+      },
+      "metadata": {
+        "profile": "local",
+        "ready": true,
+        "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+        "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+        "schema_version": "triage-1.0",
+        "prompt_version": "triage-prompt-2",
+        "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+        "training_prompt_version": "triage-prompt-1",
+        "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+        "device": "cuda",
+        "dtype": "bfloat16",
+        "quantization": null,
+        "attention_implementation": "sdpa",
+        "load_seconds": 7.9791284300154075,
+        "runtime_validation": {
+          "created_at": "2026-09-30T13:17:05.178923+00:00",
+          "git_revision": "9e8aee728fbeabed2b3e504010c65159537bf2e8",
+          "git_dirty": true,
+          "platform": "Linux-6.18.48-107.148.amzn2023.x86_64-x86_64-with-glibc2.41",
+          "machine": "x86_64",
+          "python": "3.12.12",
+          "packages": {
+            "adaptlm": null,
+            "torch": "2.13.0",
+            "transformers": "4.57.1",
+            "peft": "0.17.1",
+            "trl": null,
+            "datasets": "5.0.1",
+            "numpy": "2.2.6"
+          },
+          "lock_hash": "afc3426417bc201ba1fab7e189165b4006c039690ac1f43053b943aeeeb8f66a",
+          "schema_version": "triage-1.0",
+          "annotation_spec_version": "annotation-1.0",
+          "source_hashes": {
+            "__init__.py": "7132efad0e0916ae3f5ab018049aadb6bbe522e7b6dcfe63ad08c58dfb1d54da",
+            "api/app.py": "6800d2fe860ea07f76cdb82936a4ff0b2dda7726d62bed02fc10583fef10ba52",
+            "artifacts/manifest.py": "39fcf4981090f8bd5694be1774d59207e1a9ea4c8acf74e92b7ff785670d81c3",
+            "baselines/classifier.py": "47d1d21da2395ef30700a4655b79e5d44f2e476f0733ef55448b04fd70f08f62",
+            "cli.py": "37c13575fc647003a4b798b1e4b456662db4533a41c22ce570ef6dc33674a485",
+            "config.py": "9f95f66f7ee0636289734c258b52ddf602daba4628d75f4aa1944ce9dc916109",
+            "contracts/schema.py": "1590b6c9d78668b9f7869551bebbc59a1e9e71a602fa8b94e758f81931c08ffd",
+            "data/pipeline.py": "de5d6e7e07aca42404ba89184cf825bb1d436173d9b437f1c01de90ee31149f7",
+            "evaluation/metrics.py": "ba7c628e4c87d13414be4664bde035374fc011bb35e2a98b86d4d0f1bc9762a6",
+            "evaluation/runner.py": "8a09055164fd3bd5104c36830f8ca32380bc9fe6bd34cd130fee72a920df9573",
+            "inference/engine.py": "47f5066f7def569205db9a475cb5724bbebf7577626b2f148eebffe6dc99e008",
+            "inference/prompts.py": "46cfe334de37ae6f159ea67859a16de326cb0a7f3d701718c482357b16591f7d",
+            "inference/service.py": "0630c16136998a7e3c9c195439b9edee9937fdf9dd1168254ab658c1e49cdd22",
+            "training/runner.py": "b6f7a5fc15561ee00725b7ae2b598bbc7e5a356e2d1880797636565d6a0bf32a",
+            "web/cloud.py": "e5adc29e458551a7f9976319bb71d224fe29cf1ac195bd3952708a7ecabe9989"
+          },
+          "monetary_cost": {
+            "paid_services_used": false,
+            "electricity_cost": "unmeasured"
+          },
+          "kind": "candidate-runtime finite-logit and repeated greedy prefix smoke; not task quality or cross-device parity",
+          "original_bundle_id": "adaptlm-26632e778935a9dd",
+          "training_runtime_packages": {
+            "adaptlm": "0.1.0",
+            "torch": "2.14.0",
+            "transformers": "4.57.1",
+            "peft": "0.17.1",
+            "trl": "0.24.0",
+            "datasets": "4.2.0",
+            "numpy": "2.2.6"
+          },
+          "candidate_device": "cuda",
+          "candidate_dtype": "bfloat16",
+          "example_id": "authored-account_access-00-0",
+          "finite_base_and_adapter_logits": true,
+          "maximum_adapter_logit_difference": 13.40625,
+          "repeatable_generated_prefix": true,
+          "generated_prefix_ids": [
+            4913,
+            10499,
+            8899,
+            28503,
+            30616,
+            35212,
+            66582,
+            2566,
+            3252,
+            2332,
+            2198,
+            7841,
+            3252,
+            23085,
+            2551,
+            374,
+            5815,
+            448,
+            279,
+            2692,
+            7521,
+            92,
+            28503,
+            6545
+          ],
+          "original_training_manifest_unchanged": true
+        },
+        "available_modes": [
+          "zero_shot",
+          "few_shot",
+          "adapted"
+        ],
+        "demonstration_ids": [
+          "authored-duplicate_charge-06-3",
+          "authored-account_access-00-4",
+          "authored-ambiguous-08-0",
+          "authored-out_of_scope-04-0"
+        ],
+        "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+        "demo_messages": []
+      },
+      "raw_valid": true,
+      "repair_count": 0,
+      "final_valid": true,
+      "error": null,
+      "usage": {
+        "input_tokens": 416,
+        "output_tokens": 33
+      },
+      "truncated": false,
+      "process_rss_bytes": 2484305920,
+      "accelerator_allocated_bytes": 3159821312,
+      "timings": {
+        "tokenization_seconds": 0.001753635995555669,
+        "generation_seconds": 0.5371543859946541,
+        "queue_wait_seconds": 0.00010170997120440006,
+        "validation_seconds": 0.0003384669544175267,
+        "total_seconds": 0.5412973960046656
+      }
+    },
+    "few_shot": {
+      "request_id": "8ba97cf9-46b3-4176-a71e-b9cf3ff69dbc",
+      "status": "invalid_output",
+      "mode": "few_shot",
+      "output": null,
+      "metadata": {
+        "profile": "local",
+        "ready": true,
+        "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+        "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+        "schema_version": "triage-1.0",
+        "prompt_version": "triage-prompt-2",
+        "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+        "training_prompt_version": "triage-prompt-1",
+        "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+        "device": "cuda",
+        "dtype": "bfloat16",
+        "quantization": null,
+        "attention_implementation": "sdpa",
+        "load_seconds": 7.9791284300154075,
+        "runtime_validation": {
+          "created_at": "2026-09-30T13:17:05.178923+00:00",
+          "git_revision": "9e8aee728fbeabed2b3e504010c65159537bf2e8",
+          "git_dirty": true,
+          "platform": "Linux-6.18.48-107.148.amzn2023.x86_64-x86_64-with-glibc2.41",
+          "machine": "x86_64",
+          "python": "3.12.12",
+          "packages": {
+            "adaptlm": null,
+            "torch": "2.13.0",
+            "transformers": "4.57.1",
+            "peft": "0.17.1",
+            "trl": null,
+            "datasets": "5.0.1",
+            "numpy": "2.2.6"
+          },
+          "lock_hash": "afc3426417bc201ba1fab7e189165b4006c039690ac1f43053b943aeeeb8f66a",
+          "schema_version": "triage-1.0",
+          "annotation_spec_version": "annotation-1.0",
+          "source_hashes": {
+            "__init__.py": "7132efad0e0916ae3f5ab018049aadb6bbe522e7b6dcfe63ad08c58dfb1d54da",
+            "api/app.py": "6800d2fe860ea07f76cdb82936a4ff0b2dda7726d62bed02fc10583fef10ba52",
+            "artifacts/manifest.py": "39fcf4981090f8bd5694be1774d59207e1a9ea4c8acf74e92b7ff785670d81c3",
+            "baselines/classifier.py": "47d1d21da2395ef30700a4655b79e5d44f2e476f0733ef55448b04fd70f08f62",
+            "cli.py": "37c13575fc647003a4b798b1e4b456662db4533a41c22ce570ef6dc33674a485",
+            "config.py": "9f95f66f7ee0636289734c258b52ddf602daba4628d75f4aa1944ce9dc916109",
+            "contracts/schema.py": "1590b6c9d78668b9f7869551bebbc59a1e9e71a602fa8b94e758f81931c08ffd",
+            "data/pipeline.py": "de5d6e7e07aca42404ba89184cf825bb1d436173d9b437f1c01de90ee31149f7",
+            "evaluation/metrics.py": "ba7c628e4c87d13414be4664bde035374fc011bb35e2a98b86d4d0f1bc9762a6",
+            "evaluation/runner.py": "8a09055164fd3bd5104c36830f8ca32380bc9fe6bd34cd130fee72a920df9573",
+            "inference/engine.py": "47f5066f7def569205db9a475cb5724bbebf7577626b2f148eebffe6dc99e008",
+            "inference/prompts.py": "46cfe334de37ae6f159ea67859a16de326cb0a7f3d701718c482357b16591f7d",
+            "inference/service.py": "0630c16136998a7e3c9c195439b9edee9937fdf9dd1168254ab658c1e49cdd22",
+            "training/runner.py": "b6f7a5fc15561ee00725b7ae2b598bbc7e5a356e2d1880797636565d6a0bf32a",
+            "web/cloud.py": "e5adc29e458551a7f9976319bb71d224fe29cf1ac195bd3952708a7ecabe9989"
+          },
+          "monetary_cost": {
+            "paid_services_used": false,
+            "electricity_cost": "unmeasured"
+          },
+          "kind": "candidate-runtime finite-logit and repeated greedy prefix smoke; not task quality or cross-device parity",
+          "original_bundle_id": "adaptlm-26632e778935a9dd",
+          "training_runtime_packages": {
+            "adaptlm": "0.1.0",
+            "torch": "2.14.0",
+            "transformers": "4.57.1",
+            "peft": "0.17.1",
+            "trl": "0.24.0",
+            "datasets": "4.2.0",
+            "numpy": "2.2.6"
+          },
+          "candidate_device": "cuda",
+          "candidate_dtype": "bfloat16",
+          "example_id": "authored-account_access-00-0",
+          "finite_base_and_adapter_logits": true,
+          "maximum_adapter_logit_difference": 13.40625,
+          "repeatable_generated_prefix": true,
+          "generated_prefix_ids": [
+            4913,
+            10499,
+            8899,
+            28503,
+            30616,
+            35212,
+            66582,
+            2566,
+            3252,
+            2332,
+            2198,
+            7841,
+            3252,
+            23085,
+            2551,
+            374,
+            5815,
+            448,
+            279,
+            2692,
+            7521,
+            92,
+            28503,
+            6545
+          ],
+          "original_training_manifest_unchanged": true
+        },
+        "available_modes": [
+          "zero_shot",
+          "few_shot",
+          "adapted"
+        ],
+        "demonstration_ids": [
+          "authored-duplicate_charge-06-3",
+          "authored-account_access-00-4",
+          "authored-ambiguous-08-0",
+          "authored-out_of_scope-04-0"
+        ],
+        "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+        "demo_messages": []
+      },
+      "raw_valid": false,
+      "repair_count": 0,
+      "final_valid": false,
+      "error": "output failed schema or exact source-span validation",
+      "usage": {
+        "input_tokens": 971,
+        "output_tokens": 97
+      },
+      "truncated": false,
+      "process_rss_bytes": 2490699776,
+      "accelerator_allocated_bytes": 3159830528,
+      "timings": {
+        "tokenization_seconds": 0.0030219030450098217,
+        "generation_seconds": 1.595358913007658,
+        "queue_wait_seconds": 5.244195926934481e-05,
+        "validation_seconds": 0.000474052969366312,
+        "total_seconds": 1.6000958669465035
+      }
+    },
+    "adapted": {
+      "request_id": "a746cb7b-eaea-4063-a85e-9636441beb09",
+      "status": "needs_clarification",
+      "mode": "adapted",
+      "output": {
+        "triage_status": "needs_clarification",
+        "primary_issue": "damaged_item",
+        "entities": [],
+        "missing_information": [
+          {
+            "field": "order_id",
+            "question": "What is the order ID?"
+          }
+        ],
+        "summary_claims": [
+          {
+            "text": "A corner of the new monitor is smashed.",
+            "spans": [
+              {
+                "start": 0,
+                "end": 39,
+                "text": "A corner of the new monitor is smashed."
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "profile": "local",
+        "ready": true,
+        "base_model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+        "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "adapter_bundle_id": "adaptlm-26632e778935a9dd",
+        "schema_version": "triage-1.0",
+        "prompt_version": "triage-prompt-2",
+        "prompt_hash": "34ea8e0bbddef9bea773f96a68ae8547f3e8bfbae17b4feeb84f32bbf3ace2da",
+        "training_prompt_version": "triage-prompt-1",
+        "chat_template_hash": "2e2d2512cfe46af53dc1eed45368ecaab26ac4461c480e6b69fe571cf0ceaa75",
+        "device": "cuda",
+        "dtype": "bfloat16",
+        "quantization": null,
+        "attention_implementation": "sdpa",
+        "load_seconds": 7.9791284300154075,
+        "runtime_validation": {
+          "created_at": "2026-09-30T13:17:05.178923+00:00",
+          "git_revision": "9e8aee728fbeabed2b3e504010c65159537bf2e8",
+          "git_dirty": true,
+          "platform": "Linux-6.18.48-107.148.amzn2023.x86_64-x86_64-with-glibc2.41",
+          "machine": "x86_64",
+          "python": "3.12.12",
+          "packages": {
+            "adaptlm": null,
+            "torch": "2.13.0",
+            "transformers": "4.57.1",
+            "peft": "0.17.1",
+            "trl": null,
+            "datasets": "5.0.1",
+            "numpy": "2.2.6"
+          },
+          "lock_hash": "afc3426417bc201ba1fab7e189165b4006c039690ac1f43053b943aeeeb8f66a",
+          "schema_version": "triage-1.0",
+          "annotation_spec_version": "annotation-1.0",
+          "source_hashes": {
+            "__init__.py": "7132efad0e0916ae3f5ab018049aadb6bbe522e7b6dcfe63ad08c58dfb1d54da",
+            "api/app.py": "6800d2fe860ea07f76cdb82936a4ff0b2dda7726d62bed02fc10583fef10ba52",
+            "artifacts/manifest.py": "39fcf4981090f8bd5694be1774d59207e1a9ea4c8acf74e92b7ff785670d81c3",
+            "baselines/classifier.py": "47d1d21da2395ef30700a4655b79e5d44f2e476f0733ef55448b04fd70f08f62",
+            "cli.py": "37c13575fc647003a4b798b1e4b456662db4533a41c22ce570ef6dc33674a485",
+            "config.py": "9f95f66f7ee0636289734c258b52ddf602daba4628d75f4aa1944ce9dc916109",
+            "contracts/schema.py": "1590b6c9d78668b9f7869551bebbc59a1e9e71a602fa8b94e758f81931c08ffd",
+            "data/pipeline.py": "de5d6e7e07aca42404ba89184cf825bb1d436173d9b437f1c01de90ee31149f7",
+            "evaluation/metrics.py": "ba7c628e4c87d13414be4664bde035374fc011bb35e2a98b86d4d0f1bc9762a6",
+            "evaluation/runner.py": "8a09055164fd3bd5104c36830f8ca32380bc9fe6bd34cd130fee72a920df9573",
+            "inference/engine.py": "47f5066f7def569205db9a475cb5724bbebf7577626b2f148eebffe6dc99e008",
+            "inference/prompts.py": "46cfe334de37ae6f159ea67859a16de326cb0a7f3d701718c482357b16591f7d",
+            "inference/service.py": "0630c16136998a7e3c9c195439b9edee9937fdf9dd1168254ab658c1e49cdd22",
+            "training/runner.py": "b6f7a5fc15561ee00725b7ae2b598bbc7e5a356e2d1880797636565d6a0bf32a",
+            "web/cloud.py": "e5adc29e458551a7f9976319bb71d224fe29cf1ac195bd3952708a7ecabe9989"
+          },
+          "monetary_cost": {
+            "paid_services_used": false,
+            "electricity_cost": "unmeasured"
+          },
+          "kind": "candidate-runtime finite-logit and repeated greedy prefix smoke; not task quality or cross-device parity",
+          "original_bundle_id": "adaptlm-26632e778935a9dd",
+          "training_runtime_packages": {
+            "adaptlm": "0.1.0",
+            "torch": "2.14.0",
+            "transformers": "4.57.1",
+            "peft": "0.17.1",
+            "trl": "0.24.0",
+            "datasets": "4.2.0",
+            "numpy": "2.2.6"
+          },
+          "candidate_device": "cuda",
+          "candidate_dtype": "bfloat16",
+          "example_id": "authored-account_access-00-0",
+          "finite_base_and_adapter_logits": true,
+          "maximum_adapter_logit_difference": 13.40625,
+          "repeatable_generated_prefix": true,
+          "generated_prefix_ids": [
+            4913,
+            10499,
+            8899,
+            28503,
+            30616,
+            35212,
+            66582,
+            2566,
+            3252,
+            2332,
+            2198,
+            7841,
+            3252,
+            23085,
+            2551,
+            374,
+            5815,
+            448,
+            279,
+            2692,
+            7521,
+            92,
+            28503,
+            6545
+          ],
+          "original_training_manifest_unchanged": true
+        },
+        "available_modes": [
+          "zero_shot",
+          "few_shot",
+          "adapted"
+        ],
+        "demonstration_ids": [
+          "authored-duplicate_charge-06-3",
+          "authored-account_access-00-4",
+          "authored-ambiguous-08-0",
+          "authored-out_of_scope-04-0"
+        ],
+        "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
+        "demo_messages": []
+      },
+      "raw_valid": true,
+      "repair_count": 0,
+      "final_valid": true,
+      "error": null,
+      "usage": {
+        "input_tokens": 416,
+        "output_tokens": 81
+      },
+      "truncated": false,
+      "process_rss_bytes": 2491346944,
+      "accelerator_allocated_bytes": 3159821312,
+      "timings": {
+        "tokenization_seconds": 0.0015490889782086015,
+        "generation_seconds": 1.7974790679872967,
+        "queue_wait_seconds": 3.366702003404498e-05,
+        "validation_seconds": 0.0003106099902652204,
+        "total_seconds": 1.8002881100401282
+      }
+    }
+  }
+}

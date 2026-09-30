@@ -8,6 +8,7 @@ from adaptlm.api.app import create_app
 from adaptlm.config import Settings
 from adaptlm.inference.engine import FixtureEngine, parse_output
 from adaptlm.inference.service import InferenceService
+from adaptlm.web.cloud import result_html
 
 
 def test_fixture_journey_and_live_unavailable(client):
@@ -118,6 +119,16 @@ def test_truncation_is_never_valid(settings):
         InferenceService(settings, engine).triage(engine.metadata()["demo_messages"][0], "fixture")
     )
     assert not response["raw_valid"] and response["status"] == "invalid_output"
+
+
+def test_public_cloud_result_escapes_untrusted_text(settings):
+    engine = FixtureEngine(settings)
+    response = asyncio.run(
+        InferenceService(settings, engine).triage(engine.metadata()["demo_messages"][0], "fixture")
+    )
+    response["output"]["summary_claims"][0]["text"] = '<script>alert("input")</script>'
+    rendered = result_html(response)
+    assert "<script>" not in rendered and "&lt;script&gt;" in rendered
 
 
 def test_report_deletion_removes_stored_outputs(tmp_path):

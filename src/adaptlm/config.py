@@ -26,6 +26,7 @@ class Settings(BaseSettings):
     queue_capacity: int = Field(default=2, ge=0, le=8)
     queue_timeout_seconds: float = Field(default=60, gt=0, le=600)
     offline: bool = False
+    sample_memory: bool = False
 
     @model_validator(mode="after")
     def pinned(self):
