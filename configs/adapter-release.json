@@ -1,0 +1,12 @@
+{
+  "repository": "cyash24f3/AdaptLM",
+  "tag": "v0.1.0",
+  "asset": "adaptlm-main-m5-214.zip",
+  "url": "https://github.com/cyash24f3/AdaptLM/releases/download/v0.1.0/adaptlm-main-m5-214.zip",
+  "sha256": "a6f069cd8dc0df6eff6caa3d63361e40630b779563c0eabfaaf4e2a9619994d8",
+  "bytes": 7978302,
+  "bundle_id": "adaptlm-26632e778935a9dd",
+  "base_weights_included": false,
+  "license": "Apache-2.0",
+  "training_runtime": "PyTorch 2.14.0 / MPS / BF16"
+}

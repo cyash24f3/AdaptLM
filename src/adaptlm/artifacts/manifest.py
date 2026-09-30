@@ -55,7 +55,14 @@ def environment():
     }
 
 
-def validate_bundle(path: Path, model_id: str, revision: str, template_hash: str):
+def validate_bundle(
+    path: Path,
+    model_id: str,
+    revision: str,
+    template_hash: str,
+    *,
+    revalidate_torch_version: str | None = None,
+):
     from adaptlm.inference.prompts import LEGACY_PROMPT_HASHES, PROMPT_VERSION, prompt_hash
 
     data = json.loads((path / "bundle.json").read_text())
@@ -85,6 +92,8 @@ def validate_bundle(path: Path, model_id: str, revision: str, template_hash: str
         raise ValueError("training manifest integrity check failed")
     for package in ("torch", "transformers", "peft"):
         if version(package).split("+")[0] != data["runtime_packages"][package].split("+")[0]:
+            if package == "torch" and version(package).split("+")[0] == revalidate_torch_version:
+                continue  # Trusted offline/cloud operator must run the separate on-device audit.
             raise ValueError(f"runtime version mismatch for {package}; revalidate before loading")
     config = json.loads((path / "adapter_config.json").read_text())
     if config.get("base_model_name_or_path") != model_id or config.get("revision") != revision:

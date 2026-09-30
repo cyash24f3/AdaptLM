@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-09-30T12:38:58.019113+00:00",
+  "git_revision": "ebacdd82a660f0ac1f526ae4f78eb33efbdbadde",
+  "git_dirty": true,
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.13",
+  "packages": {
+    "adaptlm": "0.1.0",
+    "torch": "2.14.0",
+    "transformers": "4.57.1",
+    "peft": "0.17.1",
+    "trl": "0.24.0",
+    "datasets": "4.2.0",
+    "numpy": "2.2.6"
+  },
+  "lock_hash": "afc3426417bc201ba1fab7e189165b4006c039690ac1f43053b943aeeeb8f66a",
+  "schema_version": "triage-1.0",
+  "annotation_spec_version": "annotation-1.0",
+  "source_hashes": {
+    "__init__.py": "7132efad0e0916ae3f5ab018049aadb6bbe522e7b6dcfe63ad08c58dfb1d54da",
+    "api/app.py": "6800d2fe860ea07f76cdb82936a4ff0b2dda7726d62bed02fc10583fef10ba52",
+    "artifacts/manifest.py": "0b32a6de837e1f694598b1c5df08ee6e0e5716d9e3c8eba5b25bdf6af0a39cc0",
+    "baselines/classifier.py": "47d1d21da2395ef30700a4655b79e5d44f2e476f0733ef55448b04fd70f08f62",
+    "cli.py": "37c13575fc647003a4b798b1e4b456662db4533a41c22ce570ef6dc33674a485",
+    "config.py": "9f95f66f7ee0636289734c258b52ddf602daba4628d75f4aa1944ce9dc916109",
+    "contracts/schema.py": "1590b6c9d78668b9f7869551bebbc59a1e9e71a602fa8b94e758f81931c08ffd",
+    "data/pipeline.py": "de5d6e7e07aca42404ba89184cf825bb1d436173d9b437f1c01de90ee31149f7",
+    "evaluation/metrics.py": "ba7c628e4c87d13414be4664bde035374fc011bb35e2a98b86d4d0f1bc9762a6",
+    "evaluation/runner.py": "8a09055164fd3bd5104c36830f8ca32380bc9fe6bd34cd130fee72a920df9573",
+    "inference/engine.py": "3ff0d83eaa69f6cca25e867b8a9bd0b6ff9bd2266d45df762e7f08f31a60bb66",
+    "inference/prompts.py": "46cfe334de37ae6f159ea67859a16de326cb0a7f3d701718c482357b16591f7d",
+    "inference/service.py": "0630c16136998a7e3c9c195439b9edee9937fdf9dd1168254ab658c1e49cdd22",
+    "training/runner.py": "b6f7a5fc15561ee00725b7ae2b598bbc7e5a356e2d1880797636565d6a0bf32a"
+  },
+  "monetary_cost": {
+    "paid_services_used": false,
+    "electricity_cost": "unmeasured"
+  },
+  "provider": "Hugging Face",
+  "space_id": "cyash1204/AdaptLM",
+  "url": "https://huggingface.co/spaces/cyash1204/AdaptLM",
+  "requested_hardware": "zero-a10g",
+  "paid_upgrade": false,
+  "status": "verified live CUDA inference on original deployment; readable UI update building",
+  "commit": "582b911fd6f33dfc72cd4ddfadebe22007ac288c",
+  "verified_commit": "637c38c27af513e17645361e8cece9f6d8cb7ae6",
+  "verification": "reports/cloud-first-inference.json / cloud-runtime-validation.json; browser verified invalid-output handling",
+  "training_runtime_unchanged": "2.14.0 MPS",
+  "cloud_torch_runtime": "2.13.0 CUDA",
+  "paid_services_used": false
+}

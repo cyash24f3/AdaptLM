@@ -90,7 +90,7 @@ class FixtureEngine:
 class TransformersEngine:
     profile = "local"
 
-    def __init__(self, settings: Settings):
+    def __init__(self, settings: Settings, *, revalidate_torch_version: str | None = None):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -122,7 +122,11 @@ class TransformersEngine:
             from peft import PeftModel
 
             self.bundle = validate_bundle(
-                settings.adapter_path, settings.model_id, settings.revision, self.template_hash
+                settings.adapter_path,
+                settings.model_id,
+                settings.revision,
+                self.template_hash,
+                revalidate_torch_version=revalidate_torch_version,
             )
             self.model = PeftModel.from_pretrained(
                 self.model, settings.adapter_path, is_trainable=False
@@ -130,6 +134,54 @@ class TransformersEngine:
         self.model.eval()
         self.demos = demonstrations(settings.data_dir)
         self.load_seconds = time.perf_counter() - started
+        self.ready = revalidate_torch_version is None
+        self.runtime_validation = None
+
+    def revalidate_runtime(self):
+        """Explicit on-device smoke for a deployment runtime; no task-quality claim."""
+        if self.ready:
+            return
+        from adaptlm.artifacts.manifest import environment, write_json
+
+        row = read_rows(self.settings.data_dir / "train.jsonl")[0]
+        ids = self.tokenizer.apply_chat_template(
+            messages(row["message"]), tokenize=True, add_generation_prompt=True, return_tensors="pt"
+        ).to(self.settings.device)
+        with self.torch.inference_mode():
+            adapted = self.model(ids).logits[:, -1].float()
+            with self.model.disable_adapter():
+                base = self.model(ids).logits[:, -1].float()
+            if not self.torch.isfinite(adapted).all() or not self.torch.isfinite(base).all():
+                raise ValueError("candidate runtime produced nonfinite logits")
+            difference = (adapted - base).abs().max().item()
+            if difference == 0:
+                raise ValueError("adapter did not change candidate runtime logits")
+            options = {
+                "max_new_tokens": 24,
+                "do_sample": False,
+                "pad_token_id": self.tokenizer.pad_token_id,
+                "eos_token_id": self.tokenizer.eos_token_id,
+            }
+            a = self.model.generate(ids, attention_mask=self.torch.ones_like(ids), **options)
+            b = self.model.generate(ids, attention_mask=self.torch.ones_like(ids), **options)
+            if not self.torch.equal(a, b):
+                raise ValueError("candidate runtime greedy prefix is not repeatable")
+        self.runtime_validation = environment() | {
+            "kind": "candidate-runtime finite-logit and repeated greedy prefix smoke; not task quality or cross-device parity",
+            "original_bundle_id": self.bundle["bundle_id"],
+            "training_runtime_packages": self.bundle["runtime_packages"],
+            "candidate_device": self.settings.device,
+            "candidate_dtype": self.settings.dtype,
+            "example_id": row["id"],
+            "finite_base_and_adapter_logits": True,
+            "maximum_adapter_logit_difference": difference,
+            "repeatable_generated_prefix": True,
+            "generated_prefix_ids": a[0, ids.shape[1] :].tolist(),
+            "original_training_manifest_unchanged": True,
+        }
+        write_json(
+            self.settings.report_dir / "cloud-runtime-validation.json", self.runtime_validation
+        )
         self.ready = True
 
     def metadata(self):
@@ -150,6 +202,7 @@ class TransformersEngine:
             "quantization": None,
             "attention_implementation": self.settings.attention_implementation,
             "load_seconds": self.load_seconds,
+            "runtime_validation": self.runtime_validation,
             "available_modes": ["zero_shot", "few_shot"] + (["adapted"] if self.bundle else []),
             "demonstration_ids": [d["id"] for d in self.demos],
             "few_shot_selection": "coverage-v2: shortest train examples within filled-entity, missing, ambiguity, out-of-scope roles",
@@ -157,6 +210,8 @@ class TransformersEngine:
         }
 
     def generate(self, message, mode):
+        if not self.ready:
+            raise ValueError("candidate deployment runtime requires on-device revalidation")
         if mode not in self.metadata()["available_modes"]:
             raise LookupError(f"{mode} unavailable: compatible trained adapter is required")
         started = time.perf_counter()
