@@ -172,5 +172,6 @@ with gr.Blocks(
         gr.JSON(value=engine.metadata(), label="Pinned weights, adapter, prompt and runtime")
 
 demo.queue(max_size=3, default_concurrency_limit=1).launch(
-    server_name="0.0.0.0", server_port=7860, show_error=False
+    # Core inference failures are already redacted; surface provider quota errors.
+    server_name="0.0.0.0", server_port=7860, show_error=True
 )
