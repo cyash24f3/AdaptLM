@@ -1,0 +1,8 @@
+{
+  "kind": "actual public API anonymous admission failure; no model generation or paid fallback",
+  "space_commit": "0e2b18ee624535b682b5e106db72fbd7240e0b58",
+  "exception_type": "gradio_client.exceptions.AppError",
+  "provider_message": "You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens",
+  "authenticated_comparison": "cloud-final-comparison.json; completed with zero_shot out_of_scope, few_shot invalid_output, adapted needs_clarification",
+  "interpretation": "Free quota/runs admission failure, separate from model invalid-output quality. Browser users can sign into a free Hugging Face account; no tokens are entered into this application and no paid fallback is enabled."
+}

@@ -6,7 +6,7 @@ No paid API, cloud GPU rental, hosted database, tracking service, or external in
 
 **[Open the live cloud app](https://huggingface.co/spaces/cyash1204/AdaptLM)** · **[Public source](https://github.com/cyash24f3/AdaptLM)**. The public app performs real base/adapter generation on free ZeroGPU, with visitor quotas. It uses a separately revalidated PyTorch 2.13 CUDA runtime; the controlled experiments use the original M5/PyTorch 2.14 profile. It can reject invalid model outputs. [Deployment details](docs/cloud-deployment.md).
 
-![Actual public three-mode comparison](docs/screenshots/cloud-compare.jpg)
+![Actual deployed held-out experiment report](docs/screenshots/cloud-results.jpg)
 
 ## Start the credential-free fixture
 

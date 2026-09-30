@@ -47,5 +47,10 @@
   "url": "http://127.0.0.1:8770",
   "github_ci": "https://github.com/cyash24f3/AdaptLM/actions/runs/36772823586",
   "github_ci_conclusion": "success",
-  "limitations": "Deterministic fixture/contract checks; not model quality or training verification."
+  "limitations": "Deterministic fixture/contract checks; not model quality or training verification.",
+  "subsequent_verified_checkout_commit": "dc2beb0159986d93e2789699c5c8f6ef50cbbdc9",
+  "subsequent_install": "uv sync --frozen; checked 37 packages; no optional torch/CUDA installation",
+  "subsequent_checks": "46 deterministic tests passed; native fixture HTTP walkthrough passed at port 8770",
+  "subsequent_github_ci": "https://github.com/cyash24f3/AdaptLM/actions/runs/36776669465",
+  "subsequent_github_ci_conclusion": "success"
 }

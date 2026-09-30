@@ -19,7 +19,7 @@ Statuses refer to observed runs, not just implemented code. The main adapter has
 | Real inference container | Verified build, offline startup, actual generation and restart | reports/container-inference-smoke.json and container-verification.json; CPU float32; persistent named reports verified |
 | Clean setup and deterministic checks | Verified | reports/clean-checkout-verification.json; 46 deterministic tests; Ruff, mypy and separately run real-smoke evidence check |
 | GitHub public source / CI / artifact | Verified | Public cyash24f3/AdaptLM; Actions passed; v0.1.0 adapter release downloaded and hashes checked |
-| Public free hosting | Verified actual generation | cyash1204/AdaptLM; zero-a10g; original M5 adapter revalidated on PyTorch 2.13 CUDA |
+| Public free hosting | Verified actual generation and quota failure | cloud-final-inference.json and cloud-final-comparison.json; cyash1204/AdaptLM zero-a10g; original M5 adapter revalidated on PyTorch 2.13 CUDA; anonymous runs exhaustion recorded separately |
 | Free-only service budget | Verified | No paid provider, dedicated GPU, PRO upgrade, card or credits; electricity unknown |
 | Rollback compatibility | Implemented and tested | Base/tokenizer/schema/prompt/artifact/runtime hash checks; restart rollback documented |
 | CUDA training / QLoRA | Unverified | No CUDA training performed; BF16 LoRA fits the M5, so QLoRA is unnecessary here |
